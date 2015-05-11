@@ -271,13 +271,16 @@ gulp.task("autobuild", function() {
                 // When an automatic build happens, create a flag file so that we can prevent committing these bundles because of
                 // the full paths that they have to include.  A Git pre-commit hook will look for and block commits if this file exists.
                 // A manual build is require before bundled assets can be committed as it will remove this flag file.
-                shell.exec("touch " + AUTOBUILD_FLAG_FILE);
+                shell.exec("touch " + AUTO_BUILD_FLAG_FILE);
 
                 return bundle(file, bundler);
             }
 
             // Whenever the application or its dependencies are modified, automatically rebundle the application.
-            bundler.on("update", rebundle);
+            bundler.on("update", function() {
+                rebundle();
+                reload();
+            });
 
             // Rebundle this application now.
             return rebundle();
@@ -331,14 +334,14 @@ gulp.task("auto", ["autobuild"]); //, "autotest"
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 // Watch Files For Changes & Reload
-gulp.task('serve', ["default"], function () {
+gulp.task('serve', ["auto-default"], function () {
     browserSync({
         //logLevel: 'debug',
         server: './dist'
     });
 
     gulp.watch(['./app/**/*.html'], reload);
-    gulp.watch(['./lib/**/*.js'], reload);
+    //gulp.watch(['./lib/**/*.js'], reload);
 
     //gulp.watch(['app/styles/**/*.css'], ['styles', reload]);
     //gulp.watch(['app/elements/**/*.css'], ['elements', reload]);
@@ -359,11 +362,18 @@ gulp.task("serial", function() {
     );
 });
 
+
 /**
  * Run all tasks in parallel except for "test," which should always come last because errors therein can really mess up the build output.
  */
 gulp.task("default", ["clean"], function(cb) {
     runSequence(
         ["lint", "build-common-lib", "build", "build-demo"],
+        cb);
+});
+
+gulp.task("auto-default", ["clean"], function(cb) {
+    runSequence(
+        ["lint", "build-common-lib", "autobuild", "build-demo"],
         cb);
 });
