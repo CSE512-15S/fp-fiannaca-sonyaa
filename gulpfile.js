@@ -340,7 +340,9 @@ gulp.task('serve', ["auto-default"], function () {
         server: './dist'
     });
 
-    gulp.watch(['./app/**/*.html'], reload);
+    gulp.watch(['./app/**/*.html'], function() {
+        runSequence('build-demo', reload);
+    });
     //gulp.watch(['./lib/**/*.js'], reload);
 
     //gulp.watch(['app/styles/**/*.css'], ['styles', reload]);
