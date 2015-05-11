@@ -1,0 +1,24 @@
+{
+  "name": "FlowViz",
+  "version": "0.0.1",
+  "description": "A toolkit for developing interactive web-based end-user programming languages",
+  "main": "flowviz.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CSE512-15S/fp-fiannaca-sonyaa.git"
+  },
+  "keywords": [
+    "Data",
+    "Flow",
+    "Vizualization"
+  ],
+  "author": "Sonya Alexandrova and Alex Fiannaca",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CSE512-15S/fp-fiannaca-sonyaa/issues"
+  },
+  "homepage": "https://github.com/CSE512-15S/fp-fiannaca-sonyaa"
+}
