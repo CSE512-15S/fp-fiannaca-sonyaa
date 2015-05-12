@@ -358,7 +358,7 @@ gulp.task("build-demo-html", function() {
         .pipe(gulp.dest(APPS_DIST_DIR));
 });
 
-gulp.task("build-demo-js", ['demo-lint'], function() {
+gulp.task("build-demo-js", function() {
     var opts = {
         conditionals: true,
         spare:true
@@ -407,7 +407,7 @@ gulp.task("serial", function() {
  */
 gulp.task("default", ["clean"], function() {
     runSequence(
-        "lint",
+        [ "lint", 'demo-lint'],
         ["build-common-lib", "build", "build-demo"],
         "test"
     );
@@ -419,7 +419,7 @@ gulp.task("default", ["clean"], function() {
  */
 gulp.task("auto-default", ["clean"], function(cb) {
     runSequence(
-        "lint",
+        [ "lint", 'demo-lint'],
         ["build-common-lib", "autobuild", "build-demo"],
         "test",
         cb);
