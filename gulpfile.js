@@ -48,29 +48,29 @@ try {
     process.exit(1);
 }
 
-
-
-
-
 const JS_BASE_DIR = "./lib/";
 const LIB_MAIN = JS_BASE_DIR + "/flowviz.js";
 const DEMO_MAIN = "./app/**/*.html";
 const APPS_DIST_DIR = "./dist/";
 const TESTS_GLOB = "./lib/tests/**/*.js";
 
+// These libraries will be compiled into common.min.js
 const EXTERNAL_LIBS = {
     jquery: "./node_modules/jquery/dist/jquery.min.js",
     bootstrap: "./node_modules/bootstrap/dist/js/bootstrap.min.js"
 };
+// This causes min.js files to be gzipped and their size output during build
 const SIZE_OPTS = {
     showFiles: true,
     gzip: true
 };
+// These are options for jshint (a javascript linter)
 const LINT_OPTS = {
     unused: true,
     eqnull: true,
     jquery: true
 };
+
 
 const BROWSERIFY_TRANSFORMS = ["brfs"];
 const LAST_DEPENDENCY_UPDATE_ID_FILE = ".npmDependenciesLastCommitId";
@@ -271,7 +271,7 @@ gulp.task("autobuild", function() {
                 // When an automatic build happens, create a flag file so that we can prevent committing these bundles because of
                 // the full paths that they have to include.  A Git pre-commit hook will look for and block commits if this file exists.
                 // A manual build is require before bundled assets can be committed as it will remove this flag file.
-                shell.exec("touch " + AUTO_BUILD_FLAG_FILE);
+                //shell.exec("touch " + AUTO_BUILD_FLAG_FILE);
 
                 return bundle(file, bundler);
             }
