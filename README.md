@@ -19,6 +19,12 @@ app which can be used for testing the *FlowViz* library. Finally, upon building,
 browserified and minified code. This includes two main files: `common.min.js` containing minified and concatanated 
 copies of jQuery and Bootstrap, and `flowviz.min.js` containing the actual *FlowViz* library.
 
+###Installing Dependencies###
+
+You must have Node.JS installed to build and run this project. Run `npm install` to install all of the build 
+dependencies for this project. If you are missing any global dependencies you will receive a message explaining how
+to install them when you run `gulp`.
+
 ###Build the *FlowViz* Library###
 
 Run `gulp` to build the *FlowViz* library. The built library will be output in the `dist/scripts/` folder. Note that 
