@@ -60,7 +60,7 @@ var LIB_MAIN = JS_BASE_DIR + "/flowviz.js";
 var DEMO_BASE = "./app/";
 var DEMO_MAIN = DEMO_BASE + "**/*.html";
 var APPS_DIST_DIR = "./dist/";
-var TESTS_GLOB = JS_BASE_DIR  + "/tests/**/*.js";
+var TESTS_GLOB = JS_BASE_DIR  + "tests/**/*.js";
 
 // These libraries will be compiled into common.min.js
 var EXTERNAL_LIBS = {
@@ -303,7 +303,7 @@ gulp.task("autobuild", function() {
  * Run tests with tape and cleanup the output with faucet.
  */
 gulp.task("test", function() {
-    shell.exec("./node_modules/.bin/tape " + TESTS_GLOB + " | ./node_modules/.bin/faucet");
+    shell.exec('\"./node_modules/.bin/tap-prettify\" ' + TESTS_GLOB);
 });
 
 /**
@@ -397,7 +397,8 @@ gulp.task("serial", function() {
         "build-common-lib",
         "lint",
         "build",
-        "build-demo"
+        "build-demo",
+        "test"
     );
 });
 
@@ -407,7 +408,8 @@ gulp.task("serial", function() {
 gulp.task("default", ["clean"], function() {
     runSequence(
         "lint",
-        ["build-common-lib", "build", "build-demo"]
+        ["build-common-lib", "build", "build-demo"],
+        "test"
     );
 });
 
@@ -419,6 +421,7 @@ gulp.task("auto-default", ["clean"], function(cb) {
     runSequence(
         "lint",
         ["build-common-lib", "autobuild", "build-demo"],
+        "test",
         cb);
 
     gulp.watch([DEMO_BASE + '*'], function() {
