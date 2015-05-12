@@ -57,7 +57,8 @@ try {
 // Directories
 var JS_BASE_DIR = "./lib/";
 var LIB_MAIN = JS_BASE_DIR + "/flowviz.js";
-var DEMO_MAIN = "./app/**/*.html";
+var DEMO_BASE = "./app/";
+var DEMO_MAIN = DEMO_BASE + "**/*.html";
 var APPS_DIST_DIR = "./dist/";
 var TESTS_GLOB = JS_BASE_DIR  + "/tests/**/*.js";
 
@@ -111,7 +112,8 @@ function getBundler(file, options) {
         // Enable source maps.
         debug: true,
         // Configure transforms.
-        transform: BROWSERIFY_TRANSFORMS
+        transform: BROWSERIFY_TRANSFORMS,
+        standalone: "FlowViz"
     });
 
     // Initialize browserify with the file and options provided.
@@ -328,18 +330,48 @@ gulp.task("lint", function() {
         .pipe(jshint.reporter("default"));
 });
 
+gulp.task("demo-lint", function() {
+    return gulp.src([DEMO_BASE + "**/*.js"])
+        .pipe(jshint(LINT_OPTS))
+        .pipe(jshint.reporter("default"));
+});
+
+
 /**
  * Builds the demo test application
  */
 gulp.task("build-demo", function() {
+    runSequence(
+        'build-demo-html',
+        'build-demo-js'
+    );
+
+    gulp.watch([DEMO_BASE + '*'], function() {
+        runSequence('build-demo');
+        reload();
+    })
+});
+
+gulp.task("build-demo-html", function() {
     var opts = {
         conditionals: true,
         spare:true
     };
 
-    return gulp.src(DEMO_MAIN)
+    return gulp.src([DEMO_BASE + "**/*.html", DEMO_BASE + "**/*.json"])
         .pipe(minifyHTML(opts))
         .pipe(gulp.dest(APPS_DIST_DIR));
+});
+
+gulp.task("build-demo-js", ['demo-lint'], function() {
+    var opts = {
+        conditionals: true,
+        spare:true
+    };
+
+    return gulp.src(DEMO_BASE + "**/*.js")
+        .pipe(minifyHTML(opts))
+        .pipe(gulp.dest(APPS_DIST_DIR + "scripts/"));
 });
 
 /**

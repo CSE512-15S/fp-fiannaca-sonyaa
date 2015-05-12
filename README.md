@@ -19,7 +19,7 @@ app which can be used for testing the *FlowViz* library. Finally, upon building,
 browserified and minified code. This includes two main files: `common.min.js` containing minified and concatanated 
 copies of jQuery and Bootstrap, and `flowviz.min.js` containing the actual *FlowViz* library.
 
-##Build the *FlowViz* Library##
+###Build the *FlowViz* Library###
 
 Run `gulp` to build the *FlowViz* library. The built library will be output in the `dist/scripts/` folder. Note that 
 the `dist/lib/` directory contains common includes which *FlowViz* depends on. Therefore, don't forget to also grab
@@ -44,9 +44,18 @@ Include *FlowViz* and the common includes into your html file like this:
         <script src="./path_to_libraries/common.min.js"></script>
     </head>
     <body>
-        <p id="test">Check Console...</p>
+        <svg id="InteractiveViz"></svg>
     
+        <script src="MyCallbacks.js"></script>
         <script src="./path_to_libraries/flowviz.min.js"></script>
+        <script>
+            // config.json contains the specification for the graphs that can be made with this interface
+            // MyCallbacks is a js file defining all of the callbacks specified in config.json
+            var fv = new FlowViz('config.json', new MyCallbacks());
+            
+            // Run FlowViz and tell it what tag to display the viz in using a CSS selector statement
+            fv.run('#InteractiveViz');
+        </script>
     </body>
     </html>
 

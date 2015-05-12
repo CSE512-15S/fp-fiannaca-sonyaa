@@ -7,8 +7,17 @@
     <script src="./lib/common.min.js"></script>
 </head>
 <body>
-    <p id="test">Check Console...</p>
+<svg id="InteractiveViz"></svg>
 
-    <script src="./scripts/flowviz.min.js"></script>
+<script src="./scripts/app.js"></script>
+<script src="./scripts/flowviz.min.js"></script>
+<script>
+    // config.json contains the specification for the graphs that can be made with this interface
+    // MyCallbacks is a js file defining all of the callbacks specified in config.json
+    var fv = new FlowViz('config.json', new App());
+
+    // Run FlowViz and tell it what tag to display the viz in using a CSS selector statement
+    fv.run('#InteractiveViz');
+</script>
 </body>
 </html>
