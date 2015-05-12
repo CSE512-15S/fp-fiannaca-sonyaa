@@ -65,7 +65,8 @@ var TESTS_GLOB = JS_BASE_DIR  + "tests/**/*.js";
 // These libraries will be compiled into common.min.js
 var EXTERNAL_LIBS = {
     jquery: "./node_modules/jquery/dist/jquery.min.js",
-    bootstrap: "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+    bootstrap: "./node_modules/bootstrap/dist/js/bootstrap.min.js",
+    d3: "./node_modules/d3/d3.min.js"
 };
 // This causes min.js files to be gzipped and their size output during build
 var SIZE_OPTS = {
