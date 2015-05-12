@@ -327,13 +327,13 @@ gulp.task("auto", ["autobuild", "autotest"]);
 gulp.task("lint", function() {
     return gulp.src([JS_BASE_DIR + "modules/**/*.js", JS_BASE_DIR + "flowviz.js"])
         .pipe(jshint(LINT_OPTS))
-        .pipe(jshint.reporter("default"));
+        .pipe(jshint.reporter('jshint-stylish'));
 });
 
 gulp.task("demo-lint", function() {
     return gulp.src([DEMO_BASE + "**/*.js"])
         .pipe(jshint(LINT_OPTS))
-        .pipe(jshint.reporter("default"));
+        .pipe(jshint.reporter('jshint-stylish'));
 });
 
 
@@ -345,11 +345,6 @@ gulp.task("build-demo", function() {
         'build-demo-html',
         'build-demo-js'
     );
-
-    gulp.watch([DEMO_BASE + '*'], function() {
-        runSequence('build-demo');
-        reload();
-    })
 });
 
 gulp.task("build-demo-html", function() {
@@ -409,11 +404,11 @@ gulp.task("serial", function() {
 /**
  * Run all tasks in parallel except for "test," which should always come last because errors therein can really mess up the build output.
  */
-gulp.task("default", ["clean"], function(cb) {
+gulp.task("default", ["clean"], function() {
     runSequence(
         "lint",
-        ["build-common-lib", "build", "build-demo"],
-        cb);
+        ["build-common-lib", "build", "build-demo"]
+    );
 });
 
 /**
@@ -425,4 +420,9 @@ gulp.task("auto-default", ["clean"], function(cb) {
         "lint",
         ["build-common-lib", "autobuild", "build-demo"],
         cb);
+
+    gulp.watch([DEMO_BASE + '*'], function() {
+        runSequence('build-demo');
+        reload();
+    })
 });
