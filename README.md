@@ -29,13 +29,15 @@ to install them when you run `gulp`.
 
 Run `gulp` to build the *FlowViz* library. The built library will be output in the `dist/scripts/` folder. Note that 
 the `dist/lib/` directory contains common includes which *FlowViz* depends on. Therefore, don't forget to also grab
-the `dist/lib/common.min.js` file in addition to the `dist/scripts/flowviz.min.js` file!
+the `dist/lib/common.min.js` file in addition to the `dist/scripts/flowviz.min.js` file when you go to use *FlowViz* in
+a webapp.
 
 ###Running the demo application for developing *FlowViz*###
 
 Running the command `gulp serve` will build the *FlowViz* library, save the built library to the `dist/scripts/` 
 directory, copy `app/index.html` to the `dist/` directory, and run a web server serving the file `dist/index.html`. 
-After running `gulp serve` any changes to module files of index.html will rebuild and reload the app in the browser.
+After running `gulp serve` any changes to module files or files in the `app/` directory will cause a rebuild and 
+will reload the app in the browser.
 
 ###Use *FlowViz* in an App###
 
