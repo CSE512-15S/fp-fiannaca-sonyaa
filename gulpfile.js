@@ -1,6 +1,6 @@
-/*
- * Gentlemen ... behold! Dependencies!
- */
+'use strict';
+
+// Fun trick for ensuring all dependencies are installed
 try {
 
     var _ = require("lodash");
@@ -48,34 +48,41 @@ try {
     process.exit(1);
 }
 
-const JS_BASE_DIR = "./lib/";
-const LIB_MAIN = JS_BASE_DIR + "/flowviz.js";
-const DEMO_MAIN = "./app/**/*.html";
-const APPS_DIST_DIR = "./dist/";
-const TESTS_GLOB = "./lib/tests/**/*.js";
+
+/**********************************************************************************************************************/
+/* Config Section                                                                                                     */
+/**********************************************************************************************************************/
+
+
+// Directories
+var JS_BASE_DIR = "./lib/";
+var LIB_MAIN = JS_BASE_DIR + "/flowviz.js";
+var DEMO_MAIN = "./app/**/*.html";
+var APPS_DIST_DIR = "./dist/";
+var TESTS_GLOB = JS_BASE_DIR  + "/tests/**/*.js";
 
 // These libraries will be compiled into common.min.js
-const EXTERNAL_LIBS = {
+var EXTERNAL_LIBS = {
     jquery: "./node_modules/jquery/dist/jquery.min.js",
     bootstrap: "./node_modules/bootstrap/dist/js/bootstrap.min.js"
 };
 // This causes min.js files to be gzipped and their size output during build
-const SIZE_OPTS = {
+var SIZE_OPTS = {
     showFiles: true,
     gzip: true
 };
 // These are options for jshint (a javascript linter)
-const LINT_OPTS = {
+var LINT_OPTS = {
     unused: true,
     eqnull: true,
     jquery: true
 };
 
-
-const BROWSERIFY_TRANSFORMS = ["brfs"];
-const LAST_DEPENDENCY_UPDATE_ID_FILE = ".npmDependenciesLastCommitId";
-const AUTO_BUILD_FLAG_FILE = ".autobuild";
-const ALLOW_NPM_MODULE_MANAGEMENT = true;
+// Other flags
+var BROWSERIFY_TRANSFORMS = ["brfs"];
+var LAST_DEPENDENCY_UPDATE_ID_FILE = ".npmDependenciesLastCommitId";
+var AUTO_BUILD_FLAG_FILE = ".autobuild";
+var ALLOW_NPM_MODULE_MANAGEMENT = true;
 
 
 // Always add JS_BASE_DIR to the NODE_PATH environment variable.  This allows us to include our own modules
@@ -88,8 +95,9 @@ process.env.NODE_PATH = JS_BASE_DIR + ":" + JS_BASE_DIR + "modules/" + ":" + (pr
 log.enableColor();
 
 
-
-
+/**********************************************************************************************************************/
+/* Browserify Section                                                                                                 */
+/**********************************************************************************************************************/
 
 
 /**
@@ -121,15 +129,11 @@ function getBundler(file, options) {
  * Build a single application with browserify creating two differnt versions: one normal and one minified.
  *
  * @param {object} file The file to bundle (a Vinyl file object).
- * @param {browserify|watchify} bundler  The bundler to use.  The "build" task will use browserify, the "autobuild" task will use watchify.
+ * @param {browserify|watchify} bundler  The bundler to use.  The "build" task will use browserify, the "autobuild"
+ *        task will use watchify.
  */
 function bundle(file, bundler) {
-    // Remove file.base from file.path to create a relative path.  For example, if file looks like
-    //   file.base === "/Users/johnsonj/dev/web/super-project/applications/client/<i>apps</i>/"
-    //   file.path === "/Users/johnsonj/dev/web/super-project/applications/client/<i>apps</i>/login/reset-password/confirm.js"
-    // then result is "login/reset-password/confirm.js"
-    //var bundler = getBundler(LIB_MAIN);
-
+    // Remove file.base from file.path to create a relative path.
     var relativeFilename = file.path.replace(file.base, "");
 
     return bundler
@@ -157,6 +161,12 @@ function bundle(file, bundler) {
         // Write the minified file.
         .pipe(gulp.dest(APPS_DIST_DIR + "scripts/"));
 }
+
+
+/**********************************************************************************************************************/
+/* Gulp Tasks Section                                                                                                 */
+/**********************************************************************************************************************/
+
 
 /**
  * Ensure that our project is always setup correctly.  So far this includes two things:
@@ -241,11 +251,11 @@ gulp.task("build-common-lib", function() {
 });
 
 /**
- * Browserify and minify each individual application found with APPS_GLOB.  Each file therein represents a separate
- * application and should have its own resultant bundle.
+ * Browserify and minify the flowviz library
  */
 gulp.task("build", function() {
-    // Warning: this is a hack. Proceed with caution!
+    // TODO: Fix this later!
+    // Warning: using forEach for a single js file is a hack. Proceed with caution!
     var stream = gulp.src(LIB_MAIN)
         .pipe(forEach(function(stream, file) {
             return bundle(file, getBundler(file));
@@ -258,8 +268,7 @@ gulp.task("build", function() {
 });
 
 /**
- * Watch applications and their dependencies for changes and automatically rebuild them.  This will keep build times small since
- * we don't have to manually rebuild all applications everytime we make even the smallest/most isolated of changes.
+ * Watch applications and their dependencies for changes and automatically rebuild them.
  */
 gulp.task("autobuild", function() {
     return gulp.src(LIB_MAIN)
@@ -276,7 +285,8 @@ gulp.task("autobuild", function() {
                 return bundle(file, bundler);
             }
 
-            // Whenever the application or its dependencies are modified, automatically rebundle the application.
+            // Whenever the application or its dependencies are modified, automatically rebundle the application
+            // and reload the browser.
             bundler.on("update", function() {
                 rebundle();
                 reload();
@@ -290,30 +300,37 @@ gulp.task("autobuild", function() {
 /**
  * Run tests with tape and cleanup the output with faucet.
  */
-//gulp.task("test", function() {
-//    shell.exec("tape " + TESTS_GLOB + " | faucet");
-//});
+gulp.task("test", function() {
+    shell.exec("./node_modules/.bin/tape " + TESTS_GLOB + " | ./node_modules/.bin/faucet");
+});
 
 /**
  * Automatically run tests anytime anything is changed (tests or test subjects).
  */
-//gulp.task("autotest", function() {
-//    gulp.watch(
-//        [JS_BASE_DIR + "**/*.js", TESTS_GLOB],
-//        ["test"]
-//    );
-//});
+gulp.task("autotest", function() {
+    gulp.watch(
+        [JS_BASE_DIR + "**/*.js", TESTS_GLOB],
+        ["test"]
+    );
+});
+
+/**
+ * Run all automatic tasks.
+ */
+gulp.task("auto", ["autobuild", "autotest"]);
 
 /**
  * Linter for the most basic of quality assurance.
  */
 gulp.task("lint", function() {
-    return gulp.src(JS_BASE_DIR + "**/*.js")
+    return gulp.src([JS_BASE_DIR + "modules/**/*.js", JS_BASE_DIR + "flowviz.js"])
         .pipe(jshint(LINT_OPTS))
         .pipe(jshint.reporter("default"));
 });
 
-
+/**
+ * Builds the demo test application
+ */
 gulp.task("build-demo", function() {
     var opts = {
         conditionals: true,
@@ -326,29 +343,22 @@ gulp.task("build-demo", function() {
 });
 
 /**
- * Run all automatic tasks.
+ * Cleans the build by deleting the dist/ directory
  */
-gulp.task("auto", ["autobuild"]); //, "autotest"
-
-// Clean Output Directory
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
-// Watch Files For Changes & Reload
+/**
+ * Allows for building and serving the demo application to the browser.
+ */
 gulp.task('serve', ["auto-default"], function () {
     browserSync({
-        //logLevel: 'debug',
         server: './dist'
     });
 
+    // Only add a watch for the app/ dir files, we already have a watcher on the lib files
     gulp.watch(['./app/**/*.html'], function() {
         runSequence('build-demo', reload);
     });
-    //gulp.watch(['./lib/**/*.js'], reload);
-
-    //gulp.watch(['app/styles/**/*.css'], ['styles', reload]);
-    //gulp.watch(['app/elements/**/*.css'], ['elements', reload]);
-    //gulp.watch(['app/{scripts,elements}/**/*.js'], ['jshint']);
-    //gulp.watch(['app/images/**/*'], reload);
 });
 
 /**
@@ -364,18 +374,23 @@ gulp.task("serial", function() {
     );
 });
 
-
 /**
  * Run all tasks in parallel except for "test," which should always come last because errors therein can really mess up the build output.
  */
 gulp.task("default", ["clean"], function(cb) {
     runSequence(
-        ["lint", "build-common-lib", "build", "build-demo"],
+        "lint",
+        ["build-common-lib", "build", "build-demo"],
         cb);
 });
 
+/**
+ * Same as the default task except we use the autobuild task instead of the build task. This ensures that we have the
+ * library be recompiled and the browser reloaded on any changes to the library files.
+ */
 gulp.task("auto-default", ["clean"], function(cb) {
     runSequence(
-        ["lint", "build-common-lib", "autobuild", "build-demo"],
+        "lint",
+        ["build-common-lib", "autobuild", "build-demo"],
         cb);
 });
