@@ -22,6 +22,7 @@ try {
     var util = require("gulp-util");
     var watchify = require("watchify");
     var minifyHTML = require('gulp-minify-html');
+    var jsmin = require('gulp-jsmin');
 
 
     var del = require('del');
@@ -56,7 +57,7 @@ try {
 
 // Directories
 var JS_BASE_DIR = "./lib/";
-var LIB_MAIN = JS_BASE_DIR + "/flowviz.js";
+var LIB_MAIN = JS_BASE_DIR + "/FlowViz.js";
 var DEMO_BASE = "./app/";
 var DEMO_MAIN = DEMO_BASE + "**/*.html";
 var APPS_DIST_DIR = "./dist/";
@@ -329,7 +330,7 @@ gulp.task("auto", ["autobuild", "autotest"]);
  * Linter for the most basic of quality assurance.
  */
 gulp.task("lint", function() {
-    return gulp.src([JS_BASE_DIR + "modules/**/*.js", JS_BASE_DIR + "flowviz.js"])
+    return gulp.src([JS_BASE_DIR + "modules/**/*.js", JS_BASE_DIR + "FlowViz.js"])
         .pipe(jshint(LINT_OPTS))
         .pipe(jshint.reporter('jshint-stylish'));
 });
@@ -357,7 +358,7 @@ gulp.task("build-demo-html", function() {
         spare:true
     };
 
-    return gulp.src([DEMO_BASE + "**/*.html", DEMO_BASE + "**/*.json"])
+    return gulp.src([DEMO_BASE + "**/*.html"])
         .pipe(minifyHTML(opts))
         .pipe(gulp.dest(APPS_DIST_DIR));
 });
@@ -376,7 +377,13 @@ gulp.task("build-demo-styles", function() {
         .pipe(gulp.dest(APPS_DIST_DIR + "styles/"));
 });
 
-gulp.task("build-demo-js", function() {
+gulp.task("min-json", function() {
+    gulp.src(DEMO_BASE + "**/*.json")
+        .pipe(jsmin())
+        .pipe(gulp.dest(APPS_DIST_DIR));
+});
+
+gulp.task("build-demo-js", ['min-json'], function() {
     var opts = {
         conditionals: true,
         spare:true
