@@ -1,0 +1,44 @@
+{
+  "name": "MapAll",
+  "types": [{
+      "name": "InputDevice",
+      "type": "start",
+      "view": "<svg>some svg code</svg>",
+      "clickItems": null, //use this to list clickable regions and on-click callbacks
+      "callbacks": null, //use this to attach to event callbacks
+      "constraints": {
+        "incoming": "none", //no incoming edges allowed
+        "outgoing": "Transform.*" //outgoing edges to any node of type “Transform”
+      },
+      "subtypes": [{ //Allows for a type hierarchy
+        "name": "Keyboard",
+        "view": "<svg>some svg code</svg>",
+        "clickItems": null, //use this to list clickable regions and on-click callbacks
+        "callbacks": null, //use this to attach to event callbacks
+        "constraints": {
+          "incoming": "none", //no incoming edges allowed
+          "outgoing": "Transform.Text" //outgoing edges to any node of type “Transform.Text”
+        }
+      }]
+    }, {
+      "name": "Transform",
+      "type": null,
+      "view": "<svg>some svg code</svg>",
+      "clickItems": null, //use this to list clickable regions and on-click callbacks
+      "callbacks": null, //use this to attach to event callbacks
+      "constraints": {
+        "incoming": ["InputDevice.*", "Transform.*"],
+        "outgoing": ["Transform.*", "Action.*"] //outgoing edges to any node in “transformation” namespace
+      },
+      "subtypes": [{
+        "name": "Text",
+        "view": "<svg>some svg code</svg>",
+        "clickItems": null, //use this to list clickable regions and on-click callbacks
+        "callbacks": null, //use this to attach to event callbacks
+        "constraints": {
+          "incoming": "InputDevice.Keyboard",
+          "outgoing": ["Transform.Text", "Action.*"]
+        }
+    }]
+  }]
+}

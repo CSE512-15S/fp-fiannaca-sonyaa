@@ -68,6 +68,9 @@ var EXTERNAL_LIBS = {
     bootstrap: "./node_modules/bootstrap/dist/js/bootstrap.min.js",
     d3: "./node_modules/d3/d3.min.js"
 };
+var EXTERNAL_LIBS_CSS = {
+    bootstrap: "./node_modules/bootstrap/dist/css/bootstrap.css"
+};
 // This causes min.js files to be gzipped and their size output during build
 var SIZE_OPTS = {
     showFiles: true,
@@ -337,12 +340,12 @@ gulp.task("demo-lint", function() {
         .pipe(jshint.reporter('jshint-stylish'));
 });
 
-
 /**
  * Builds the demo test application
  */
 gulp.task("build-demo", function() {
     runSequence(
+        'build-demo-styles',
         'build-demo-html',
         'build-demo-js'
     );
@@ -357,6 +360,20 @@ gulp.task("build-demo-html", function() {
     return gulp.src([DEMO_BASE + "**/*.html", DEMO_BASE + "**/*.json"])
         .pipe(minifyHTML(opts))
         .pipe(gulp.dest(APPS_DIST_DIR));
+});
+
+gulp.task("build-demo-styles", function() {
+    var paths = [];
+
+    // Get just the path to each externalizable lib.
+    _.forEach(EXTERNAL_LIBS_CSS, function(path) {
+        paths.push(path);
+    });
+
+    paths.push(DEMO_BASE + "**/*.css");
+
+    return gulp.src(paths)
+        .pipe(gulp.dest(APPS_DIST_DIR + "styles/"));
 });
 
 gulp.task("build-demo-js", function() {

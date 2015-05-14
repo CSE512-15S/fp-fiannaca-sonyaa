@@ -2,12 +2,27 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>FlowViz Demo App</title>
 
+    <link rel="stylesheet" href="./styles/bootstrap.css">
     <script src="./lib/common.min.js"></script>
+
+    <style>
+        html, body, .container-full {
+            height: 100%;
+        }
+
+        .container-full svg {
+            height: 100%;
+        }
+    </style>
 </head>
 <body>
-    <svg id="InteractiveViz"></svg>
+
+    <div class="container-full">
+        <svg id="LeftSidebar" class="col-md-3"></svg>
+        <svg id="InteractiveViz"  class="col-md-9"></svg>
+    </div>
 
     <script src="./scripts/app.js"></script>
     <script src="./scripts/flowviz.min.js"></script>
