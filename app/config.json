@@ -3,7 +3,7 @@
   "types": [{
       "name": "InputDevice",
       "type": "start",
-      "view": "<svg>some svg code</svg>",
+      "view": "<g><rect opacity=\"0.8\" fill=\"#2B3990\" stroke=\"#262262\" stroke-miterlimit=\"10\" width=\"100\" height=\"100\"/><rect fill=\"none\" stroke=\"#262262\" stroke-width=\"3\" stroke-miterlimit=\"10\" width=\"100\" height=\"100\"/></g>",
       "clickItems": null, 
       "callbacks": null, 
       "constraints": {
@@ -12,7 +12,7 @@
       },
       "subtypes": [{ 
         "name": "Keyboard",
-        "view": "<svg>some svg code</svg>",
+        "view": "<g> <rect opacity=\"0.8\" fill=\"#BE1E2D\" width=\"100\" height=\"100\"/> <rect fill=\"none\" stroke=\"#BE1E2D\" stroke-width=\"3\" stroke-miterlimit=\"10\" width=\"100\" height=\"100\"/> </g> ",
         "clickItems": null, 
         "callbacks": null, 
         "constraints": {
@@ -23,7 +23,7 @@
     }, {
       "name": "Transform",
       "type": null,
-      "view": "<svg>some svg code</svg>",
+      "view": "<g><rect opacity=\"0.8\" fill=\"#00A651\" width=\"100\" height=\"100\"/><rect fill=\"none\" stroke=\"#00A651\" stroke-width=\"3\" stroke-miterlimit=\"10\" width=\"100\" height=\"100\"/></g>",
       "clickItems": null, 
       "callbacks": null, 
       "constraints": {
@@ -32,7 +32,7 @@
       },
       "subtypes": [{
         "name": "Text",
-        "view": "<svg>some svg code</svg>",
+        "view": "<g> <rect y=\"1.6\" opacity=\"0.8\" fill=\"#92278F\" width=\"100\" height=\"98.4\"/> <rect fill=\"none\" stroke=\"#92278F\" stroke-width=\"3\" stroke-miterlimit=\"10\" width=\"100\" height=\"100\"/> </g> ",
         "clickItems": null, 
         "callbacks": null, 
         "constraints": {

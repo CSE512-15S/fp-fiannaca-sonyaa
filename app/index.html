@@ -20,7 +20,7 @@
 <body>
 
     <div class="container-full">
-        <svg id="LeftSidebar" class="col-md-3"></svg>
+        <div id="LeftSidebar" class="col-md-3"></div>
         <svg id="InteractiveViz"  class="col-md-9"></svg>
     </div>
 
@@ -34,11 +34,35 @@
         // After FlowViz is ready, run it and tell it what tag to display the viz in using a CSS selector statement
         fv.on('flowviz-ready', function() {
             fv.run('svg#InteractiveViz');
-            console.log(fv.getAllNodeTypes());
 
-            var s = Snap('svg#InteractiveViz');
-            s.append(Snap.parse('<rect x="0" y="0" opacity="0.6" fill="#BE1E2D" width="40" height="40"/>'));
-            console.log(fv.viz.select('rect'));
+            var nodes = fv.getAllNodeTypes();
+
+            var divs = d3.select('div#LeftSidebar')
+                .selectAll('div')
+                .data(nodes)
+                .enter()
+                .append('div')
+                .attr('class', 'item');
+
+            divs.append('h3')
+                    .text(function(d, i) {return d.description.name});
+
+            divs.append('svg')
+                .attr('id', function(d, i) {
+
+                    return "item" + i
+                })
+                //Use .each() to add the svg to each node with Snap.js
+                .each(function(d,i) {
+                    var s = Snap('#item' + i); //id created in the previous call
+
+                    var frag = Snap.parse(d.description.view);
+                    frag.select('g')
+                            .attr('transform', 'scale(0.8)') // translate(0,' + (i * (100 / 0.8)) + ')';
+                            .attr('class', 'node-svg');
+
+                    s.append(frag);
+                });
         });
     </script>
 </body>
