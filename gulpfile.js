@@ -67,7 +67,8 @@ var TESTS_GLOB = JS_BASE_DIR  + "tests/**/*.js";
 var EXTERNAL_LIBS = {
     jquery: "./node_modules/jquery/dist/jquery.min.js",
     bootstrap: "./node_modules/bootstrap/dist/js/bootstrap.min.js",
-    d3: "./node_modules/d3/d3.min.js"
+    d3: "./node_modules/d3/d3.min.js",
+    snap: "./assets/lib/snap.svg-min.js"
 };
 var EXTERNAL_LIBS_CSS = {
     bootstrap: "./node_modules/bootstrap/dist/css/bootstrap.min.css"

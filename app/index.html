@@ -35,6 +35,10 @@
         fv.on('flowviz-ready', function() {
             fv.run('svg#InteractiveViz');
             console.log(fv.getAllNodeTypes());
+
+            var s = Snap('svg#InteractiveViz');
+            s.append(Snap.parse('<rect x="0" y="0" opacity="0.6" fill="#BE1E2D" width="40" height="40"/>'));
+            console.log(fv.viz.select('rect'));
         });
     </script>
 </body>
