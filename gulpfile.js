@@ -70,7 +70,7 @@ var EXTERNAL_LIBS = {
     d3: "./node_modules/d3/d3.min.js"
 };
 var EXTERNAL_LIBS_CSS = {
-    bootstrap: "./node_modules/bootstrap/dist/css/bootstrap.css"
+    bootstrap: "./node_modules/bootstrap/dist/css/bootstrap.min.css"
 };
 // This causes min.js files to be gzipped and their size output during build
 var SIZE_OPTS = {

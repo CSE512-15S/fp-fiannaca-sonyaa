@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>FlowViz Demo App</title>
 
-    <link rel="stylesheet" href="./styles/bootstrap.css">
+    <link rel="stylesheet" href="./styles/bootstrap.min.css">
     <script src="./lib/common.min.js"></script>
 
     <style>
@@ -31,10 +31,11 @@
         // MyCallbacks is a js file defining all of the callbacks specified in config.json
         var fv = new FlowViz('config.json', new App());
 
-        // Run FlowViz and tell it what tag to display the viz in using a CSS selector statement
-        fv.run('svg#InteractiveViz');
-
-        console.log(fv.getAllNodeTypes());
+        // After FlowViz is ready, run it and tell it what tag to display the viz in using a CSS selector statement
+        fv.on('flowviz-ready', function() {
+            fv.run('svg#InteractiveViz');
+            console.log(fv.getAllNodeTypes());
+        });
     </script>
 </body>
 </html>

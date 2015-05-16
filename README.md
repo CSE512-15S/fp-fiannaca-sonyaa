@@ -12,7 +12,7 @@ nodes. This specifically is targeted at allowing for the development of end-user
 
 This repository may look complicated at first glance, but don't worry, it is much simpler than it may appear at first!
 All code for the *FlowViz* library is under the `lib/` directory. This library uses node.js syntax (i.e. require keyword)
-in order to ensure that the code doesn't all end up in a single file. The flowviz.js file is the primary source file for
+in order to ensure that the code doesn't all end up in a single file. The FlowViz.js file is the primary source file for
 the library. This file is responsible for requiring all of the other modules and hooking them together. All of the real
 functionality of the library is broken out into modules in the `lib/modules/` directory. The `app/` directory is a demo
 app which can be used for testing the *FlowViz* library. Finally, upon building, a `dist/` directory is created with the 
