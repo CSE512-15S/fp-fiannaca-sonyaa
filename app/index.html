@@ -5,6 +5,8 @@
     <title>FlowViz Demo App</title>
 
     <link rel="stylesheet" href="./styles/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles/FlowViz.css">
+
     <script src="./lib/common.min.js"></script>
 
     <style>
@@ -25,44 +27,15 @@
     </div>
 
     <script src="./scripts/app.js"></script>
-    <script src="./scripts/flowviz.min.js"></script>
+    <script src="./scripts/FlowViz.min.js"></script>
     <script>
         // config.json contains the specification for the graphs that can be made with this interface
         // MyCallbacks is a js file defining all of the callbacks specified in config.json
-        var fv = new FlowViz('config.json', new App());
+        var fv = new FlowViz('config.json', 'svg#InteractiveViz', new App());
 
         // After FlowViz is ready, run it and tell it what tag to display the viz in using a CSS selector statement
         fv.on('flowviz-ready', function() {
-            fv.run('svg#InteractiveViz');
-
-            var nodes = fv.getAllNodeTypes();
-
-            var divs = d3.select('div#LeftSidebar')
-                .selectAll('div')
-                .data(nodes)
-                .enter()
-                .append('div')
-                .attr('class', 'item');
-
-            divs.append('h3')
-                    .text(function(d, i) {return d.description.name});
-
-            divs.append('svg')
-                .attr('id', function(d, i) {
-
-                    return "item" + i
-                })
-                //Use .each() to add the svg to each node with Snap.js
-                .each(function(d,i) {
-                    var s = Snap('#item' + i); //id created in the previous call
-
-                    var frag = Snap.parse(d.description.view);
-                    frag.select('g')
-                            .attr('transform', 'scale(0.8)') // translate(0,' + (i * (100 / 0.8)) + ')';
-                            .attr('class', 'node-svg');
-
-                    s.append(frag);
-                });
+            fv.Legend.Create('div#LeftSidebar');
         });
     </script>
 </body>

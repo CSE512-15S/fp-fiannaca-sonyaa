@@ -23,6 +23,7 @@ try {
     var watchify = require("watchify");
     var minifyHTML = require('gulp-minify-html');
     var jsmin = require('gulp-jsmin');
+    var concatCss = require('gulp-concat-css');
 
 
     var del = require('del');
@@ -275,6 +276,12 @@ gulp.task("build", function() {
     return stream;
 });
 
+gulp.task("build-styles", function() {
+    return gulp.src(JS_BASE_DIR + 'styles/**/*.css')
+        .pipe(concatCss("FlowViz.css"))
+        .pipe(gulp.dest(APPS_DIST_DIR + "styles/"));
+});
+
 /**
  * Watch applications and their dependencies for changes and automatically rebuild them.
  */
@@ -380,7 +387,7 @@ gulp.task("build-demo-styles", function() {
 
 gulp.task("min-json", function() {
     gulp.src(DEMO_BASE + "**/*.json")
-        .pipe(jsmin())
+        //.pipe(jsmin())
         .pipe(gulp.dest(APPS_DIST_DIR));
 });
 
@@ -412,6 +419,10 @@ gulp.task('serve', ["auto-default"], function () {
     gulp.watch(['./app/**/*.html'], function() {
         runSequence('build-demo', reload);
     });
+
+    gulp.watch(['./lib/styles/**/*.css'], function() {
+        runSequence('build-styles', reload);
+    });
 });
 
 /**
@@ -420,6 +431,7 @@ gulp.task('serve', ["auto-default"], function () {
 gulp.task("serial", function() {
     runSequence(
         "build",
+        "build-styles",
         "build-common-lib",
         "lint",
         "build",
@@ -434,7 +446,7 @@ gulp.task("serial", function() {
 gulp.task("default", ["clean"], function() {
     runSequence(
         [ "lint", 'demo-lint'],
-        ["build-common-lib", "build", "build-demo"],
+        ["build-common-lib", "build", "build-styles", "build-demo"],
         "test"
     );
 });
@@ -446,7 +458,7 @@ gulp.task("default", ["clean"], function() {
 gulp.task("auto-default", ["clean"], function(cb) {
     runSequence(
         [ "lint", 'demo-lint'],
-        ["build-common-lib", "autobuild", "build-demo"],
+        ["build-common-lib", "autobuild", "build-styles", "build-demo"],
         "test",
         cb);
 
