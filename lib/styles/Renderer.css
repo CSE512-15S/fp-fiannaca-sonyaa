@@ -1,0 +1,12 @@
+.flow-edge {
+    stroke: #000000;
+    stroke-width: 3;
+    stroke-linecap: round;
+}
+
+.flow-edge-tip {
+    stroke: #000000;
+    stroke-width: 3;
+    stroke-linecap: round;
+    fill: none;
+}
