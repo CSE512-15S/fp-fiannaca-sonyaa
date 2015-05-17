@@ -1,44 +1,50 @@
 {
   "name": "MapAll",
   "types": [{
-      "name": "InputDevice",
-      "type": "start",
-      "view": "<g><rect x=\"3\" y=\"3\" opacity=\"0.6\" fill=\"#2E3192\" width=\"94\" height=\"94\"/><rect x=\"2\" y=\"2\" fill=\"none\" stroke=\"#2E3192\" stroke-width=\"4\" stroke-miterlimit=\"10\" width=\"96\" height=\"96\"/></g>",
+    "type": "InputDevice",
+    "name": "General Input Device",
+    "view": "<?xml version=\"1.0\" encoding=\"utf-8\"?><!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 100 100\" enable-background=\"new 0 0 100 100\" xml:space=\"preserve\"><g><rect x=\"3\" y=\"3\" opacity=\"0.6\" fill=\"#2E3192\" width=\"94\" height=\"94\"/><rect x=\"2\" y=\"2\" fill=\"none\" stroke=\"#2E3192\" stroke-width=\"4\" stroke-miterlimit=\"10\" width=\"96\" height=\"96\"/></g></svg>",
+    "desc": "This is a brief description",
+    "clickItems": null,
+    "callbacks": null,
+    "constraints": {
+      "incoming": "none",
+      "outgoing": "Transform.*"
+    },
+    "subtypes": [{
+      "type": "Keyboard",
+      "name": "Keyboard",
+      "view": "<?xml version=\"1.0\" encoding=\"utf-8\"?><!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 100 100\" enable-background=\"new 0 0 100 100\" xml:space=\"preserve\"><g><rect x=\"3\" y=\"3\" opacity=\"0.6\" fill=\"#BE1E2D\" width=\"94\" height=\"94\"/><rect x=\"2\" y=\"2\" fill=\"none\" stroke=\"#BE1E2D\" stroke-width=\"4\" stroke-miterlimit=\"10\" width=\"96\" height=\"96\"/></g></svg>",
+      "desc": "This is a brief description",
       "clickItems": null,
-      "callbacks": null, 
+      "callbacks": null,
       "constraints": {
-        "incoming": "none", 
-        "outgoing": "Transform.*"
-      },
-      "subtypes": [{ 
-        "name": "Keyboard",
-        "view": "<g><rect x=\"3\" y=\"3\" opacity=\"0.6\" fill=\"#BE1E2D\" width=\"94\" height=\"94\"/><rect x=\"2\" y=\"2\" fill=\"none\" stroke=\"#BE1E2D\" stroke-width=\"4\" stroke-miterlimit=\"10\" width=\"96\" height=\"96\"/></g>",
-        "clickItems": null,
-        "callbacks": null, 
-        "constraints": {
-          "incoming": "none", 
-          "outgoing": "Transform.Text"
-        }
-      }]
-    }, {
-      "name": "Transform",
-      "type": null,
-      "view": "<g><rect x=\"3\" y=\"3\" opacity=\"0.6\" fill=\"#00A651\" width=\"94\" height=\"94\"/><rect x=\"2\" y=\"2\" fill=\"none\" stroke=\"#00A651\" stroke-width=\"4\" stroke-miterlimit=\"10\" width=\"96\" height=\"96\"/></g>",
+        "incoming": "none",
+        "outgoing": "Transform.Text"
+      }
+    }]
+  }, {
+    "type": "Transform",
+    "name": "Transform Module",
+    "view": "<?xml version=\"1.0\" encoding=\"utf-8\"?><!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 100 100\" enable-background=\"new 0 0 100 100\" xml:space=\"preserve\"><g><rect x=\"3\" y=\"3\" opacity=\"0.6\" fill=\"#00A651\" width=\"94\" height=\"94\"/><rect x=\"2\" y=\"2\" fill=\"none\" stroke=\"#00A651\" stroke-width=\"4\" stroke-miterlimit=\"10\" width=\"96\" height=\"96\"/></g></svg>",
+    "desc": "This is a brief description",
+    "clickItems": null,
+    "callbacks": null,
+    "constraints": {
+      "incoming": ["InputDevice.*", "Transform.*"],
+      "outgoing": ["Transform.*", "Action.*"]
+    },
+    "subtypes": [{
+      "type": "Text",
+      "name": "Output Text",
+      "view": "<?xml version=\"1.0\" encoding=\"utf-8\"?><!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 100 100\" enable-background=\"new 0 0 100 100\" xml:space=\"preserve\"><g><rect x=\"3\" y=\"3\" opacity=\"0.6\" fill=\"#92278F\" width=\"94\" height=\"94\"/><rect x=\"2\" y=\"2\" fill=\"none\" stroke=\"#92278F\" stroke-width=\"4\" stroke-miterlimit=\"10\" width=\"96\" height=\"96\"/></g></svg>",
+      "desc": "This is a brief description",
       "clickItems": null,
-      "callbacks": null, 
+      "callbacks": null,
       "constraints": {
-        "incoming": ["InputDevice.*", "Transform.*"],
-        "outgoing": ["Transform.*", "Action.*"]
-      },
-      "subtypes": [{
-        "name": "Text",
-        "view": "<g><rect x=\"3\" y=\"3\" opacity=\"0.6\" fill=\"#92278F\" width=\"94\" height=\"94\"/><rect x=\"2\" y=\"2\" fill=\"none\" stroke=\"#92278F\" stroke-width=\"4\" stroke-miterlimit=\"10\" width=\"96\" height=\"96\"/></g>",
-        "clickItems": null,
-        "callbacks": null, 
-        "constraints": {
-          "incoming": "InputDevice.Keyboard",
-          "outgoing": ["Transform.Text", "Action.*"]
-        }
+        "incoming": "InputDevice.Keyboard",
+        "outgoing": ["Transform.Text", "Action.*"]
+      }
     }]
   }]
 }

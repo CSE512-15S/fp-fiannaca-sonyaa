@@ -1,2 +1,20 @@
-h3 {
+.legend-item {
+    margin-top: 10px;
+    margin-left: 0;
+}
+
+.legend-item svg {
+    width: 80px;
+    height: 80px;
+    float: left;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.legend-item .item-info {
+    float: left;
+}
+
+.legend-item .item-info h3 {
+    margin-top: 0;
 }

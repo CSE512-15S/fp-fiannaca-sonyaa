@@ -1,6 +1,8 @@
-/**
- * Created by Alexander on 5/11/2015.
- */
-var App = function() {
-    console.log('Callbacks will eventually go here...');
-};
+var App = new FlowViz.App('config.json', 'svg#InteractiveViz', {
+
+    //Note that the 'this' object is bound to our instance of the FlowViz object because FlowViz extends EventEmitter!
+    ready: function() {
+        this.Legend.Create('div#LeftSidebar');
+    }
+
+});

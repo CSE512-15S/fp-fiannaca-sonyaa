@@ -9,12 +9,15 @@
 
     <script src="./lib/common.min.js"></script>
 
+    <link href='http://fonts.googleapis.com/css?family=Roboto:500,700,300italic,400' rel='stylesheet' type='text/css'>
+
     <style>
         html, body, .container-full {
             height: 100%;
+            font-family: 'Roboto', sans-serif;
         }
 
-        .container-full svg {
+        .container-full > svg {
             height: 100%;
         }
     </style>
@@ -26,17 +29,8 @@
         <svg id="InteractiveViz"  class="col-md-9"></svg>
     </div>
 
-    <script src="./scripts/app.js"></script>
     <script src="./scripts/FlowViz.min.js"></script>
-    <script>
-        // config.json contains the specification for the graphs that can be made with this interface
-        // MyCallbacks is a js file defining all of the callbacks specified in config.json
-        var fv = new FlowViz('config.json', 'svg#InteractiveViz', new App());
+    <script src="./scripts/app.js"></script>
 
-        // After FlowViz is ready, run it and tell it what tag to display the viz in using a CSS selector statement
-        fv.on('flowviz-ready', function() {
-            fv.Legend.Create('div#LeftSidebar');
-        });
-    </script>
 </body>
 </html>
