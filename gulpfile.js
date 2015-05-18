@@ -24,6 +24,7 @@ try {
     var minifyHTML = require('gulp-minify-html');
     var jsmin = require('gulp-jsmin');
     var concatCss = require('gulp-concat-css');
+    var gulpDoxx = require('gulp-doxx');
 
 
     var del = require('del');
@@ -410,7 +411,7 @@ gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 /**
  * Allows for building and serving the demo application to the browser.
  */
-gulp.task('serve', ["auto-default"], function () {
+gulp.task('serve', ["auto-default", "docs"], function () {
     browserSync({
         server: './dist'
     });
@@ -423,6 +424,17 @@ gulp.task('serve', ["auto-default"], function () {
     gulp.watch(['./lib/styles/**/*.css'], function() {
         runSequence('build-styles', reload);
     });
+});
+
+gulp.task('docs', function() {
+
+    gulp.src([JS_BASE_DIR + '**/*.js', 'README.md'])
+        .pipe(gulpDoxx({
+            title: 'FlowViz',
+            urlPrefix: '/docs'
+        }))
+        .pipe(gulp.dest('dist/docs'));
+
 });
 
 /**
