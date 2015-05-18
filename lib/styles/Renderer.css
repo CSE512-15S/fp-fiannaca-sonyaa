@@ -7,3 +7,7 @@
 .flow-edge-tip {
     fill: none;
 }
+
+.flow-edge-tip-dot {
+    fill: #000000;
+}
