@@ -305,6 +305,7 @@ gulp.task("autobuild", function() {
             // and reload the browser.
             bundler.on("update", function() {
                 rebundle();
+                runSequence('docs');
                 reload();
             });
 
@@ -411,7 +412,7 @@ gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 /**
  * Allows for building and serving the demo application to the browser.
  */
-gulp.task('serve', ["auto-default", "docs"], function () {
+gulp.task('serve', ["auto-default"], function () {
     browserSync({
         server: './dist'
     });
@@ -469,6 +470,7 @@ gulp.task("default", ["clean"], function() {
  */
 gulp.task("auto-default", ["clean"], function(cb) {
     runSequence(
+        "docs",
         [ "lint", 'demo-lint'],
         ["build-common-lib", "autobuild", "build-styles", "build-demo"],
         "test",
@@ -477,5 +479,5 @@ gulp.task("auto-default", ["clean"], function(cb) {
     gulp.watch([DEMO_BASE + '*'], function() {
         runSequence('build-demo');
         reload();
-    })
+    });
 });
