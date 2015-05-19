@@ -2,6 +2,7 @@
   "name": "MapAll",
   "connectEvt": "dblclick",
   "draggable": true,
+  "layout": "right",
   "types": [{
     "type": "InputDevice",
     "name": "General Input Device",
