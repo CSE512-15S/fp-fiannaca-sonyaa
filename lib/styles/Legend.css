@@ -1,6 +1,11 @@
 .legend-item {
     margin-top: 10px;
     margin-left: 0;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
 }
 
 .legend-item svg {
