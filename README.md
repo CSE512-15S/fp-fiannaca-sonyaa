@@ -47,24 +47,53 @@ Include *FlowViz* and the common includes into your html file like this:
     <html>
     <head lang="en">
         <meta charset="UTF-8">
-        <title></title>
+        <title>FlowViz Demo App</title>
     
-        <script src="./path_to_libraries/common.min.js"></script>
+        <link rel="stylesheet" href="./styles/bootstrap.min.css">
+        <link rel="stylesheet" href="./styles/FlowViz.css">
+    
+        <script src="./lib/common.min.js"></script>
+    
+        <style>
+            html, body, .container-full {
+                height: 100%;
+            }
+    
+            .container-full > svg {
+                height: 100%;
+                padding-top: 10px;
+            }
+    
+            #InteractiveViz {
+                padding: 0;
+            }
+        </style>
     </head>
     <body>
-        <svg id="InteractiveViz"></svg>
     
-        <script src="MyCallbacks.js"></script>
-        <script src="./path_to_libraries/flowviz.min.js"></script>
-        <script>
-            // config.json contains the specification for the graphs that can be made with this interface
-            // MyCallbacks is a js file defining all of the callbacks specified in config.json
-            var fv = new FlowViz('config.json', new MyCallbacks());
-            
-            // Run FlowViz and tell it what tag to display the viz in using a CSS selector statement
-            fv.run('#InteractiveViz');
-        </script>
+        <div class="container-full">
+            <div id="LeftSidebar" class="col-md-3"></div>
+            <svg id="InteractiveViz"  class="col-md-9"></svg>
+        </div>
+    
+        <script src="./scripts/FlowViz.min.js"></script>
+        <script src="./scripts/app.js"></script>
+    
     </body>
     </html>
 
 Note that by including *FlowViz* at the end of the body, you speed up the initial rendering time of your application.
+
+`app.js` should simply call the `FlowViz.App()` and implement any callbacks which you want to listen for:
+
+    var App = new FlowViz.App('config.json', 'svg#InteractiveViz', {
+    
+        ready: function() {
+            this.Legend.Create('div#LeftSidebar');
+        }
+    
+    });
+
+By default, FlowViz does not create a legend. You can create a legend either by implementing your own legend by making 
+calls to the ConfigParser object or you can use the default legend implementation included with FlowViz by calling
+`this.Legend.Create('[legend-selector]');` in the `ready` callback.

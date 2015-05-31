@@ -83,6 +83,7 @@ var SIZE_OPTS = {
     showFiles: true,
     gzip: true
 };
+
 // These are options for jshint (a javascript linter)
 var LINT_OPTS = {
     unused: true,
