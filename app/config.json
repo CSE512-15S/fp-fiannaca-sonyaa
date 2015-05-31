@@ -20,12 +20,13 @@
     "dataItems": {
       "SomeString": {
         "desc": "Readable name of this key",
-        "type": "String",
+        "type": "string",
         "value": "Default string"
       },
       "SomeNumber": {
         "desc": "Another readable name of a key",
-        "type": "Number",
+        "type": "number",
+        "validator": "NumberInRange",
         "value": 0
       }
     },

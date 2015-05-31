@@ -7,6 +7,11 @@ var App = new FlowViz.App('config.json', 'svg#InteractiveViz', {
 
     ready: function() {
         this.Legend.Create('div#LeftSidebar');
-    }
+    },
 
+    Validators: {
+        NumberInRange: function(oldValue, newValue) {
+            return (newValue > 0 && newValue < 20);
+        }
+    }
 });
