@@ -17,6 +17,18 @@
       "incoming": "none",
       "outgoing": "Transform.*"
     },
+    "dataItems": {
+      "SomeString": {
+        "desc": "Readable name of this key",
+        "type": "String",
+        "value": "Default string"
+      },
+      "SomeNumber": {
+        "desc": "Another readable name of a key",
+        "type": "Number",
+        "value": 0
+      }
+    },
     "subtypes": [{
       "type": "Keyboard",
       "name": "Keyboard",
