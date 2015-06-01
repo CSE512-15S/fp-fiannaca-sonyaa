@@ -1,0 +1,35 @@
+#notify-message {
+    opacity: 0;
+    padding: 15px;
+    position: fixed;
+    font-size: 0.9em;
+    z-index: 10000;
+    right: 0px;
+    bottom: 0px;
+    border-top-left-radius: 10px;
+    margin: 0px;
+    color: white;
+    text-align: center;
+    background-color: rgb(27, 32, 50);
+    -webkit-transition: opacity 0.5s ease-in;
+    -moz-transition: opacity 0.5s ease-in;
+    -ms-transition: opacity 0.5s ease-in;
+    -o-transition: opacity 0.5s ease-in;
+    transition: opacity 0.5s ease-in;
+}
+
+#notify-message.load {
+    opacity: 1;
+}
+
+#notify-message.notify-hide {
+    display: none;
+}
+
+#notify-message.warn {
+    border: solid #E6E600 3px;
+}
+
+#notify-message.error {
+    border: solid #FF4D4D 3px;
+}
