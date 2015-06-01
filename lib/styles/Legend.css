@@ -23,3 +23,8 @@
 .legend-item .item-info h3 {
     margin-top: 0;
 }
+
+#drag-stub {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
