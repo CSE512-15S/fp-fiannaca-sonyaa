@@ -1,0 +1,18 @@
+#notify-message {
+    display: block;
+    padding: 15px;
+    position: fixed;
+    font-size: 0.9em;
+    z-index: 10000;
+    right: 0px;
+    bottom: 0px;
+    border-top-left-radius: 5px;
+    margin: 0px;
+    color: white;
+    text-align: center;
+    background-color: rgb(27, 32, 50);
+}
+
+#notify-message .hide {
+    display: none;
+}

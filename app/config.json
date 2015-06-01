@@ -1,6 +1,7 @@
 {
   "name": "MapAll",
   "connectEvt": "dblclick",
+  "messages": "default",
   "draggable": true,
   "layout": "right",
   "scale": 0.8,
