@@ -14,10 +14,6 @@
     "height": 100,
     "clickItems": null,
     "callbacks": null,
-    "constraints": {
-      "incoming": "none",
-      "outgoing": "Transform.*"
-    },
     "dataItems": {
       "SomeString": {
         "desc": "Readable name of this key",
@@ -41,8 +37,18 @@
       "clickItems": null,
       "callbacks": null,
       "constraints": {
-        "incoming": "none",
-        "outgoing": "Transform.Text"
+        "incoming": {
+          "range": [0,0]
+        },
+        "outgoing": {
+          "range": [0,1],
+          "types": [
+            {
+              "type": "Transform.Text",
+              "range": [0,1]
+            }
+          ]
+        }
       }
     }]
   }, {
@@ -55,8 +61,34 @@
     "clickItems": null,
     "callbacks": null,
     "constraints": {
-      "incoming": ["InputDevice.*", "Transform.*"],
-      "outgoing": ["Transform.*", "Action.*"]
+      "incoming": {
+        "range": [0,1],
+        "types": [
+            {
+              "type": "InputDevice.*",
+              "range": [0,1]
+            },
+            {
+              "type": "Transform.*",
+              "range": [0,1],
+              "required": true
+            }
+          ]
+    },
+      "outgoing": {
+        "range": [0,1],
+        "types": [
+          {
+            "type": "InputDevice.*",
+            "range": [0,1]
+          },
+          {
+            "type": "Transform.*",
+            "range": [0,1],
+            "required": true
+          }
+        ]
+      }
     },
     "subtypes": [{
       "type": "Text",
@@ -66,11 +98,7 @@
       "width": 100,
       "height": 100,
       "clickItems": null,
-      "callbacks": null,
-      "constraints": {
-        "incoming": "InputDevice.Keyboard",
-        "outgoing": ["Transform.Text", "Action.*"]
-      }
+      "callbacks": null
     }]
   }]
 }
