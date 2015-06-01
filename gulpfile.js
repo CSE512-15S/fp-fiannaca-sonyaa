@@ -71,7 +71,8 @@ var EXTERNAL_LIBS = {
     bootstrap: "./node_modules/bootstrap/dist/js/bootstrap.min.js",
     d3: "./node_modules/d3/d3.min.js",
     snap: "./assets/lib/snap.svg-min.js",
-    dagre: "./node_modules/dagre/dist/dagre.min.js"
+    dagre: "./node_modules/dagre/dist/dagre.min.js",
+    drag: "./assets/lib/draggabilly.pkgd.min.js"
 };
 
 var EXTERNAL_CSS = {
