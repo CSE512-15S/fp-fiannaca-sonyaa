@@ -1,12 +1,6 @@
 {
   "name": "MapAll",
-  "interactions": {
-    "connectEvt": "dblclick"
-  },
   "display": {
-    "messages": "default",
-    "draggable": true,
-    "layout": "right",
     "scale": 0.8
   },
   "types": [{
