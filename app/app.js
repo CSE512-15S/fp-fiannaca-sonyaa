@@ -5,7 +5,7 @@
  */
 var App = new FlowViz.App('config.json', 'svg#InteractiveViz', {
     Events: {
-        ready: function() {
+        "flowviz-ready": function() {
             this.Legend.Create('div#LeftSidebar');
 
             var types = this.Config.getLeafNodesTypes();
@@ -23,6 +23,10 @@ var App = new FlowViz.App('config.json', 'svg#InteractiveViz', {
             this.GraphManager.AddEdge(nodes[1], nodes[3], this.FlowEdge.FORWARD, false);
             this.GraphManager.AddEdge(nodes[2], nodes[3], this.FlowEdge.BACKWARD, false);
             this.GraphManager.AddEdge(nodes[3], nodes[2], this.FlowEdge.BACKWARD);
+        },
+
+        "node-added": function() {
+            console.log("App: node added!");
         }
     },
 
