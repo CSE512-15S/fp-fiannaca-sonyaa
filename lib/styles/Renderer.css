@@ -6,6 +6,7 @@
     stroke: #000000;
     stroke-width: 3;
     stroke-linecap: round;
+    fill: none;
 }
 
 .flow-edge path.flow-edge-region {
