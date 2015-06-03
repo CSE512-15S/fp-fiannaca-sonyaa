@@ -26,7 +26,7 @@ var App = new FlowViz.App('config.json', 'svg#InteractiveViz', {
         },
 
         "node-added": function() {
-            console.log("App: node added!");
+            this.ShowMessage("Node added!");
         }
     },
 
