@@ -8,6 +8,12 @@
     "desc": "This is the class of all input devices",
     "width": 100,
     "height": 100,
+    "connections": {
+      "left": {"x": 0, "y": 50},
+      "right": {"x": 100, "y": 50},
+      "top": {"x": 50, "y": 0},
+      "bottom": {"x": 50, "y": 100}
+    },
     "dataItems": {
       "SomeString": {
         "desc": "Readable name of this key",
@@ -57,6 +63,12 @@
     "desc": "This is the set of all input transformations",
     "width": 100,
     "height": 100,
+    "connections": {
+      "left": {"x": 0, "y": 50},
+      "right": {"x": 100, "y": 50},
+      "top": {"x": 50, "y": 0},
+      "bottom": {"x": 50, "y": 100}
+    },
     "subtypes": [{
       "type": "KeysToMouse",
       "name": "Keys To Mouse",
