@@ -24,3 +24,9 @@
 .flow-edge-tip-dot {
     fill: #000000;
 }
+
+.node-background * {
+    fill:#FFFFFF !important;
+    stroke:#FFFFFF !important;
+    opacity:1.0 !important;
+}
