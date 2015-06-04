@@ -36,7 +36,7 @@
         "outgoing": {
           "range": [0,1],
           "types": {
-            "Transforms.KeysToMouse": [0,1]
+            "Transforms.KeysToMouse": [1,1]
           }
         }
       }
@@ -49,7 +49,7 @@
           "range": [0,0]
         },
         "outgoing": {
-          "range": [0,1],
+          "range": [1,1],
           "types": {
             "Transforms.AngleMouse": [0,1]
           }
