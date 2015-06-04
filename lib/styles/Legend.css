@@ -31,10 +31,13 @@
 
 .legend-btn {
     width: calc(50% - 10px);
-    margin-top: 20px;
     margin-bottom: 20px;
 }
 
-.legend-btn:first-of-type {
+.legend-btn:nth-of-type(2) {
     margin-right: 20px;
+}
+
+button.legend-btn.save-graph {
+    width: 100%;
 }
