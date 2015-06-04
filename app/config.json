@@ -3,7 +3,8 @@
   "display": {
     "scale": 0.5,
     "arrowHeight": 15,
-    "arrowWidth": 6
+    "arrowWidth": 6,
+    "layout": "horizontal"
   },
   "types": [{
     "type": "InputDevices",
