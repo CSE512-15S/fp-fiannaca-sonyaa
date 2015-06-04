@@ -28,3 +28,13 @@
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
 }
+
+.legend-btn {
+    width: calc(50% - 10px);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.legend-btn:first-of-type {
+    margin-right: 20px;
+}
