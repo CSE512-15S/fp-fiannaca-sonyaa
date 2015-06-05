@@ -1,0 +1,230 @@
+{
+  "name": "Roboflow",
+  "display": {
+    "scale": 0.5,
+    "arrowHeight": 15,
+    "arrowWidth": 6,
+    "layout": "vertical"
+  },
+  "types": [{
+    "type": "Start",
+    "desc": "This is the start terminal",
+    "view": "<?xml version=\"1.0\" encoding=\"utf-8\"?> <!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --> <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 100 100\" enable-background=\"new 0 0 100 100\" xml:space=\"preserve\"> <g> <rect x=\"3\" y=\"3\" fill=\"#FFFFFF\" width=\"94\" height=\"94\"/> <rect x=\"2\" y=\"2\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"4\" stroke-miterlimit=\"10\" width=\"96\" height=\"96\"/> <rect x=\"3\" y=\"3\" opacity=\"0.6\" fill=\"#BE1E2D\" width=\"94\" height=\"94\"/> <rect x=\"2\" y=\"2\" fill=\"none\" stroke=\"#BE1E2D\" stroke-width=\"4\" stroke-miterlimit=\"10\" width=\"96\" height=\"96\"/> </g> </svg>",
+    "width": 100,
+    "height": 100,
+    "padding": 40,
+    "constraints": {
+      "incoming": {
+        "range": [0,0]
+      },
+      "outgoing": {
+        "range": [1,1],
+        "types": {
+          "Operations.*": [0,1],
+          "Preconditions.*": [0,1]
+        }
+      }
+    }
+  }, {
+  "type": "End",
+  "desc": "This is the class of all end terminals",
+  "width": 100,
+  "height": 100,
+  "padding": 40,
+  "constraints": {
+    "incoming": {
+      "range": [1,1],
+      "types": {
+        "Operations.*": [0,1],
+        "Postconditions.*": [0,1]
+      }
+    },
+    "outgoing": {
+      "range": [0,0]
+    }
+  },
+  "subtypes": [{
+    "type": "Success",
+    "view": "<?xml version=\"1.0\" encoding=\"utf-8\"?> <!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --> <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 100 100\" enable-background=\"new 0 0 100 100\" xml:space=\"preserve\"> <g> <rect x=\"3\" y=\"3\" fill=\"#FFFFFF\" width=\"94\" height=\"94\"/> <rect x=\"2\" y=\"2\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"4\" stroke-miterlimit=\"10\" width=\"96\" height=\"96\"/> <rect x=\"3\" y=\"3\" opacity=\"0.6\" fill=\"#BE1E2D\" width=\"94\" height=\"94\"/> <rect x=\"2\" y=\"2\" fill=\"none\" stroke=\"#BE1E2D\" stroke-width=\"4\" stroke-miterlimit=\"10\" width=\"96\" height=\"96\"/> </g> </svg>",
+    "desc": "This is a success end-terminal"
+  }, {
+    "type": "Fail",
+    "view": "<?xml version=\"1.0\" encoding=\"utf-8\"?> <!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --> <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 100 100\" enable-background=\"new 0 0 100 100\" xml:space=\"preserve\"> <g> <rect x=\"3\" y=\"3\" fill=\"#FFFFFF\" width=\"94\" height=\"94\"/> <rect x=\"2\" y=\"2\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"4\" stroke-miterlimit=\"10\" width=\"96\" height=\"96\"/> <rect x=\"3\" y=\"3\" opacity=\"0.6\" fill=\"#BE1E2D\" width=\"94\" height=\"94\"/> <rect x=\"2\" y=\"2\" fill=\"none\" stroke=\"#BE1E2D\" stroke-width=\"4\" stroke-miterlimit=\"10\" width=\"96\" height=\"96\"/> </g> </svg>",
+    "desc": "This is a failure end-terminal"
+  }] },
+
+    {
+    "type": "Operations",
+    "desc": "This is the set of all operations",
+    "width": 100,
+    "height": 100,
+    "padding": 40,
+    "subtypes": [{
+      "type": "Manipulation",
+      "name": "Manipulation",
+      "view": "<?xml version=\"1.0\" encoding=\"utf-8\"?><!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 100 100\" enable-background=\"new 0 0 100 100\" xml:space=\"preserve\"><g><rect x=\"3\" y=\"3\" opacity=\"0.6\" fill=\"#92278F\" width=\"94\" height=\"94\"/><rect x=\"2\" y=\"2\" fill=\"none\" stroke=\"#92278F\" stroke-width=\"4\" stroke-miterlimit=\"10\" width=\"96\" height=\"96\"/></g></svg>",
+      "desc": "This makes the robot move its arms through a sequence of poses",
+      "constraints": {
+        "incoming": {
+          "range": [1,1],
+          "types": {
+            "Preconditions.Reachable": [1,1]
+          }
+        },
+        "outgoing": {
+          "range": [1,1],
+          "types": {
+            "Postconditions.Success": [1,1]
+          }
+        }
+      }
+    },{
+      "type": "Navigation",
+      "name": "Navigation",
+      "view": "<?xml version=\"1.0\" encoding=\"utf-8\"?><!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 100 100\" enable-background=\"new 0 0 100 100\" xml:space=\"preserve\"><g><rect x=\"3\" y=\"3\" opacity=\"0.6\" fill=\"#00A651\" width=\"94\" height=\"94\"/><rect x=\"2\" y=\"2\" fill=\"none\" stroke=\"#00A651\" stroke-width=\"4\" stroke-miterlimit=\"10\" width=\"96\" height=\"96\"/></g></svg>",
+      "desc": "This makes the robot navigate somewhere",
+      "constraints": {
+        "incoming": {
+          "range": [1,1],
+          "types": {
+            "Start": [0,1],
+            "Operations.*": [0,1],
+            "Postconditions.*": [0,1]
+          }
+        },
+        "outgoing": {
+          "range": [1,1],
+          "types": {
+            "Postconditions.Success": [1,1]
+          }
+        }
+      }
+    },{
+      "type": "Procedure",
+      "name": "Saved Procedure",
+      "view": "<?xml version=\"1.0\" encoding=\"utf-8\"?><!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 100 100\" enable-background=\"new 0 0 100 100\" xml:space=\"preserve\"><g><rect x=\"3\" y=\"3\" opacity=\"0.6\" fill=\"#00A651\" width=\"94\" height=\"94\"/><rect x=\"2\" y=\"2\" fill=\"none\" stroke=\"#00A651\" stroke-width=\"4\" stroke-miterlimit=\"10\" width=\"96\" height=\"96\"/></g></svg>",
+      "desc": "This is a pre-recorded procedure",
+      "constraints": {
+        "incoming": {
+          "range": [1,1],
+          "types": {
+            "Start": [0,1],
+            "Operations.*": [0,1],
+            "Postconditions.*": [0,1]
+          }
+        },
+        "outgoing": {
+          "range": [1,1],
+          "types": {
+            "Postconditions.*": [1,1]
+          }
+        }
+      }
+    },{
+      "type": "Head movement",
+      "name": "Head movement",
+      "view": "<?xml version=\"1.0\" encoding=\"utf-8\"?><!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 100 100\" enable-background=\"new 0 0 100 100\" xml:space=\"preserve\"><g><rect x=\"3\" y=\"3\" opacity=\"0.6\" fill=\"#00A651\" width=\"94\" height=\"94\"/><rect x=\"2\" y=\"2\" fill=\"none\" stroke=\"#00A651\" stroke-width=\"4\" stroke-miterlimit=\"10\" width=\"96\" height=\"96\"/></g></svg>",
+      "desc": "This makes the robot move its head",
+      "constraints": {
+        "incoming": {
+          "range": [1,1],
+          "types": {
+            "Start": [0,1],
+            "Operations.*": [0,1],
+            "Postconditions.*": [0,1]
+          }
+        },
+        "outgoing": {
+          "range": [1,1],
+          "types": {
+            "End.*": [0,1],
+            "Preconditions.Objects": [0,1],
+            "Operations.*": [0,1]
+          }
+        }
+      }
+    }]
+  },
+    {
+      "type": "Postconditions",
+      "desc": "This is the set of all post-conditions",
+      "width": 100,
+      "height": 100,
+      "padding": 40,
+      "subtypes": [{
+        "type": "Success",
+        "name": "Success?",
+        "view": "<?xml version=\"1.0\" encoding=\"utf-8\"?><!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 100 100\" enable-background=\"new 0 0 100 100\" xml:space=\"preserve\"><g><rect x=\"3\" y=\"3\" opacity=\"0.6\" fill=\"#00A651\" width=\"94\" height=\"94\"/><rect x=\"2\" y=\"2\" fill=\"none\" stroke=\"#00A651\" stroke-width=\"4\" stroke-miterlimit=\"10\" width=\"96\" height=\"96\"/></g></svg>",
+        "desc": "This checks if the operation executed successfully",
+        "constraints": {
+          "incoming": {
+            "range": [1,1],
+            "types": {
+              "Operations.*": [0,1]
+            }
+          },
+          "outgoing": {
+            "range": [2,2],
+            "types": {
+              "End.*": [0,2],
+              "Preconditions.Objects": [0,2],
+              "Operations.*": [0,2]
+            }
+          }
+        }
+      }]
+    },{
+      "type": "Preconditions",
+      "desc": "This is the set of all pre-conditions",
+      "width": 100,
+      "height": 100,
+      "padding": 40,
+      "subtypes": [{
+        "type": "Objects",
+        "name": "Objects?",
+        "view": "<?xml version=\"1.0\" encoding=\"utf-8\"?><!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 100 100\" enable-background=\"new 0 0 100 100\" xml:space=\"preserve\"><g><rect x=\"3\" y=\"3\" opacity=\"0.6\" fill=\"#00A651\" width=\"94\" height=\"94\"/><rect x=\"2\" y=\"2\" fill=\"none\" stroke=\"#00A651\" stroke-width=\"4\" stroke-miterlimit=\"10\" width=\"96\" height=\"96\"/></g></svg>",
+        "desc": "This checks if the required objects are present",
+        "constraints": {
+          "incoming": {
+            "range": [1,1],
+            "types": {
+              "Start": [0,1],
+              "Postconditions.*": [0,1],
+              "Preconditions.*": [0,1],
+              "Operations.*": [0,1]
+            }
+          },
+          "outgoing": {
+            "range": [2,2],
+            "types": {
+              "End.*": [0,1],
+              "Preconditions.Reachable": [1,1],
+              "Preconditions.Objects": [0,1],
+              "Operations.*": [0,1]
+            }
+          }
+        }
+      },{
+        "type": "Reachable",
+        "name": "Reachable?",
+        "view": "<?xml version=\"1.0\" encoding=\"utf-8\"?><!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 100 100\" enable-background=\"new 0 0 100 100\" xml:space=\"preserve\"><g><rect x=\"3\" y=\"3\" opacity=\"0.6\" fill=\"#00A651\" width=\"94\" height=\"94\"/><rect x=\"2\" y=\"2\" fill=\"none\" stroke=\"#00A651\" stroke-width=\"4\" stroke-miterlimit=\"10\" width=\"96\" height=\"96\"/></g></svg>",
+        "desc": "This checks if the arm poses are reachable",
+        "constraints": {
+          "incoming": {
+            "range": [1,1],
+            "types": {
+              "Preconditions.Objects": [1,1]
+            }
+          },
+          "outgoing": {
+            "range": [2,2],
+            "types": {
+              "End.*": [0,1],
+              "Preconditions.Objects": [0,1],
+              "Operations.Manipulation": [1,1]
+            }
+          }
+        }
+      }]
+    }]
+}
