@@ -32,9 +32,13 @@ var App = new FlowViz.App('config.json', 'svg#InteractiveViz', {
         }
     },
 
-    Validators: {
+    DataValidation: {
         NumberInRange: function(oldValue, newValue) {
             return (newValue > 0 && newValue < 20);
         }
+    },
+
+    Interactions: {
+
     }
 });
