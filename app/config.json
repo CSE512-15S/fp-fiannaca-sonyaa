@@ -14,12 +14,12 @@
     "padding": 40,
     "dataItems": {
       "SomeString": {
-        "desc": "Readable name of this key",
+        "desc": "Text",
         "type": "string",
         "value": "Default string"
       },
       "SomeNumber": {
-        "desc": "Another readable name of a key",
+        "desc": "Max Value",
         "type": "number",
         "validator": "NumberInRange",
         "value": 0

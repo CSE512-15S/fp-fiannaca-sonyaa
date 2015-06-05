@@ -8,6 +8,7 @@ var App = new FlowViz.App('config.json', 'svg#InteractiveViz', {
         "flowviz-ready": function() {
             this.Controls.Create('div#LeftSidebar');
             this.Legend.Create('div#LeftSidebar');
+            this.DataEditor.Create('div#LeftSidebar');
 
             var types = this.Config.getLeafNodesTypes();
 
