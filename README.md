@@ -97,3 +97,39 @@ Note that by including *FlowViz* at the end of the body, you speed up the initia
 By default, FlowViz does not create a legend. You can create a legend either by implementing your own legend by making 
 calls to the ConfigParser object or you can use the default legend implementation included with FlowViz by calling
 `this.Legend.Create('[legend-selector]');` in the `ready` callback.
+
+###Guidelines for Authoring FlowViz-Compliant SVG Images###
+
+SVG Images used in FlowViz must conform to several guidelines. First, all SVG images must be wrapped with a single <g>
+tag. For example:
+
+    <svg>
+        <g>
+            ...SVG Content Here...
+        </g>
+    </svg>
+
+Additionally, offsets sometime added by programs like Inkscape must be removed. This means that the content of the SVG
+should have coordinate (0,0) at the upper left corner of the rendered content. The easiest way to do this is to simply
+author your SVG images in Adobe Illustrator.
+
+Example of a *good* SVG:
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <svg version="1.1" id="Addition" 
+         xmlns="http://www.w3.org/2000/svg" 
+         xmlns:xlink="http://www.w3.org/1999/xlink" 
+         x="0px" y="0px"
+    	 viewBox="0 0 100 100" enable-background="new 0 0 100 100" 
+    	 xml:space="preserve">
+    	 
+        <g>
+            <circle fill="#FFFFFF" stroke="#FFFFFF" stroke-width="5" stroke-miterlimit="10" cx="50" cy="50" r="47"/>
+            <circle fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" cx="50" cy="50" r="47"/>
+            <rect x="45.5" y="17.5" width="8.9" height="65"/>
+            <rect x="17.5" y="45.5" width="65" height="9"/>
+        </g>
+        
+    </svg>
+    
+Example of a *bad* SVG:

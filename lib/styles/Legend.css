@@ -34,7 +34,7 @@
     margin-bottom: 20px;
 }
 
-.legend-btn:nth-of-type(2) {
+.legend-btn:nth-of-type(2), .legend-btn:nth-of-type(4) {
     margin-right: 20px;
 }
 
