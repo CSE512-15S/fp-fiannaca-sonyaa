@@ -1,0 +1,35 @@
+.data-editor {
+    display: none;
+    margin-top: 30px;
+}
+
+div.data-editor.node-selected {
+    display: block;
+}
+
+.data-item {
+    margin-bottom: 10px;
+}
+
+.data-item span {
+    display: block;
+    float: left;
+    width: 50%;
+}
+
+.data-item input {
+    display: block;
+    width: 50%;
+}
+
+.data-str-input {
+
+}
+
+.data-num-input {
+
+}
+
+.data-item-error {
+    border: solid red 2px;
+}
