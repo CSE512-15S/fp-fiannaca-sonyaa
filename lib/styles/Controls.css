@@ -1,12 +1,12 @@
-.legend-btn {
+.control-btn {
     width: calc(50% - 10px);
     margin-bottom: 10px;
 }
 
-.legend-btn:nth-of-type(2), .legend-btn:nth-of-type(4) {
+.control-btn:nth-of-type(2), .control-btn:nth-of-type(4) {
     margin-right: 20px;
 }
 
-button.legend-btn.save-graph {
+button.control-btn.save-graph {
     width: 100%;
 }

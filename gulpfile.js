@@ -354,6 +354,14 @@ gulp.task("demo-json", function() {
 });
 
 /**
+ * Copies any svg images in the app folder and copies it to the dist folder
+ */
+gulp.task("demo-svg", function() {
+    return gulp.src(DEMO_BASE + "**/*.svg")
+        .pipe(gulp.dest(DIST_BASE));
+});
+
+/**
  * Builds the demo test application
  */
 gulp.task("demo", function() {
@@ -361,7 +369,8 @@ gulp.task("demo", function() {
         'demo-styles',
         'demo-html',
         'demo-js',
-        'demo-json'
+        'demo-json',
+        'demo-svg'
     );
 });
 

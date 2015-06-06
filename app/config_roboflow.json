@@ -9,7 +9,7 @@
   "types": [{
     "type": "Start",
     "desc": "This is the start terminal",
-    "view": "<?xml version=\"1.0\" encoding=\"utf-8\"?> <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"   viewBox=\"0 0 100 50\" enable-background=\"new 0 0 100 50\" xml:space=\"preserve\"> <g>  <ellipse fill=\"#88C9FF\" stroke=\"#000000\" stroke-width=\"5\" stroke-miterlimit=\"10\" cx=\"50\" cy=\"25\" rx=\"47\" ry=\"22\"/>  <text transform=\"matrix(1.0293 0 0 1 22.3377 32.8541)\" font-family=\"'MyriadPro-Regular'\" font-size=\"27.7709\">Start</text> </g> </svg> ",
+    "view": "imgs/roboflow/start.svg",
     "width": 100,
     "height": 50,
     "padding": 20,
@@ -46,11 +46,11 @@
   },
   "subtypes": [{
     "type": "Success",
-    "view": "<?xml version=\"1.0\" encoding=\"utf-8\"?> <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"   viewBox=\"0 0 100 50\" enable-background=\"new 0 0 100 50\" xml:space=\"preserve\"> <g>  <ellipse fill=\"#00D45B\" stroke=\"#000000\" stroke-width=\"5\" stroke-miterlimit=\"10\" cx=\"50\" cy=\"25\" rx=\"47\" ry=\"22\"/>  <text transform=\"matrix(0.9646 0 0 1 15.7498 31.6311)\" font-family=\"'MyriadPro-Regular'\" font-size=\"22.275\">Success</text> </g> </svg> ",
+    "view": "imgs/roboflow/success.svg",
     "desc": "This is a success end-terminal"
   }, {
     "type": "Fail",
-    "view": "<?xml version=\"1.0\" encoding=\"utf-8\"?> <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"   viewBox=\"0 0 100 50\" enable-background=\"new 0 0 100 50\" xml:space=\"preserve\"> <g>  <ellipse fill=\"#FF6A6E\" stroke=\"#000000\" stroke-width=\"5\" stroke-miterlimit=\"10\" cx=\"50.5\" cy=\"25\" rx=\"47\" ry=\"22\"/>  <text transform=\"matrix(0.9474 0 0 1 36.4545 31.2415)\" font-family=\"'MyriadPro-Regular'\" font-size=\"21.3191\">Fail</text> </g> </svg> ",
+    "view": "imgs/roboflow/fail.svg",
     "desc": "This is a failure end-terminal"
   }] },
 
@@ -74,7 +74,7 @@
     "subtypes": [{
       "type": "Manipulation",
       "name": "Manipulation",
-      "view": "<?xml version=\"1.0\" encoding=\"utf-8\"?> <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"   viewBox=\"0 0 100 50\" enable-background=\"new 0 0 100 50\" xml:space=\"preserve\"> <g>  <rect x=\"3\" y=\"3\" fill=\"#FFFFFF\" stroke=\"#ED1C24\" stroke-width=\"5\" stroke-miterlimit=\"10\" width=\"94\" height=\"44\"/>  <text transform=\"matrix(0.8299 0 0 1 7.5703 30.7532)\" font-family=\"'MyriadPro-Regular'\" font-size=\"18.2128\">Manipulation</text> </g> </svg> ",
+      "view": "imgs/roboflow/manipulation.svg",
       "desc": "This makes the robot move its arms through a sequence of poses",
       "constraints": {
         "incoming": {
@@ -93,7 +93,7 @@
     },{
       "type": "Navigation",
       "name": "Navigation",
-      "view": "<?xml version=\"1.0\" encoding=\"utf-8\"?> <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"   viewBox=\"0 0 100 50\" enable-background=\"new 0 0 100 50\" xml:space=\"preserve\"> <g>  <rect x=\"3\" y=\"3\" fill=\"#FFFFFF\" stroke=\"#2E3192\" stroke-width=\"5\" stroke-miterlimit=\"10\" width=\"94\" height=\"44\"/>  <text transform=\"matrix(0.8299 0 0 1 15.3632 30.6312)\" font-family=\"'MyriadPro-Regular'\" font-size=\"18.2128\">Navigation</text> </g> </svg> ",
+      "view": "imgs/roboflow/navigation.svg",
       "desc": "This makes the robot navigate somewhere",
       "constraints": {
         "outgoing": {
@@ -106,7 +106,7 @@
     },{
       "type": "Procedure",
       "name": "Saved Procedure",
-      "view": "<?xml version=\"1.0\" encoding=\"utf-8\"?> <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"   viewBox=\"0 0 100 50\" enable-background=\"new 0 0 100 50\" xml:space=\"preserve\"> <g>  <rect x=\"3\" y=\"3\" fill=\"#FFFFFF\" stroke=\"#D9E021\" stroke-width=\"5\" stroke-miterlimit=\"10\" width=\"94\" height=\"44\"/>  <text transform=\"matrix(0.8299 0 0 1 32.1167 19.621)\"><tspan x=\"0\" y=\"0\" font-family=\"'MyriadPro-Regular'\" font-size=\"18.2128\">Saved</tspan><tspan x=\"-16.2\" y=\"21.9\" font-family=\"'MyriadPro-Regular'\" font-size=\"18.2128\">Procedure</tspan></text> </g> </svg> ",
+      "view": "imgs/roboflow/saved.svg",
       "desc": "This is a pre-recorded procedure",
       "constraints": {
         "outgoing": {
@@ -119,7 +119,7 @@
     },{
       "type": "Head movement",
       "name": "Head movement",
-      "view": "<?xml version=\"1.0\" encoding=\"utf-8\"?> <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"   viewBox=\"0 0 100 50\" enable-background=\"new 0 0 100 50\" xml:space=\"preserve\"> <g>  <rect x=\"3\" y=\"3\" fill=\"#FFFFFF\" stroke=\"#93278F\" stroke-width=\"5\" stroke-miterlimit=\"10\" width=\"94\" height=\"44\"/>  <text transform=\"matrix(0.8299 0 0 1 34.5506 19.5637)\"><tspan x=\"0\" y=\"0\" font-family=\"'MyriadPro-Regular'\" font-size=\"18.2128\">Head</tspan><tspan x=\"-21.5\" y=\"21.9\" font-family=\"'MyriadPro-Regular'\" font-size=\"18.2128\">Movement</tspan></text> </g> </svg> ",
+      "view": "imgs/roboflow/head.svg",
       "desc": "This makes the robot move its head",
       "constraints": {
         "outgoing": {
@@ -142,7 +142,7 @@
       "subtypes": [{
         "type": "Success",
         "name": "Success?",
-        "view": "<?xml version=\"1.0\" encoding=\"utf-8\"?> <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"   viewBox=\"0 0 100 50\" enable-background=\"new 0 0 100 50\" xml:space=\"preserve\"> <g>  <polygon fill=\"#FFFFFF\" stroke=\"#603813\" stroke-width=\"5\" stroke-miterlimit=\"10\" points=\"6,25 50,3 94,25 50,47  \"/>  <text transform=\"matrix(1.0165 0 0 1 28.0918 28.7455)\" font-family=\"'MyriadPro-Regular'\" font-size=\"12.0001\">Success?</text> </g> </svg> ",
+        "view": "imgs/roboflow/successQ.svg",
         "desc": "This checks if the operation executed successfully",
         "constraints": {
           "incoming": {
@@ -170,7 +170,7 @@
       "subtypes": [{
         "type": "Objects",
         "name": "Objects?",
-        "view": "<?xml version=\"1.0\" encoding=\"utf-8\"?> <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"   viewBox=\"0 0 100 50\" enable-background=\"new 0 0 100 50\" xml:space=\"preserve\"> <g>  <polygon fill=\"#FFFFFF\" stroke=\"#F7931E\" stroke-width=\"5\" stroke-miterlimit=\"10\" points=\"6,25 50,3 94,25 50,47  \"/>  <text transform=\"matrix(1.0165 0 0 1 28.0919 28.7327)\" font-family=\"'MyriadPro-Regular'\" font-size=\"12.0001\">Objects?</text> </g> </svg> ",
+        "view": "imgs/roboflow/objectsQ.svg",
         "desc": "This checks if the required objects are present",
         "constraints": {
           "incoming": {
@@ -195,7 +195,7 @@
       },{
         "type": "Reachable",
         "name": "Reachable?",
-        "view": "<?xml version=\"1.0\" encoding=\"utf-8\"?> <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"   viewBox=\"0 0 100 50\" enable-background=\"new 0 0 100 50\" xml:space=\"preserve\"> <g>  <polygon fill=\"#FFFFFF\" stroke=\"#F7931E\" stroke-width=\"5\" stroke-miterlimit=\"10\" points=\"6,25 50,3 94,25 50,47  \"/>  <text transform=\"matrix(1.0339 0 0 1 25.9738 28.3949)\" font-family=\"'MyriadPro-Regular'\" font-size=\"10.1267\">Reachable?</text> </g> </svg> ",
+        "view": "imgs/roboflow/reachableQ.svg",
         "desc": "This checks if the arm poses are reachable",
         "constraints": {
           "incoming": {
