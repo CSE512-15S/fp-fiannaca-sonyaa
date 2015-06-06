@@ -45,6 +45,14 @@ var App = new FlowViz.App('config_calculator.json', 'svg#InteractiveViz', {
                     this.ShowMessage(calculateResult(this.GraphManager.nodes));
                 }
             }
+        },
+
+        "node-data-changed": function(node, data, old) {
+            console.log('node changed');
+        },
+
+        "edge-data-changed": function(edge, data, old) {
+            console.log('edge changed');
         }
     },
 
