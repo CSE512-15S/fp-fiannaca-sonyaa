@@ -14,12 +14,12 @@ var App = new FlowViz.App('config_calculator.json', 'svg#InteractiveViz', {
 
             var nodes = [];
 
-            nodes.push(this.GraphManager.AddNode(types[0], 10, 310, false));
-            nodes.push(this.GraphManager.AddNode(types[0], 310, 10, false));
-            nodes.push(this.GraphManager.AddNode(types[4], 610, 310, false));
-            nodes.push(this.GraphManager.AddNode(types[0], 310, 10, false));
-            nodes.push(this.GraphManager.AddNode(types[2], 310, 610));
-            nodes.push(this.GraphManager.AddNode(types[5], 310, 610));
+            nodes.push(this.GraphManager.AddNode(types[0], 50, 50, false));
+            nodes.push(this.GraphManager.AddNode(types[0], 250, 50, false));
+            nodes.push(this.GraphManager.AddNode(types[4], 150, 250, false));
+            nodes.push(this.GraphManager.AddNode(types[0], 350, 250, false));
+            nodes.push(this.GraphManager.AddNode(types[2], 250, 450));
+            nodes.push(this.GraphManager.AddNode(types[5], 250, 650));
 
             nodes[0].SetDataItem('Value', 1);
             nodes[1].SetDataItem('Value', 2);
@@ -29,8 +29,8 @@ var App = new FlowViz.App('config_calculator.json', 'svg#InteractiveViz', {
 
             edges.push(this.GraphManager.AddEdge(nodes[0], nodes[2], this.FlowEdge.FORWARD, false));
             edges.push(this.GraphManager.AddEdge(nodes[1], nodes[2], this.FlowEdge.FORWARD, false));
-            edges.push(this.GraphManager.AddEdge(nodes[2], nodes[4], this.FlowEdge.FORWARD));
-            edges.push(this.GraphManager.AddEdge(nodes[3], nodes[4], this.FlowEdge.FORWARD));
+            edges.push(this.GraphManager.AddEdge(nodes[2], nodes[4], this.FlowEdge.FORWARD, false));
+            edges.push(this.GraphManager.AddEdge(nodes[3], nodes[4], this.FlowEdge.FORWARD, false));
             edges.push(this.GraphManager.AddEdge(nodes[4], nodes[5], this.FlowEdge.FORWARD));
 
             edges[0].SetDataItem('Order', 1);
@@ -39,9 +39,8 @@ var App = new FlowViz.App('config_calculator.json', 'svg#InteractiveViz', {
             edges[3].SetDataItem('Order', 1);
         },
 
-        "selection-changed": function() {
-            var node = this.Selection.Current;
-            if (node.type.name === "Output") {
+        "selection-changed": function(node) {
+            if (node !== null && node.type.name === "Output") {
                 if (this.ConstraintChecker.IsValidGraph(this.GraphManager.nodes, this.GraphManager.edges)) {
                     this.ShowMessage(calculateResult(this.GraphManager.nodes));
                 }
