@@ -33,10 +33,11 @@
   "padding": 20,
   "constraints": {
     "incoming": {
-      "range": [1,1],
+      "range": [1,99],
       "types": {
-        "Operations.*": [0,1],
-        "Postconditions.*": [0,1]
+        "Operations.*": [0,99],
+        "Postconditions.*": [0,99],
+        "Preconditions.*": [0,99]
       }
     },
     "outgoing": {
@@ -59,6 +60,17 @@
     "width": 100,
     "height": 50,
     "padding": 20,
+    "constraints": {
+      "incoming": {
+        "range": [1,99],
+        "types": {
+          "Start": [0,1],
+          "Operations.*": [0,99],
+          "Postconditions.*": [0,99],
+          "Preconditions.*": [0,99]
+        }
+      }
+    },
     "subtypes": [{
       "type": "Manipulation",
       "name": "Manipulation",
@@ -84,14 +96,6 @@
       "view": "<?xml version=\"1.0\" encoding=\"utf-8\"?> <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"   viewBox=\"0 0 100 50\" enable-background=\"new 0 0 100 50\" xml:space=\"preserve\"> <g>  <rect x=\"3\" y=\"3\" fill=\"#FFFFFF\" stroke=\"#2E3192\" stroke-width=\"5\" stroke-miterlimit=\"10\" width=\"94\" height=\"44\"/>  <text transform=\"matrix(0.8299 0 0 1 15.3632 30.6312)\" font-family=\"'MyriadPro-Regular'\" font-size=\"18.2128\">Navigation</text> </g> </svg> ",
       "desc": "This makes the robot navigate somewhere",
       "constraints": {
-        "incoming": {
-          "range": [1,1],
-          "types": {
-            "Start": [0,1],
-            "Operations.*": [0,1],
-            "Postconditions.*": [0,1]
-          }
-        },
         "outgoing": {
           "range": [1,1],
           "types": {
@@ -105,14 +109,6 @@
       "view": "<?xml version=\"1.0\" encoding=\"utf-8\"?> <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"   viewBox=\"0 0 100 50\" enable-background=\"new 0 0 100 50\" xml:space=\"preserve\"> <g>  <rect x=\"3\" y=\"3\" fill=\"#FFFFFF\" stroke=\"#D9E021\" stroke-width=\"5\" stroke-miterlimit=\"10\" width=\"94\" height=\"44\"/>  <text transform=\"matrix(0.8299 0 0 1 32.1167 19.621)\"><tspan x=\"0\" y=\"0\" font-family=\"'MyriadPro-Regular'\" font-size=\"18.2128\">Saved</tspan><tspan x=\"-16.2\" y=\"21.9\" font-family=\"'MyriadPro-Regular'\" font-size=\"18.2128\">Procedure</tspan></text> </g> </svg> ",
       "desc": "This is a pre-recorded procedure",
       "constraints": {
-        "incoming": {
-          "range": [1,1],
-          "types": {
-            "Start": [0,1],
-            "Operations.*": [0,1],
-            "Postconditions.*": [0,1]
-          }
-        },
         "outgoing": {
           "range": [1,1],
           "types": {
@@ -126,14 +122,6 @@
       "view": "<?xml version=\"1.0\" encoding=\"utf-8\"?> <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"   viewBox=\"0 0 100 50\" enable-background=\"new 0 0 100 50\" xml:space=\"preserve\"> <g>  <rect x=\"3\" y=\"3\" fill=\"#FFFFFF\" stroke=\"#93278F\" stroke-width=\"5\" stroke-miterlimit=\"10\" width=\"94\" height=\"44\"/>  <text transform=\"matrix(0.8299 0 0 1 34.5506 19.5637)\"><tspan x=\"0\" y=\"0\" font-family=\"'MyriadPro-Regular'\" font-size=\"18.2128\">Head</tspan><tspan x=\"-21.5\" y=\"21.9\" font-family=\"'MyriadPro-Regular'\" font-size=\"18.2128\">Movement</tspan></text> </g> </svg> ",
       "desc": "This makes the robot move its head",
       "constraints": {
-        "incoming": {
-          "range": [1,1],
-          "types": {
-            "Start": [0,1],
-            "Operations.*": [0,1],
-            "Postconditions.*": [0,1]
-          }
-        },
         "outgoing": {
           "range": [1,1],
           "types": {
@@ -186,7 +174,7 @@
         "desc": "This checks if the required objects are present",
         "constraints": {
           "incoming": {
-            "range": [1,1],
+            "range": [1,99],
             "types": {
               "Start": [0,1],
               "Postconditions.*": [0,1],
