@@ -9,6 +9,27 @@ var App = new FlowViz.App('config_calculator.json', 'svg#InteractiveViz', {
             this.Controls.Create('div#LeftSidebar');
             this.Legend.Create('div#LeftSidebar');
             this.DataEditor.Create('div#LeftSidebar');
+
+            var types = this.Config.getLeafNodesTypes();
+
+            var nodes = [];
+
+            nodes.push(this.GraphManager.AddNode(types[0], 10, 310, false));
+            nodes.push(this.GraphManager.AddNode(types[0], 310, 10, false));
+            nodes.push(this.GraphManager.AddNode(types[3], 610, 310, false));
+            nodes.push(this.GraphManager.AddNode(types[5], 310, 610));
+
+            nodes[0].SetDataItem('Value', 1);
+            nodes[1].SetDataItem('Value', 2);
+
+            var edges = [];
+
+            edges.push(this.GraphManager.AddEdge(nodes[0], nodes[2], this.FlowEdge.FORWARD, false));
+            edges.push(this.GraphManager.AddEdge(nodes[1], nodes[2], this.FlowEdge.FORWARD, false));
+            edges.push(this.GraphManager.AddEdge(nodes[2], nodes[3], this.FlowEdge.FORWARD));
+
+            edges[0].SetDataItem('Order', 1);
+            edges[1].SetDataItem('Order', 2);
         },
 
         "selection-changed": function() {
@@ -18,6 +39,12 @@ var App = new FlowViz.App('config_calculator.json', 'svg#InteractiveViz', {
                     this.ShowMessage(calculateResult(this.GraphManager.nodes));
                 }
             }
+        }
+    },
+
+    DataValidation: {
+        NumberIsOneOrTwo: function(oldValue, newValue) {
+            return newValue === 1 || newValue === 2;
         }
     }
 });
@@ -33,8 +60,10 @@ function calculateResult(nodes) {
         }
         console.log(ts[i].type.type);
         var value = 0;
-        if (ts[i].getIncomingEdges().length > 0) {
-            value = compute(ts[i]);
+        var incoming = ts[i].getIncomingEdges();
+        if (incoming.length > 0) {
+            var order = incoming[0].GetDataItemValue("Order");
+            value = compute(ts[i], order);
         } else {
             value = ts[i].GetDataItemValue('Value');
         }
@@ -43,15 +72,24 @@ function calculateResult(nodes) {
     return null;
 }
 
-function compute(node) {
+function compute(node, order) {
     if (node.type.name === "Addition") {
         return node.input[0] + node.input[1];
     } else if (node.type.name === "Subtraction") {
-        return node.input[0] - node.input[1];
+        console.log(order);
+        if(order === 1) {
+            return node.input[1] - node.input[0];
+        } else {
+            return node.input[0] - node.input[1];
+        }
     } else if (node.type.name === "Multiplication") {
         return node.input[0] * node.input[1];
     } else if (node.type.name === "Division") {
-        return node.input[0] / node.input[1];
+        if(order === 1) {
+            return node.input[1] / node.input[0];
+        } else {
+            return node.input[0] / node.input[1];
+        }
     }
 }
 
