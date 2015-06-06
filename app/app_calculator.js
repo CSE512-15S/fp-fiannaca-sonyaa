@@ -49,10 +49,37 @@ var App = new FlowViz.App('config_calculator.json', 'svg#InteractiveViz', {
 
         "node-data-changed": function(node, data, old) {
             console.log('node changed');
+            d3.selectAll('.flow-node')
+                .each(function(d) {
+                    if(d === node) {
+                        d3.select(this)
+                            .select('.node-svg text')
+                            .attr('x', node.type.width / 2)
+                            .attr('y', node.type.height / 2 + 15)
+                            .attr('transform', '')
+                            .attr('font-size', '60px')
+                            .attr("fill", "blue")
+                            .attr('text-anchor', 'middle')
+                            .text("" + data.value);
+                    }
+                });
         },
 
-        "edge-data-changed": function(edge, data, old) {
-            console.log('edge changed');
+        "renderer-redrawn": function(edge, data, old) {
+            d3.selectAll('.flow-node')
+                .each(function(d) {
+                    if(d.type.type === "Terminals.Number") {
+                        d3.select(this)
+                            .select('.node-svg text')
+                            .attr('x', d.type.width / 2)
+                            .attr('y', d.type.height / 2 + 15)
+                            .attr('transform', '')
+                            .attr('font-size', '60px')
+                            .attr("fill", "blue")
+                            .attr('text-anchor', 'middle')
+                            .text("" + d.DataItems['Value'].value);
+                    }
+                });
         }
     },
 
