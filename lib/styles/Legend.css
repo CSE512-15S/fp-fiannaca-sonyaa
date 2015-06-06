@@ -9,8 +9,8 @@
 }
 
 .legend-item svg {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     float: left;
     margin-right: 10px;
     cursor: pointer;
@@ -18,26 +18,14 @@
 
 .legend-item .item-info {
     float: left;
+    width: calc(100% - 70px);
 }
 
-.legend-item .item-info h3 {
+.legend-item .item-info h4 {
     margin-top: 0;
 }
 
 #drag-stub {
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
-}
-
-.legend-btn {
-    width: calc(50% - 10px);
-    margin-bottom: 20px;
-}
-
-.legend-btn:nth-of-type(2), .legend-btn:nth-of-type(4) {
-    margin-right: 20px;
-}
-
-button.legend-btn.save-graph {
-    width: 100%;
 }

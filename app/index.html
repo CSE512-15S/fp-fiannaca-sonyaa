@@ -13,19 +13,19 @@
 
     <style>
         html, body, .container-full {
-            height: 100%;
             font-family: 'Roboto', sans-serif;
         }
 
-        .container-full > svg {
-            height: 100%;
-            padding-top: 10px;
+        .container-full {
+            display: flex;
+            flex-direction: row;
+            min-height: 100vh;
         }
 
         #LeftSidebar {
-            height: 100%;
+            flex: 3;
             background-color: #F1F1F1;
-            overflow-y: scroll;
+            padding: 10px;
         }
 
         #LeftSidebar h1 {
@@ -34,6 +34,7 @@
         }
 
         #InteractiveViz {
+            flex: 9;
             padding: 0;
         }
     </style>
@@ -41,8 +42,8 @@
 <body>
 
     <div class="container-full">
-        <div id="LeftSidebar" class="col-md-3"></div>
-        <svg id="InteractiveViz"  class="col-md-9"></svg>
+        <div id="LeftSidebar"></div>
+        <svg id="InteractiveViz"></svg>
     </div>
 
     <script src="./scripts/FlowViz.min.js"></script>
