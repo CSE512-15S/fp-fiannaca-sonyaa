@@ -48,7 +48,22 @@ var App = new FlowViz.App('config.json', 'svg#InteractiveViz', {
 
             App.FlowViz.Interactions.RunSuper("Node", "click", this, d, i);
 
-            console.log("Test is Working");
+            console.log("Interaction Override Test is Working!");
+        },
+
+        enter: function(d) {
+            d3.select(this)
+                .append('text')
+                .attr('id', 'tooltip')
+                .attr('x', 0)
+                .attr('y', -10)
+                .attr('font-size', '20px')
+                .text(d.type.name);
+
+        },
+
+        leave: function(d, i) {
+            d3.select('#tooltip').remove();
         }
     }
 });

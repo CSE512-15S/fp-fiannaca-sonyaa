@@ -7,10 +7,16 @@
     "layout": "horizontal"
   },
   "interactions": {
-    "Node": {
+    "Node": [{
       "event": "click",
       "function": "test"
-    }
+    },{
+      "event": "mouseenter",
+      "function": "enter"
+    },{
+      "event": "mouseleave",
+      "function": "leave"
+    }]
   },
   "types": [{
     "type": "InputDevices",
