@@ -27,6 +27,18 @@ will be able to navigate to `localhost:9000/` to view the MapAll example, `local
 Calculator example, or `localhost:9000/roboflow.html` to view the RoboFlow example. If you wish to build the library
 from scratch, see the instructions below in the **[Notes for Contributors](https://github.com/CSE512-15S/fp-fiannaca-sonyaa#notes-for-contributors)** section.
 
+###Getting the *FlowViz* Library###
+
+**Version 0.1:** [flowviz.zip](https://github.com/CSE512-15S/fp-fiannaca-sonyaa/raw/master/release/flowviz-0.1.zip)
+
+This is a link to the current production build. This zip folder contains the following files which must be included in 
+order to use FlowViz:
+
+* flowviz.min.js
+* common.min.js
+* flowviz.css
+* bootstrap.min.css
+
 ###Using *FlowViz* in an VPL App###
 
 Include *FlowViz* and the common includes into your html file like this:
