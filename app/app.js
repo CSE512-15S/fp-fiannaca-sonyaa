@@ -39,6 +39,16 @@ var App = new FlowViz.App('config.json', 'svg#InteractiveViz', {
     },
 
     Interactions: {
+        test: function(d, i) {
+            if(App.FlowViz.Selection.Current !== null) {
+                d3.event.stopPropagation();
+            }
 
+            if (d3.event.defaultPrevented) return;
+
+            App.FlowViz.Interactions.RunSuper("Node", "click", this, d, i);
+
+            console.log("Test is Working");
+        }
     }
 });

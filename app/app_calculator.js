@@ -27,11 +27,11 @@ var App = new FlowViz.App('config_calculator.json', 'svg#InteractiveViz', {
 
             var edges = [];
 
-            edges.push(this.GraphManager.AddEdge(nodes[0], nodes[2], this.FlowEdge.FORWARD, false));
-            edges.push(this.GraphManager.AddEdge(nodes[1], nodes[2], this.FlowEdge.FORWARD, false));
-            edges.push(this.GraphManager.AddEdge(nodes[2], nodes[4], this.FlowEdge.FORWARD, false));
-            edges.push(this.GraphManager.AddEdge(nodes[3], nodes[4], this.FlowEdge.FORWARD, false));
-            edges.push(this.GraphManager.AddEdge(nodes[4], nodes[5], this.FlowEdge.FORWARD));
+            edges.push(this.GraphManager.AddEdge(nodes[0], nodes[2], this.FlowEdge.STD, false));
+            edges.push(this.GraphManager.AddEdge(nodes[1], nodes[2], this.FlowEdge.STD, false));
+            edges.push(this.GraphManager.AddEdge(nodes[2], nodes[4], this.FlowEdge.STD, false));
+            edges.push(this.GraphManager.AddEdge(nodes[3], nodes[4], this.FlowEdge.STD, false));
+            edges.push(this.GraphManager.AddEdge(nodes[4], nodes[5], this.FlowEdge.STD));
 
             edges[0].SetDataItem('Order', 1);
             edges[1].SetDataItem('Order', 2);

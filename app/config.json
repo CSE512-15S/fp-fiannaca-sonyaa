@@ -6,6 +6,12 @@
     "arrowWidth": 6,
     "layout": "horizontal"
   },
+  "interactions": {
+    "Node": {
+      "event": "click",
+      "function": "test"
+    }
+  },
   "types": [{
     "type": "InputDevices",
     "desc": "This is the class of all input devices",
