@@ -2,10 +2,30 @@
 
 Sonya Alexandrova (sonyaa@cs.uw.edu) and Alex Fiannaca (fiannaca@cs.uw.edu)
 
-FlowViz is a library for creating interactive data flow (flow chart) interfaces.  *FlowViz* is designed to make it easy to
-create a system that allows end users to develop flow charts based on a set of constraints over the available types of
-nodes. This specifically is targeted at allowing for the development of end-user programming systems in which the 
-"programming language" consists of a series of interconnected nodes.
+**Statement of Contributions:** Both authors contributed to major aspects of this project. Sonya was responsible for 
+developing the Constraint Checking module, the Graph Manager module, the Layout module, and the RoboFlow and Calculator 
+example apps. Alex was responsible for the high-level design of the library, the Config Parser module, the add-on 
+modules, the Interactions module, the Renderer module, and the MapAll example app. Our development process was pretty 
+straight-forward. We simply assigned ourselves modules to develop and had meetings about every other day to discuss 
+issues and progress.
+
+**\[Summary Image Here\]**
+
+**Abstract:** FlowViz is a library for creating interactive visual programming language IDE's.  *FlowViz* is designed to make it easy 
+for developers to create new visual programming languages (VPL). FlowViz handles the internals of managing the visual language 
+graph, only requiring developers to specify the types of nodes and constraints between nodes in their VPL. This 
+specifically is targeted at allowing for the development of end-user programming systems in which the "programming 
+language" consists of a series of interconnected nodes.
+
+**Paper:**
+
+**Poster:** [download](https://github.com/CSE512-15S/fp-fiannaca-sonyaa/raw/master/final/poster-fiannaca-sonyaa.pdf),
+
+**Running Instructions:** Go to our GitHub Pages site to see all examples running or, clone the `ghpages` branch to your
+local machine, `cd` into the directory for the repository, and run `python -m SimpleHTTPServer 9000`. After this, you 
+will be able to navigate to `localhost:9000/` to view the MapAll example, `localhost:9000/calculator.html` to view the
+Calculator example, or `localhost:9000/roboflow.html` to view the RoboFlow example. If you wish to build the library
+from scratch, see the instructions below in the **Notes for Contributors** section.
 
 ###Using *FlowViz* in an VPL App###
 
