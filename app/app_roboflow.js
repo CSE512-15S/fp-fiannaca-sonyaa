@@ -14,9 +14,5 @@ var App = new FlowViz.App('config_roboflow.json', 'svg#InteractiveViz', {
         "node-added": function() {
             this.ShowMessage("Node added!");
         }
-    },
-
-    Interactions: {
-
     }
 });
