@@ -86,9 +86,10 @@ Note that by including *FlowViz* at the end of the body, you speed up the initia
     
     });
 
-By default, FlowViz does not create a legend. You can create a legend either by implementing your own legend by making 
-calls to the ConfigParser object or you can use the default legend implementation included with FlowViz by calling
-`this.Legend.Create('[legend-selector]');` in the `ready` callback.
+By default, FlowViz does not create a legend, controls, or a data-editor. You can create these either by implementing 
+your own versions by making calls to the ConfigParser, GraphManager, etc., or you can use the default add-on
+implementations included with FlowViz by calling factory methods like `this.Legend.Create('[legend-selector]');` in the 
+`flowviz-ready` callback.
 
 ###Guidelines for Authoring FlowViz-Compliant SVG Images###
 
