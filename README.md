@@ -19,13 +19,13 @@ language" consists of a series of interconnected nodes.
 
 **Paper:**
 
-**Poster:** [download](https://github.com/CSE512-15S/fp-fiannaca-sonyaa/raw/master/final/poster-fiannaca-sonyaa.pdf),
+**Poster:** [download](https://github.com/CSE512-15S/fp-fiannaca-sonyaa/raw/master/final/poster-fiannaca-sonyaa.pdf)
 
 **Running Instructions:** Go to our GitHub Pages site to see all examples running or, clone the `ghpages` branch to your
 local machine, `cd` into the directory for the repository, and run `python -m SimpleHTTPServer 9000`. After this, you 
 will be able to navigate to `localhost:9000/` to view the MapAll example, `localhost:9000/calculator.html` to view the
 Calculator example, or `localhost:9000/roboflow.html` to view the RoboFlow example. If you wish to build the library
-from scratch, see the instructions below in the **Notes for Contributors** section.
+from scratch, see the instructions below in the **[Notes for Contributors](https://github.com/CSE512-15S/fp-fiannaca-sonyaa#notes-for-contributors)** section.
 
 ###Using *FlowViz* in an VPL App###
 
