@@ -226,33 +226,33 @@ An example *interactions* section could look like this:
 **types**: This is the most critical section of the configuration file. This section allows you to create a type 
 hierarchy. *types* is a list of objects containing the following properties:
 
-**{}.type**:
+**types[*i*].type**:
 
-**{}.desc**:
+**types[*i*].desc**:
 
-**{}.name**:
+**types[*i*].name**:
 
-**{}.width**:
+**types[*i*].width**:
 
-**{}.height**:
+**types[*i*].height**:
 
-**{}.padding**:
+**types[*i*].padding**:
 
-**{}.nodeData**:
+**types[*i*].nodeData**:
 
-  **{key}.desc**:
+**types[*i*].nodeData[*key*].desc**:
 
-  **{key}.type**:
+**types[*i*].nodeData[*key*].type**:
 
-  **{key}.value**:
+**types[*i*].nodeData[*key*].value**:
   
-**{}.constraints**:
+**types[*i*].constraints**:
 
-  **{incoming|outgoing}.range**:
+**types\[*i*\].constraints\[*"incoming"*|*"outgoing"*\].range**:
 
-  **{incoming|outgoing}.types**:
+**types\[*i*\].constraints\[*"incoming"*|*"outgoing"*\].types**:
 
-**{}.subtypes**:
+**types\[*i*\].subtypes**:
 
 
 ##Notes for Contributors##
