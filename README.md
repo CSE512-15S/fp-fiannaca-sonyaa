@@ -6,7 +6,8 @@ Sonya Alexandrova (sonyaa@cs.uw.edu) and Alex Fiannaca (fiannaca@cs.uw.edu)
 
 ![summary image](https://github.com/CSE512-15S/fp-fiannaca-sonyaa/raw/master/assets/summary.png)
 
-**Abstract:** FlowViz is a library for creating interactive visual programming language IDE's.  *FlowViz* is designed to make it easy 
+**Abstract:** FlowViz is a library which supports the development of visual programming languages by handling all of the
+low level visualization and language graph details for you. *FlowViz* is designed to make it easy 
 for developers to create new visual programming languages (VPL). FlowViz handles the internals of managing the visual language 
 graph, only requiring developers to specify the types of nodes and constraints between nodes in their VPL. This 
 specifically is targeted at allowing for the development of end-user programming systems in which the "programming 
@@ -21,8 +22,10 @@ language" consists of a series of interconnected nodes.
 [RoboFlow](http://cse512-15s.github.io/fp-fiannaca-sonyaa/roboflow.html)) locally, clone the `ghpages` branch to your
 local machine, `cd` into the directory for the repository, and run `python -m SimpleHTTPServer 9000`. After this, you 
 will be able to navigate to `localhost:9000/` to view the MapAll example, `localhost:9000/calculator.html` to view the
-Calculator example, or `localhost:9000/roboflow.html` to view the RoboFlow example. If you wish to build the library
-from scratch, see the instructions below in the **[Notes for Contributors](https://github.com/CSE512-15S/fp-fiannaca-sonyaa#notes-for-contributors)** section.
+Calculator example, or `localhost:9000/roboflow.html` to view the RoboFlow example. 
+
+**Building from Source:** If you wish to build the library from scratch, see the instructions below in the 
+**[Notes for Contributors](https://github.com/CSE512-15S/fp-fiannaca-sonyaa#notes-for-contributors)** section.
 
 **Statement of Contributions:** Both authors contributed to major aspects of this project. Sonya was responsible for 
 developing the Constraint Checking module, the Graph Manager module, the Layout module, and the RoboFlow and Calculator 
