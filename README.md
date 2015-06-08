@@ -20,9 +20,7 @@ systems in which the "programming language" consists of a series of interconnect
 
 **Poster:** [download](https://github.com/CSE512-15S/fp-fiannaca-sonyaa/raw/master/final/poster-fiannaca-sonyaa.pdf)
 
-**Running Instructions:** To run our examples ([MapAll](http://cse512-15s.github.io/fp-fiannaca-sonyaa/mapall.html),
-[Calculator](http://cse512-15s.github.io/fp-fiannaca-sonyaa/calculator.html), 
-[RoboFlow](http://cse512-15s.github.io/fp-fiannaca-sonyaa/roboflow.html)) locally, clone the `ghpages` branch to your
+**Running Instructions:** To run our examples ([MapAll](http://cse512-15s.github.io/fp-fiannaca-sonyaa/mapall.html), [Calculator](http://cse512-15s.github.io/fp-fiannaca-sonyaa/calculator.html), [RoboFlow](http://cse512-15s.github.io/fp-fiannaca-sonyaa/roboflow.html)) locally, clone the `gh-pages` branch to your
 local machine, `cd` into the directory for the repository, and run `python -m SimpleHTTPServer 9000`. After this, you 
 will be able to navigate to `localhost:9000/` to view the MapAll example, `localhost:9000/calculator.html` to view the
 Calculator example, or `localhost:9000/roboflow.html` to view the RoboFlow example. 
@@ -38,6 +36,20 @@ contributed to by both Alex and Sonya. In order to complete this rather large pr
 had available to us, we followed a very connected development process. We started by discussing high-level design 
 concepts for the library, subdividing the tasks into modules which we could work on independently, and then using GitHub
 issues to discuss issues/conflicts in the design as the implementation progressed. We met about every other day on average.
+
+###Demos!
+**[MapAll](http://cse512-15s.github.io/fp-fiannaca-sonyaa/mapall.html):** [(HTML)](https://raw.githubusercontent.com/CSE512-15S/fp-fiannaca-sonyaa/master/app/index.html) [(JS)](https://raw.githubusercontent.com/CSE512-15S/fp-fiannaca-sonyaa/master/app/app.js) This
+demo shows a language which is used for specifying transformations on input from HID devices to system actions. This demo shows how custom interactions can be
+added to the default set of interactions.
+
+**[Calculator](http://cse512-15s.github.io/fp-fiannaca-sonyaa/calculator.html):** This demo is a classic example created
+in many compiler classes: a simple calculator. This demonstrates how event callbacks can be used to add application
+specific logic to FlowViz-based VPL editors (the text displayed on nodes changes as node data is updated and the
+calculation graph is evaluated when the output operator is clicked).
+
+**[RoboFlow](http://cse512-15s.github.io/fp-fiannaca-sonyaa/roboflow.html):** Finally, this demo shows the benefit of
+having the auto-suggest feature when there are a broad range of tokens (node types) in a VPL created with FlowViz. Using
+the auto-suggest feature makes it quick and easy to build out programs to run on a real-world robot.
 
 ###Getting the *FlowViz* Library
 
