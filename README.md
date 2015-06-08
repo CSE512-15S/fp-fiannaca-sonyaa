@@ -99,7 +99,11 @@ Include *FlowViz* and the common includes into your html file like this:
 
 Note that by including *FlowViz* at the end of the body, you speed up the initial rendering time of your application.
 
-`app.js` should simply call the `FlowViz.App()` and implement any callbacks which you want to listen for:
+In order to create your VPL, you need to provide *FlowViz* with a configuration file. See the **Configuration** section 
+below for a complete description of the possible properties in the FlowViz configuration file.
+
+Finally, you need to create an instance of the `FlowViz.App` type. Create `app.js`, which should simply call the 
+`FlowViz.App()` constructor and implement any callbacks which you want to listen for:
 
     var App = new FlowViz.App('config.json', 'svg#InteractiveViz', {
     
@@ -179,6 +183,19 @@ Example of a *bad* SVG:
 
 This is an example of a bad SVG because it's top level `<g>` tag has a translation on it indicating that it's upper-left
 corner is not at (0,0). This is the type of SVG that Inkscape will generate by default.
+
+##Configuration## 
+
+###Properties###
+
+**name**: (*required*) {string} The name of your VPL app.
+
+**display.messages**:
+**display.draggable**:
+**display.scale**:
+**display.arrowHeight**:
+**display.arrowHeight**:
+**display.layout**: {"vertical"|"horizontal"}
 
 ##Notes for Contributors##
 ###Repo Structure###
