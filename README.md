@@ -99,7 +99,8 @@ Include *FlowViz* and the common includes into your html file like this:
 
 Note that by including *FlowViz* at the end of the body, you speed up the initial rendering time of your application.
 
-In order to create your VPL, you need to provide *FlowViz* with a configuration file. See the **Configuration** section 
+In order to create your VPL, you need to provide *FlowViz* with a configuration file. See the 
+**(Configuration)[https://github.com/CSE512-15S/fp-fiannaca-sonyaa#configuration]** section 
 below for a complete description of the possible properties in the FlowViz configuration file.
 
 Finally, you need to create an instance of the `FlowViz.App` type. Create `app.js`, which should simply call the 
@@ -186,16 +187,73 @@ corner is not at (0,0). This is the type of SVG that Inkscape will generate by d
 
 ##Configuration## 
 
+This is a complete description of all of the possible properties which can be set in the 
 ###Properties###
 
 **name**: (*required*) {string} The name of your VPL app.
 
 **display.messages**:
+
 **display.draggable**:
+
 **display.scale**:
+
 **display.arrowHeight**:
+
 **display.arrowHeight**:
+
 **display.layout**: {"vertical"|"horizontal"}
+
+**interactions**: This should be an object where each key is a FlowViz interaction (currently: "Node", "Drag", "EdgeRegion",
+"NewEdge", "CreateEdge") and the values of each should be an array of objects of this form:
+
+    {
+      "event": "[some DOM event]",
+      "function": "[the name of an event function you implemented in app.js]"
+    }
+
+An example *interactions* section could look like this:
+
+    "interactions": {
+      "Node": [{
+        "event": "click",
+        "function": "myCustomClickHandler"
+      }]
+    }
+
+**edgeData**:
+
+**types**: This is the most critical section of the configuration file. This section allows you to create a type 
+hierarchy. *types* is a list of objects containing the following properties:
+
+**{}.type**:
+
+**{}.desc**:
+
+**{}.name**:
+
+**{}.width**:
+
+**{}.height**:
+
+**{}.padding**:
+
+**{}.nodeData**:
+
+  **{key}.desc**:
+
+  **{key}.type**:
+
+  **{key}.value**:
+  
+**{}.constraints**:
+
+  **{incoming|outgoing}.range**:
+
+  **{incoming|outgoing}.types**:
+
+**{}.subtypes**:
+
 
 ##Notes for Contributors##
 ###Repo Structure###
