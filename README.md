@@ -99,8 +99,7 @@ Include *FlowViz* and the common includes into your html file like this:
 
 Note that by including *FlowViz* at the end of the body, you speed up the initial rendering time of your application.
 
-In order to create your VPL, you need to provide *FlowViz* with a configuration file. See the 
-**(Configuration)[https://github.com/CSE512-15S/fp-fiannaca-sonyaa#configuration]** section 
+In order to create your VPL, you need to provide *FlowViz* with a configuration file. See the **(Configuration)[https://github.com/CSE512-15S/fp-fiannaca-sonyaa#configuration]** section 
 below for a complete description of the possible properties in the FlowViz configuration file.
 
 Finally, you need to create an instance of the `FlowViz.App` type. Create `app.js`, which should simply call the 
