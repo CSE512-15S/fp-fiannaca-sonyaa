@@ -6,12 +6,15 @@ Sonya Alexandrova (sonyaa@cs.uw.edu) and Alex Fiannaca (fiannaca@cs.uw.edu)
 
 ![summary image](https://github.com/CSE512-15S/fp-fiannaca-sonyaa/raw/master/assets/summary.png)
 
-**Abstract:** FlowViz is a library which supports the development of visual programming languages by handling all of the
-low level visualization and language graph details for you. *FlowViz* is designed to make it easy 
-for developers to create new visual programming languages (VPL). FlowViz handles the internals of managing the visual language 
-graph, only requiring developers to specify the types of nodes and constraints between nodes in their VPL. This 
-specifically is targeted at allowing for the development of end-user programming systems in which the "programming 
-language" consists of a series of interconnected nodes.
+**Abstract:** Developing a flow-based visual programming language (VPL) is a tedious task due to the fact that it requires
+writing a large amount of code for simply rendering programs to the screen on top of the code for managing the syntax
+of the language. While a large number of VPL's exist (e.g. [Scratch]()), there are no existing toolkits for the 
+development of new VPL's; meaning that developers of these languages are re-writing boiler-plate rendering and syntax
+management code. To address this issue, we present *FlowViz*, a library which supports the development of VPL's by 
+handling all of the low level visualization and language graph details by default. *FlowViz* handles the internals of 
+managing the visual language graph, only requiring developers to specify the types of nodes and constraints between nodes 
+in their VPL. Being targeted at flow-based VPL's, this specifically enables the development of end-user programming 
+systems in which the "programming language" consists of a series of interconnected nodes.
 
 **Paper:**
 
