@@ -128,6 +128,82 @@ your own versions by making calls to the ConfigParser, GraphManager, etc., or yo
 implementations included with FlowViz by calling factory methods like `this.Legend.Create('[legend-selector]');` in the 
 `flowviz-ready` callback.
 
+##Configuration## 
+
+This is a complete description of all of the possible properties which can be set in the 
+###Properties###
+
+**name**: (*required*) {string} The name of your VPL app.
+
+**display.messages**:
+
+**display.draggable**:
+
+**display.scale**:
+
+**display.arrowHeight**:
+
+**display.arrowHeight**:
+
+**display.layout**: {"vertical"|"horizontal"}
+
+**interactions**: This should be an object where each key is a FlowViz interaction (currently: "Node", "Drag", "EdgeRegion",
+"NewEdge", "CreateEdge") and the values of each should be an array of objects of this form:
+
+    {
+      "event": "[some DOM event]",
+      "function": "[the name of an event function you implemented in app.js]"
+    }
+
+An example *interactions* section could look like this:
+
+    "interactions": {
+      "Node": [{
+        "event": "click",
+        "function": "myCustomClickHandler"
+      }]
+    }
+
+**edgeData**:
+
+**types**: This is the most critical section of the configuration file. This section allows you to create a type 
+hierarchy. *types* is a list of objects containing the following properties:
+
+**types[** *i* **].type**: (*required*) {string} A name for this type. Do not use whitespace!
+
+**types[** *i* **].desc**: {string} A description for this node type.
+
+**types[** *i* **].name**: {string} A human-readable name for this node type. This is defaulted to be the same as the 
+`type` property above.
+
+**types[** *i* **].view**: {URL | Inline SVG} SVG content for displaying a node. See (below)[https://github.com/CSE512-15S/fp-fiannaca-sonyaa#guidelines-for-authoring-flowviz-compliant-svg-images]
+
+**types[** *i* **].width**: {number} This is the width of the SVG source without scaling
+
+**types[** *i* **].height**: {number} This is the height of the SVG source without scaling
+
+**types[** *i* **].padding**: {number} This is the amount of padding that should be applied around a point of connection
+on the node (where an edge connects to the node).
+
+**types[** *i* **].nodeData**: This object contains a list of data items that should be attached to all nodes of this
+type.
+
+**types[** *i* **].nodeData[** *key* **].desc**: {string} A description of what this data item represents.
+
+**types[** *i* **].nodeData[** *key* **].type**: (*required*) {string} The javascript type for the data item (object, number, etc.)
+
+**types[** *i* **].nodeData[** *key* **].value**: (*required*) {object} Default value for the data item
+  
+**types[** *i* **].constraints**: Constraints are the way that you specify which types of nodes are allowed to be 
+connected to each other. This is a powerful feature that in essence dictates the syntax of your VPL. The *"incoming"* 
+property refers to all incoming edges, and likewise for the *"outgoing"* property.
+
+**types[** *i* **].constraints[** *"incoming"* **|** *"outgoing"* **].range**:
+
+**types[** *i* **].constraints[** *"incoming"* **|** *"outgoing"* **].types**:
+
+**types[** *i* **].subtypes**:
+
 ###Guidelines for Authoring FlowViz-Compliant SVG Images###
 
 SVG Images used in FlowViz must conform to several guidelines. First, all SVG images must be wrapped with a single <g>
@@ -184,76 +260,6 @@ Example of a *bad* SVG:
 
 This is an example of a bad SVG because it's top level `<g>` tag has a translation on it indicating that it's upper-left
 corner is not at (0,0). This is the type of SVG that Inkscape will generate by default.
-
-##Configuration## 
-
-This is a complete description of all of the possible properties which can be set in the 
-###Properties###
-
-**name**: (*required*) {string} The name of your VPL app.
-
-**display.messages**:
-
-**display.draggable**:
-
-**display.scale**:
-
-**display.arrowHeight**:
-
-**display.arrowHeight**:
-
-**display.layout**: {"vertical"|"horizontal"}
-
-**interactions**: This should be an object where each key is a FlowViz interaction (currently: "Node", "Drag", "EdgeRegion",
-"NewEdge", "CreateEdge") and the values of each should be an array of objects of this form:
-
-    {
-      "event": "[some DOM event]",
-      "function": "[the name of an event function you implemented in app.js]"
-    }
-
-An example *interactions* section could look like this:
-
-    "interactions": {
-      "Node": [{
-        "event": "click",
-        "function": "myCustomClickHandler"
-      }]
-    }
-
-**edgeData**:
-
-**types**: This is the most critical section of the configuration file. This section allows you to create a type 
-hierarchy. *types* is a list of objects containing the following properties:
-
-**types[** *i* **].type**:
-
-**types[** *i* **].desc**:
-
-**types[** *i* **].name**:
-
-**types[** *i* **].width**:
-
-**types[** *i* **].height**:
-
-**types[** *i* **].padding**:
-
-**types[** *i* **].nodeData**:
-
-**types[** *i* **].nodeData[** *key* **].desc**:
-
-**types[** *i* **].nodeData[** *key* **].type**:
-
-**types[** *i* **].nodeData[** *key* **].value**:
-  
-**types[** *i* **].constraints**:
-
-**types[** *i* **].constraints[** *"incoming"* **|** *"outgoing"* **].range**:
-
-**types[** *i* **].constraints[** *"incoming"* **|** *"outgoing"* **].types**:
-
-**types[** *i* **].subtypes**:
-
 
 ##Notes for Contributors##
 ###Repo Structure###
