@@ -8,7 +8,7 @@ Sonya Alexandrova (sonyaa@cs.uw.edu) and Alex Fiannaca (fiannaca@cs.uw.edu)
 
 **Abstract:** Developing a flow-based visual programming language (VPL) is a tedious task due to the fact that it requires
 writing a large amount of code for simply rendering programs to the screen on top of the code for managing the syntax
-of the language. While a large number of VPL's exist (e.g. [Scratch]()), there are no existing toolkits for the 
+of the language. While a large number of VPL's exist (e.g. [Scratch](https://scratch.mit.edu/)), there are no existing toolkits for the 
 development of new VPL's; meaning that developers of these languages are re-writing boiler-plate rendering and syntax
 management code. To address this issue, we present *FlowViz*, a library which supports the development of VPL's by 
 handling all of the low level visualization and language graph details by default. *FlowViz* handles the internals of 
