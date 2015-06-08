@@ -248,9 +248,9 @@ hierarchy. *types* is a list of objects containing the following properties:
   
 **types[** *i* **].constraints**:
 
-**types[** *i* **].constraints[*"incoming"*|*"outgoing"*].range**:
+**types[** *i* **].constraints[** *"incoming"* **|** *"outgoing"* **].range**:
 
-**types[** *i* **].constraints[*"incoming"*|*"outgoing"*].types**:
+**types[** *i* **].constraints[** *"incoming"* **|** *"outgoing"* **].types**:
 
 **types[** *i* **].subtypes**:
 
