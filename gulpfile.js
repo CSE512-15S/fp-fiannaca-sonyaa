@@ -382,7 +382,7 @@ gulp.task('docs', function() {
     gulp.src([LIB_BASE + '**/*.js', 'README.md'])
         .pipe(gulpDoxx({
             title: 'FlowViz',
-            urlPrefix: '/docs'
+            urlPrefix: '/fp-fiannaca-sonyaa/docs'
         }))
         .pipe(gulp.dest('dist/docs'));
 

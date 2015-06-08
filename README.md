@@ -4,14 +4,7 @@ Sonya Alexandrova (sonyaa@cs.uw.edu) and Alex Fiannaca (fiannaca@cs.uw.edu)
 
 **Project Website:** [GitHub Pages Site](http://cse512-15s.github.io/fp-fiannaca-sonyaa/)
 
-**Statement of Contributions:** Both authors contributed to major aspects of this project. Sonya was responsible for 
-developing the Constraint Checking module, the Graph Manager module, the Layout module, and the RoboFlow and Calculator 
-example apps. Alex was responsible for the high-level design of the library, the Config Parser module, the add-on 
-modules, the Interactions module, the Renderer module, and the MapAll example app. Our development process was pretty 
-straight-forward. We simply assigned ourselves modules to develop and had meetings about every other day to discuss 
-issues and progress.
-
-**\[Summary Image Here\]**
+![summary image](https://github.com/CSE512-15S/fp-fiannaca-sonyaa/raw/master/assets/summary.png)
 
 **Abstract:** FlowViz is a library for creating interactive visual programming language IDE's.  *FlowViz* is designed to make it easy 
 for developers to create new visual programming languages (VPL). FlowViz handles the internals of managing the visual language 
@@ -30,6 +23,15 @@ local machine, `cd` into the directory for the repository, and run `python -m Si
 will be able to navigate to `localhost:9000/` to view the MapAll example, `localhost:9000/calculator.html` to view the
 Calculator example, or `localhost:9000/roboflow.html` to view the RoboFlow example. If you wish to build the library
 from scratch, see the instructions below in the **[Notes for Contributors](https://github.com/CSE512-15S/fp-fiannaca-sonyaa#notes-for-contributors)** section.
+
+**Statement of Contributions:** Both authors contributed to major aspects of this project. Sonya was responsible for 
+developing the Constraint Checking module, the Graph Manager module, the Layout module, and the RoboFlow and Calculator 
+example apps. Alex was responsible for the high-level design of the library, the Config Parser module, the add-on 
+modules, the Interactions module, the Renderer module, and the MapAll example app. Other portions of the library were 
+contributed to by both Alex and Sonya. In order to complete this rather large project in the small window of time we
+had available to us, we followed a very connected development process. We started by discussing high-level design 
+concepts for the library, subdividing the tasks into modules which we could work on independently, and then using GitHub
+issues to discuss issues/conflicts in the design as the implementation progressed. We met about every other day on average.
 
 ###Getting the *FlowViz* Library
 
