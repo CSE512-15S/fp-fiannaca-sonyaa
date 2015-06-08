@@ -1,4 +1,4 @@
-#FlowViz: a Visualization Toolkit to Support End-User Programming Languages#
+#FlowViz: a Visualization Toolkit to Support End-User Programming Languages
 
 Sonya Alexandrova (sonyaa@cs.uw.edu) and Alex Fiannaca (fiannaca@cs.uw.edu)
 
@@ -27,7 +27,7 @@ will be able to navigate to `localhost:9000/` to view the MapAll example, `local
 Calculator example, or `localhost:9000/roboflow.html` to view the RoboFlow example. If you wish to build the library
 from scratch, see the instructions below in the **[Notes for Contributors](https://github.com/CSE512-15S/fp-fiannaca-sonyaa#notes-for-contributors)** section.
 
-###Getting the *FlowViz* Library###
+###Getting the *FlowViz* Library
 
 **Version 0.1:** [flowviz.zip](https://github.com/CSE512-15S/fp-fiannaca-sonyaa/raw/master/release/flowviz-0.1.zip)
 
@@ -39,7 +39,7 @@ order to use FlowViz:
 * flowviz.css
 * bootstrap.min.css
 
-###Using *FlowViz* in an VPL App###
+###Using *FlowViz* in an VPL App
 
 Include *FlowViz* and the common includes into your html file like this:
 
@@ -127,10 +127,10 @@ your own versions by making calls to the ConfigParser, GraphManager, etc., or yo
 implementations included with FlowViz by calling factory methods like `this.Legend.Create('[legend-selector]');` in the 
 `flowviz-ready` callback.
 
-##Configuration## 
+##Configuration
 
 This is a complete description of all of the possible properties which can be set in the 
-###Properties###
+###Properties
 
 **name**: (*required*) {string} The name of your VPL app.
 
@@ -203,7 +203,7 @@ property refers to all incoming edges, and likewise for the *"outgoing"* propert
 
 **types[** *i* **].subtypes**:
 
-###Guidelines for Authoring FlowViz-Compliant SVG Images###
+###Guidelines for Authoring FlowViz-Compliant SVG Images
 
 SVG Images used in FlowViz must conform to several guidelines. First, all SVG images must be wrapped with a single <g>
 tag. For example:
@@ -260,8 +260,8 @@ Example of a *bad* SVG:
 This is an example of a bad SVG because it's top level `<g>` tag has a translation on it indicating that it's upper-left
 corner is not at (0,0). This is the type of SVG that Inkscape will generate by default.
 
-##Notes for Contributors##
-###Repo Structure###
+##Notes for Contributors
+###Repo Structure
 
 This repository may look complicated at first glance, but don't worry, it is much simpler than it may appear!
 All code for the *FlowViz* library is under the `lib/` directory. This library uses node.js syntax (i.e. require keyword)
@@ -272,20 +272,20 @@ app which can be used for testing the *FlowViz* library. Finally, upon building,
 browserified and minified code. This includes two main files: `common.min.js` containing minified and concatanated 
 copies of jQuery and Bootstrap, and `flowviz.min.js` containing the actual *FlowViz* library.
 
-###Installing Dependencies###
+###Installing Dependencies
 
 You must have Node.JS installed to build and run this project. Run `npm install` to install all of the build 
 dependencies for this project. If you are missing any global dependencies you will receive a message explaining how
 to install them when you run `gulp`.
 
-###Build the *FlowViz* Library###
+###Build the *FlowViz* Library
 
 Run `gulp` to build the *FlowViz* library. The built library will be output in the `dist/scripts/` folder. Note that 
 the `dist/lib/` directory contains common includes which *FlowViz* depends on. Therefore, don't forget to also grab
 the `dist/lib/common.min.js` file in addition to the `dist/scripts/flowviz.min.js` file when you go to use *FlowViz* in
 a webapp.
 
-###Running the demo application for developing *FlowViz*###
+###Running the demo application for developing *FlowViz*
 
 Running the command `gulp serve` will build the *FlowViz* library, save the built library to the `dist/scripts/` 
 directory, copy `app/index.html` to the `dist/` directory, and run a web server serving the file `dist/index.html`. 
