@@ -226,33 +226,33 @@ An example *interactions* section could look like this:
 **types**: This is the most critical section of the configuration file. This section allows you to create a type 
 hierarchy. *types* is a list of objects containing the following properties:
 
-**types[*i*].type**:
+**types[** *i* **].type**:
 
-**types[*i*].desc**:
+**types[** *i* **].desc**:
 
-**types[*i*].name**:
+**types[** *i* **].name**:
 
-**types[*i*].width**:
+**types[** *i* **].width**:
 
-**types[*i*].height**:
+**types[** *i* **].height**:
 
-**types[*i*].padding**:
+**types[** *i* **].padding**:
 
-**types[*i*].nodeData**:
+**types[** *i* **].nodeData**:
 
-**types[*i*].nodeData[*key*].desc**:
+**types[** *i* **].nodeData[** *key* **].desc**:
 
-**types[*i*].nodeData[*key*].type**:
+**types[** *i* **].nodeData[** *key* **].type**:
 
-**types[*i*].nodeData[*key*].value**:
+**types[** *i* **].nodeData[** *key* **].value**:
   
-**types[*i*].constraints**:
+**types[** *i* **].constraints**:
 
-**types\[*i*\].constraints\[*"incoming"*|*"outgoing"*\].range**:
+**types[** *i* **].constraints[*"incoming"*|*"outgoing"*].range**:
 
-**types\[*i*\].constraints\[*"incoming"*|*"outgoing"*\].types**:
+**types[** *i* **].constraints[*"incoming"*|*"outgoing"*].types**:
 
-**types\[*i*\].subtypes**:
+**types[** *i* **].subtypes**:
 
 
 ##Notes for Contributors##
