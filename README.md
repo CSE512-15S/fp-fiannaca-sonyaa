@@ -16,7 +16,7 @@ managing the visual language graph, only requiring developers to specify the typ
 in their VPL. Being targeted at flow-based VPL's, this specifically enables the development of end-user programming 
 systems in which the "programming language" consists of a series of interconnected nodes.
 
-**Paper:**
+**Paper:** Coming soon...
 
 **Poster:** [download](https://github.com/CSE512-15S/fp-fiannaca-sonyaa/raw/master/final/poster-fiannaca-sonyaa.pdf)
 
