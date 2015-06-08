@@ -12,7 +12,7 @@ Sonya Alexandrova (sonyaa@cs.uw.edu) and Alex Fiannaca (fiannaca@cs.uw.edu)
 
 **Poster:** [download](https://github.com/CSE512-15S/fp-fiannaca-sonyaa/raw/master/final/poster-fiannaca-sonyaa.pdf)
 
-**Running Instructions:** To run our examples ([MapAll](http://cse512-15s.github.io/fp-fiannaca-sonyaa/mapall.html), [Calculator](http://cse512-15s.github.io/fp-fiannaca-sonyaa/calculator.html), [RoboFlow](http://cse512-15s.github.io/fp-fiannaca-sonyaa/roboflow.html)) locally, clone the `gh-pages` branch to your local machine, `cd` into the directory for the repository, and run `python -m SimpleHTTPServer 9000`. After this, you  will be able to navigate to `localhost:9000/` to view the MapAll example, `localhost:9000/calculator.html` to view the Calculator example, or `localhost:9000/roboflow.html` to view the RoboFlow example. 
+**Running Instructions:** To run our examples ([MapAll](http://cse512-15s.github.io/fp-fiannaca-sonyaa/mapall.html), [Calculator](http://cse512-15s.github.io/fp-fiannaca-sonyaa/calculator.html), [RoboFlow](http://cse512-15s.github.io/fp-fiannaca-sonyaa/roboflow.html)) locally, clone the `gh-pages` branch to your local machine, `cd` into the directory for the repository, and run `python -m SimpleHTTPServer 9000`. After this, you  will be able to navigate to `localhost:9000/mapall.html` to view the MapAll example, `localhost:9000/calculator.html` to view the Calculator example, or `localhost:9000/roboflow.html` to view the RoboFlow example. 
 
 **Building from Source:** If you wish to build the library from scratch, see the instructions below in the **[Notes for Contributors](https://github.com/CSE512-15S/fp-fiannaca-sonyaa#notes-for-contributors)** section.
 
