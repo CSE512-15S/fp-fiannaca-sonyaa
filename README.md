@@ -42,12 +42,14 @@ issues to discuss issues/conflicts in the design as the implementation progresse
 demo shows a language which is used for specifying transformations on input from HID devices to system actions. This demo shows how custom interactions can be
 added to the default set of interactions.
 
-**[Calculator](http://cse512-15s.github.io/fp-fiannaca-sonyaa/calculator.html):** This demo is a classic example created
+**[Calculator](http://cse512-15s.github.io/fp-fiannaca-sonyaa/calculator.html):** [(HTML)](https://raw.githubusercontent.com/CSE512-15S/fp-fiannaca-sonyaa/master/app/calculator.html) [(JS)](https://raw.githubusercontent.com/CSE512-15S/fp-fiannaca-sonyaa/master/app/app_calculator.js) This 
+demo is a classic example created
 in many compiler classes: a simple calculator. This demonstrates how event callbacks can be used to add application
 specific logic to FlowViz-based VPL editors (the text displayed on nodes changes as node data is updated and the
 calculation graph is evaluated when the output operator is clicked).
 
-**[RoboFlow](http://cse512-15s.github.io/fp-fiannaca-sonyaa/roboflow.html):** Finally, this demo shows the benefit of
+**[RoboFlow](http://cse512-15s.github.io/fp-fiannaca-sonyaa/roboflow.html):** [(HTML)](https://raw.githubusercontent.com/CSE512-15S/fp-fiannaca-sonyaa/master/app/roboflow.html) [(JS)](https://raw.githubusercontent.com/CSE512-15S/fp-fiannaca-sonyaa/master/app/app_roboflow.js) Finally, 
+this demo shows the benefit of
 having the auto-suggest feature when there are a broad range of tokens (node types) in a VPL created with FlowViz. Using
 the auto-suggest feature makes it quick and easy to build out programs to run on a real-world robot.
 
