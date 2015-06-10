@@ -6,6 +6,15 @@
     "arrowWidth": 6,
     "layout": "vertical"
   },
+  "edgeData": {
+    "Positive": {
+      "desc": "Is the answer to this question yes? (true or false)",
+      "type": "boolean",
+      "value": true,
+      "start": ["Preconditions.*"],
+      "end": ["*"]
+    }
+  },
   "types": [{
     "type": "Start",
     "desc": "This is the start terminal",

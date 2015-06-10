@@ -8,7 +8,7 @@ Sonya Alexandrova (sonyaa@cs.uw.edu) and Alex Fiannaca (fiannaca@cs.uw.edu)
 
 **Abstract:** Developing a flow-based visual programming language (VPL) is a tedious task due to the fact that it requires writing a large amount of code for simply rendering programs to the screen on top of the code for managing the syntax of the language. While a large number of VPL's exist (e.g. [Scratch](https://scratch.mit.edu/)), there are no existing toolkits for the  development of new VPL's; meaning that developers of these languages are re-writing boiler-plate rendering and syntax management code. To address this issue, we present *FlowViz*, a library which supports the development of VPL's by  handling all of the low level visualization and language graph details by default. *FlowViz* handles the internals of  managing the visual language graph, only requiring developers to specify the types of nodes and constraints between nodes  in their VPL. Being targeted at flow-based VPL's, this specifically enables the development of end-user programming  systems in which the "programming language" consists of a series of interconnected nodes.
 
-**Paper:** Coming soon...
+**Paper:** [download](https://github.com/CSE512-15S/fp-fiannaca-sonyaa/raw/master/final/paper-fiannaca-sonyaa.pdf)
 
 **Poster:** [download](https://github.com/CSE512-15S/fp-fiannaca-sonyaa/raw/master/final/poster-fiannaca-sonyaa.pdf)
 
@@ -18,7 +18,8 @@ Sonya Alexandrova (sonyaa@cs.uw.edu) and Alex Fiannaca (fiannaca@cs.uw.edu)
 
 **Statement of Contributions:** Both authors contributed to major aspects of this project. Sonya was responsible for  developing the Constraint Checking module, the Graph Manager module, the Layout module, and the RoboFlow and Calculator  example apps. Alex was responsible for the high-level design of the library, the Config Parser module, the add-on  modules, the Interactions module, the Renderer module, and the MapAll example app. Other portions of the library were  contributed to by both Alex and Sonya. In order to complete this rather large project in the small window of time we had available to us, we followed a very connected development process. We started by discussing high-level design  concepts for the library, subdividing the tasks into modules which we could work on independently, and then using GitHub issues to discuss issues/conflicts in the design as the implementation progressed. We met about every other day on average.
 
-###Demos!
+###Demo VPL's
+
 **[MapAll](http://cse512-15s.github.io/fp-fiannaca-sonyaa/mapall.html):** [(HTML)](https://raw.githubusercontent.com/CSE512-15S/fp-fiannaca-sonyaa/master/app/index.html) [(JS)](https://raw.githubusercontent.com/CSE512-15S/fp-fiannaca-sonyaa/master/app/app.js) [(JSON)](https://raw.githubusercontent.com/CSE512-15S/fp-fiannaca-sonyaa/master/app/config.json) This demo shows a language which is used for specifying transformations on input from HID devices to system actions. This demo shows how custom interactions can be added to the default set of interactions.
 
 **[Calculator](http://cse512-15s.github.io/fp-fiannaca-sonyaa/calculator.html):** [(HTML)](https://raw.githubusercontent.com/CSE512-15S/fp-fiannaca-sonyaa/master/app/calculator.html) [(JS)](https://raw.githubusercontent.com/CSE512-15S/fp-fiannaca-sonyaa/master/app/app_calculator.js) [(JSON)](https://raw.githubusercontent.com/CSE512-15S/fp-fiannaca-sonyaa/master/app/config_calculator.json) This  demo is a classic example created in many compiler classes: a simple calculator. This demonstrates how event callbacks can be used to add application specific logic to FlowViz-based VPL editors (the text displayed on nodes changes as node data is updated and the calculation graph is evaluated when the output operator is clicked).
@@ -27,7 +28,7 @@ Sonya Alexandrova (sonyaa@cs.uw.edu) and Alex Fiannaca (fiannaca@cs.uw.edu)
 
 ###Getting the *FlowViz* Library
 
-**Version 0.1:** [flowviz.zip](https://github.com/CSE512-15S/fp-fiannaca-sonyaa/raw/master/release/flowviz-0.1.zip)
+**Version 0.1.1:** [flowviz.zip](https://github.com/CSE512-15S/fp-fiannaca-sonyaa/raw/master/release/flowviz-0.1.1.zip)
 
 This is a link to the current production build. This zip folder contains the following files which must be included in  order to use FlowViz:
 
