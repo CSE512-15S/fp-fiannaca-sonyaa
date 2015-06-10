@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width" charset="utf-8">
+    <title>FlowViz</title>
+    <link rel="stylesheet" href="http://getbootstrap.com/2.3.2/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="http://getbootstrap.com/2.3.2/assets/css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="http://getbootstrap.com/2.3.2/assets/css/docs.css">
+    <style>
+      body > .navbar .brand {
+        float:left;
+        text-shadow: rgba(255, 255, 255, 0.0980392) 0px 1px 0px, rgba(255, 255, 255, 0.4) 0px 0px 30px;
+        color: white;
+        margin-left:0px;
+        font-weight:normal;
+      }
+      
+      .bs-docs-sidenav.affix {
+        box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.5);
+        z-index: 10;
+      }
+      
+      .bs-docs-sidenav i{
+        width: 8px;
+        height: 8px;
+        padding: 0px;
+        margin: 0px;
+        display: inline-block;
+        margin-right:0.5em;
+      }
+      
+      .bs-docs-sidenav > li > a {
+          word-wrap: break-word;
+      }
+      
+      .bs-docs-sidenav > li:first-child > a {
+        border-top-right-radius: 6px;
+        border-top-left-radius: 6px;
+      }
+      
+      code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px white;font-family:Consolas,Monaco,'Andale Mono',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*="language-"]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*="language-"],pre[class*="language-"]{background:#f5f2f0}:not(pre)>code[class*="language-"]{padding:.1em;border-radius:.3em}.token.comment,.token.prolog,.token.doctype,.token.cdata{color:slategray}.token.punctuation{color:#999}.namespace{opacity:.7}.token.property,.token.tag,.token.boolean,.token.number{color:#905}.token.selector,.token.attr-name,.token.string{color:#690}.token.operator,.token.entity,.token.url,.language-css .token.string,.style .token.string{color:#a67f59;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.regex,.token.important{color:#e90}.token.important{font-weight:bold}.token.entity{cursor:help}
+      div.description {margin: 14px 0; padding-top: 14px; border-bottom:1px solid #eee; }
+      .tags {}
+      .ctx-type {
+        display:inline-block;
+        margin-right:0.5em;
+        //- float:right; margin-top:8px
+      }
+      
+      footer iframe{vertical-align:middle;}
+      
+    </style>
+  </head>
+  <body data-spy="scroll" data-target=".scrollspy">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container"><a class="brand">Doxx</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav pull-right sponsored"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header id="overview" class="jumbotron subhead">
+      <div class="container">
+        <h1>FlowViz</h1>
+        <p class="lead"></p>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+        <div class="span3 bs-docs-sidebar">
+          <ul class="nav nav-list bs-docs-sidenav affix-top">
+            <li><a href="/fp-fiannaca-sonyaa/docs/index.html">Main</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\FlowViz.js.html">FlowViz.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\modules\ConfigParser.js.html">modules\ConfigParser.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\modules\ConstraintChecker.js.html">modules\ConstraintChecker.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\modules\Controls.js.html">modules\Controls.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\modules\DataEditor.js.html">modules\DataEditor.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\modules\FlowEdge.js.html">modules\FlowEdge.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\modules\FlowNode.js.html">modules\FlowNode.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\modules\FlowViz.App.js.html">modules\FlowViz.App.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\modules\GraphManager.js.html">modules\GraphManager.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\modules\Interactions.js.html">modules\Interactions.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\modules\Layout.js.html">modules\Layout.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\modules\Legend.js.html">modules\Legend.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\modules\NodeSelection.js.html">modules\NodeSelection.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\modules\NodeType.js.html">modules\NodeType.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\modules\Notify.js.html">modules\Notify.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\modules\Renderer.js.html">modules\Renderer.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\tests\example.js.html">tests\example.js</a></li>
+            <li class="active"><a href="/fp-fiannaca-sonyaa/docs\README.md.html">README.md</a></li>
+          </ul>
+          <div class="scrollspy">
+            <ul class="nav nav-list bs-docs-sidenav affix-top">
+            </ul>
+          </div>
+        </div>
+        <div class="span9">
+          <div class="description"> </div>
+          <pre><code class="language-javascript">#FlowViz: a Visualization Toolkit to Support End-User Programming Languages
+
+Sonya Alexandrova (sonyaa@cs.uw.edu) and Alex Fiannaca (fiannaca@cs.uw.edu)
+
+**Project Website:** [GitHub Pages Site](http://cse512-15s.github.io/fp-fiannaca-sonyaa/)
+
+![summary image](https://github.com/CSE512-15S/fp-fiannaca-sonyaa/raw/master/assets/summary.png)
+
+**Abstract:** Developing a flow-based visual programming language (VPL) is a tedious task due to the fact that it requires writing a large amount of code for simply rendering programs to the screen on top of the code for managing the syntax of the language. While a large number of VPL's exist (e.g. [Scratch](https://scratch.mit.edu/)), there are no existing toolkits for the  development of new VPL's; meaning that developers of these languages are re-writing boiler-plate rendering and syntax management code. To address this issue, we present *FlowViz*, a library which supports the development of VPL's by  handling all of the low level visualization and language graph details by default. *FlowViz* handles the internals of  managing the visual language graph, only requiring developers to specify the types of nodes and constraints between nodes  in their VPL. Being targeted at flow-based VPL's, this specifically enables the development of end-user programming  systems in which the &quot;programming language&quot; consists of a series of interconnected nodes.
+
+**Paper:** [download](https://github.com/CSE512-15S/fp-fiannaca-sonyaa/raw/master/final/paper-fiannaca-sonyaa.pdf)
+
+**Poster:** [download](https://github.com/CSE512-15S/fp-fiannaca-sonyaa/raw/master/final/poster-fiannaca-sonyaa.pdf)
+
+**Running Instructions:** To run our examples ([MapAll](http://cse512-15s.github.io/fp-fiannaca-sonyaa/mapall.html), [Calculator](http://cse512-15s.github.io/fp-fiannaca-sonyaa/calculator.html), [RoboFlow](http://cse512-15s.github.io/fp-fiannaca-sonyaa/roboflow.html)) locally, clone the `gh-pages` branch to your local machine, `cd` into the directory for the repository, and run `python -m SimpleHTTPServer 9000`. After this, you  will be able to navigate to `localhost:9000/mapall.html` to view the MapAll example, `localhost:9000/calculator.html` to view the Calculator example, or `localhost:9000/roboflow.html` to view the RoboFlow example. 
+
+**Building from Source:** If you wish to build the library from scratch, see the instructions below in the **[Notes for Contributors](https://github.com/CSE512-15S/fp-fiannaca-sonyaa#notes-for-contributors)** section.
+
+**Statement of Contributions:** Both authors contributed to major aspects of this project. Sonya was responsible for  developing the Constraint Checking module, the Graph Manager module, the Layout module, and the RoboFlow and Calculator  example apps. Alex was responsible for the high-level design of the library, the Config Parser module, the add-on  modules, the Interactions module, the Renderer module, and the MapAll example app. Other portions of the library were  contributed to by both Alex and Sonya. In order to complete this rather large project in the small window of time we had available to us, we followed a very connected development process. We started by discussing high-level design  concepts for the library, subdividing the tasks into modules which we could work on independently, and then using GitHub issues to discuss issues/conflicts in the design as the implementation progressed. We met about every other day on average.
+
+###Demo VPL's
+
+**[MapAll](http://cse512-15s.github.io/fp-fiannaca-sonyaa/mapall.html):** [(HTML)](https://raw.githubusercontent.com/CSE512-15S/fp-fiannaca-sonyaa/master/app/index.html) [(JS)](https://raw.githubusercontent.com/CSE512-15S/fp-fiannaca-sonyaa/master/app/app.js) [(JSON)](https://raw.githubusercontent.com/CSE512-15S/fp-fiannaca-sonyaa/master/app/config.json) This demo shows a language which is used for specifying transformations on input from HID devices to system actions. This demo shows how custom interactions can be added to the default set of interactions.
+
+**[Calculator](http://cse512-15s.github.io/fp-fiannaca-sonyaa/calculator.html):** [(HTML)](https://raw.githubusercontent.com/CSE512-15S/fp-fiannaca-sonyaa/master/app/calculator.html) [(JS)](https://raw.githubusercontent.com/CSE512-15S/fp-fiannaca-sonyaa/master/app/app_calculator.js) [(JSON)](https://raw.githubusercontent.com/CSE512-15S/fp-fiannaca-sonyaa/master/app/config_calculator.json) This  demo is a classic example created in many compiler classes: a simple calculator. This demonstrates how event callbacks can be used to add application specific logic to FlowViz-based VPL editors (the text displayed on nodes changes as node data is updated and the calculation graph is evaluated when the output operator is clicked).
+
+**[RoboFlow](http://cse512-15s.github.io/fp-fiannaca-sonyaa/roboflow.html):** [(HTML)](https://raw.githubusercontent.com/CSE512-15S/fp-fiannaca-sonyaa/master/app/roboflow.html) [(JS)](https://raw.githubusercontent.com/CSE512-15S/fp-fiannaca-sonyaa/master/app/app_roboflow.js) [(JSON)](https://raw.githubusercontent.com/CSE512-15S/fp-fiannaca-sonyaa/master/app/config_roboflow.json) Finally,  this demo shows the benefit of having the auto-suggest feature when there are a broad range of tokens (node types) in a VPL created with FlowViz. Using the auto-suggest feature makes it quick and easy to build out programs to run on a real-world robot.
+
+###Getting the *FlowViz* Library
+
+**Version 0.1:** [flowviz.zip](https://github.com/CSE512-15S/fp-fiannaca-sonyaa/raw/master/release/flowviz-0.1.zip)
+
+This is a link to the current production build. This zip folder contains the following files which must be included in  order to use FlowViz:
+
+* flowviz.min.js
+* common.min.js
+* flowviz.css
+* bootstrap.min.css
+
+###Using *FlowViz* in an VPL App
+
+Include *FlowViz* and the common includes into your html file like this:
+
+    &lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+    &lt;head lang=&quot;en&quot;&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;FlowViz Demo App&lt;/title&gt;
+             &lt;link rel=&quot;stylesheet&quot; href=&quot;./styles/bootstrap.min.css&quot;&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;./styles/FlowViz.css&quot;&gt;
+             &lt;script src=&quot;./lib/common.min.js&quot;&gt;&lt;/script&gt;
+             &lt;link href='http://fonts.googleapis.com/css?family=Roboto:500,700,300italic,400' rel='stylesheet' type='text/css'&gt;
+             &lt;style&gt;
+            html, body, .container-full {
+                font-family: 'Roboto', sans-serif;
+            }
+                 .container-full {
+                display: flex;
+                flex-direction: row;
+                min-height: 100vh;
+            }
+                 #LeftSidebar {
+                flex: 3;
+                background-color: #F1F1F1;
+                padding: 10px;
+            }
+                 #LeftSidebar h1 {
+                margin-top: 10px;
+                margin-bottom: 20px;
+            }
+                 #InteractiveViz {
+                flex: 9;
+                padding: 0;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+             &lt;div class=&quot;container-full&quot;&gt;
+            &lt;div id=&quot;LeftSidebar&quot;&gt;&lt;/div&gt;
+            &lt;svg id=&quot;InteractiveViz&quot;&gt;&lt;/svg&gt;
+        &lt;/div&gt;
+             &lt;script src=&quot;./scripts/FlowViz.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script src=&quot;./scripts/app.js&quot;&gt;&lt;/script&gt;
+         &lt;/body&gt;
+    &lt;/html&gt;
+
+Note that by including *FlowViz* at the end of the body, you speed up the initial rendering time of your application.
+
+In order to create your VPL, you need to provide *FlowViz* with a configuration file. See the **[Configuration](https://github.com/CSE512-15S/fp-fiannaca-sonyaa#configuration)** section  below for a complete description of the possible properties in the FlowViz configuration file.
+
+Finally, you need to create an instance of the `FlowViz.App` type. Create `app.js`, which should simply call the `FlowViz.App()` constructor and implement any callbacks which you want to listen for:
+
+    var App = new FlowViz.App('config.json', 'svg#InteractiveViz', {
+             Events: {
+            &quot;flowviz-ready&quot;: function() {
+                // Use FlowViz add-ons...
+                this.Controls.Create('div#LeftSidebar');
+                this.Legend.Create('div#LeftSidebar');
+                this.DataEditor.Create('div#LeftSidebar');
+            },
+                 &quot;node-added&quot;: function() {
+                this.ShowMessage(&quot;Node added!&quot;);
+            }
+        }
+         });
+
+By default, FlowViz does not create a legend, controls, or a data-editor. You can create these either by implementing  your own versions by making calls to the ConfigParser, GraphManager, etc., or you can use the default add-on implementations included with FlowViz by calling factory methods like `this.Legend.Create('[legend-selector]');` in the `flowviz-ready` callback.
+
+##Configuration
+
+This is a complete description of all of the possible properties which can be set in the configuration file.
+
+###Properties
+
+**name**: (*required*) {string} The name of your VPL app.
+
+**display.messages**:
+
+**display.draggable**:
+
+**display.scale**:
+
+**display.arrowHeight**:
+
+**display.arrowHeight**:
+
+**display.layout**: {&quot;vertical&quot;|&quot;horizontal&quot;}
+
+**interactions**: This should be an object where each key is a FlowViz interaction (currently: &quot;Node&quot;, &quot;Drag&quot;, &quot;EdgeRegion&quot;, &quot;NewEdge&quot;, &quot;CreateEdge&quot;) and the values of each should be an array of objects of this form:
+
+    {
+      &quot;event&quot;: &quot;[some DOM event]&quot;,
+      &quot;function&quot;: &quot;[the name of an event function you implemented in app.js]&quot;
+    }
+
+An example *interactions* section could look like this:
+
+    &quot;interactions&quot;: {
+      &quot;Node&quot;: [{
+        &quot;event&quot;: &quot;click&quot;,
+        &quot;function&quot;: &quot;myCustomClickHandler&quot;
+      }]
+    }
+
+**edgeData**:
+
+**types**: This is the most critical section of the configuration file. This section allows you to create a type  hierarchy. *types* is a list of objects containing the following properties:
+
+**types[** *i* **].type**: (*required*) {string} A name for this type. Do not use whitespace!
+
+**types[** *i* **].desc**: {string} A description for this node type.
+
+**types[** *i* **].name**: {string} A human-readable name for this node type. This is defaulted to be the same as the `type` property above.
+
+**types[** *i* **].view**: {URL | Inline SVG} SVG content for displaying a node. See [below](https://github.com/CSE512-15S/fp-fiannaca-sonyaa#guidelines-for-authoring-flowviz-compliant-svg-images)
+
+**types[** *i* **].width**: {number} This is the width of the SVG source without scaling
+
+**types[** *i* **].height**: {number} This is the height of the SVG source without scaling
+
+**types[** *i* **].padding**: {number} This is the amount of padding that should be applied around a point of connection on the node (where an edge connects to the node).
+
+**types[** *i* **].nodeData**: This object contains a list of data items that should be attached to all nodes of this type.
+
+**types[** *i* **].nodeData[** *key* **].desc**: {string} A description of what this data item represents.
+
+**types[** *i* **].nodeData[** *key* **].type**: (*required*) {string} The javascript type for the data item (object, number, etc.)
+
+**types[** *i* **].nodeData[** *key* **].value**: (*required*) {object} Default value for the data item.
+ 
+**types[** *i* **].constraints**: Constraints are the way that you specify which types of nodes are allowed to be  connected to each other. This is a powerful feature that in essence dictates the syntax of your VPL. The *&quot;incoming&quot;*  property refers to all incoming edges, and likewise for the *&quot;outgoing&quot;* property.
+
+**types[** *i* **].constraints[** *&quot;incoming&quot;* **|** *&quot;outgoing&quot;* **].range**:
+
+**types[** *i* **].constraints[** *&quot;incoming&quot;* **|** *&quot;outgoing&quot;* **].types**:
+
+**types[** *i* **].subtypes**:
+
+###Guidelines for Authoring FlowViz-Compliant SVG Images
+
+SVG Images used in FlowViz must conform to several guidelines. First, all SVG images must be wrapped with a single `&lt;g&gt;` tag. For example:
+
+    &lt;svg&gt;
+        &lt;g&gt;
+            ...SVG Content Here...
+        &lt;/g&gt;
+    &lt;/svg&gt;
+
+Additionally, offsets sometime added by programs like Inkscape must be removed. This means that the content of the SVG should have coordinate (0,0) at the upper left corner of the rendered content. The easiest way to do this is to simply author your SVG images in Adobe Illustrator.
+
+Example of a *good* SVG:
+
+    &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+    &lt;svg version=&quot;1.1&quot; id=&quot;Addition&quot;           xmlns=&quot;http://www.w3.org/2000/svg&quot;           xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;           x=&quot;0px&quot; y=&quot;0px&quot;
+    	 viewBox=&quot;0 0 100 100&quot; enable-background=&quot;new 0 0 100 100&quot;      	 xml:space=&quot;preserve&quot;&gt;
+    	          &lt;g&gt;
+            &lt;circle fill=&quot;#FFFFFF&quot; stroke=&quot;#FFFFFF&quot; stroke-width=&quot;5&quot; stroke-miterlimit=&quot;10&quot; cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;47&quot;/&gt;
+            &lt;circle fill=&quot;none&quot; stroke=&quot;#000000&quot; stroke-width=&quot;5&quot; stroke-miterlimit=&quot;10&quot; cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;47&quot;/&gt;
+            &lt;rect x=&quot;45.5&quot; y=&quot;17.5&quot; width=&quot;8.9&quot; height=&quot;65&quot;/&gt;
+            &lt;rect x=&quot;17.5&quot; y=&quot;45.5&quot; width=&quot;65&quot; height=&quot;9&quot;/&gt;
+        &lt;/g&gt;
+             &lt;/svg&gt;
+     Example of a *bad* SVG:
+
+    &lt;?xml version= &quot;1.0 &quot; encoding= &quot;UTF-8 &quot; standalone= &quot;no &quot;?&gt;
+    &lt;!-- Created with Inkscape (http://www.inkscape.org/) --&gt;
+    &lt;svg id= &quot;svg3852 &quot; xmlns:rdf= &quot;http://www.w3.org/1999/02/22-rdf-syntax-ns# &quot; xmlns= &quot;http://www.w3.org/2000/svg &quot; height= &quot;36.406 &quot; width= &quot;76.781 &quot; version= &quot;1.1 &quot; xmlns:cc= &quot;http://creativecommons.org/ns# &quot; xmlns:dc= &quot;http://purl.org/dc/elements/1.1/ &quot;&gt;
+    	&lt;metadata id= &quot;metadata3857 &quot;&gt;
+    		&lt;rdf:RDF&gt;
+    			&lt;cc:Work rdf:about= &quot; &quot;&gt;
+    				&lt;dc:format&gt;image/svg+xml&lt;/dc:format&gt;
+    				&lt;dc:type rdf:resource= &quot;http://purl.org/dc/dcmitype/StillImage &quot;/&gt;
+    				&lt;dc:title/&gt;
+    			&lt;/cc:Work&gt;
+    		&lt;/rdf:RDF&gt;
+    	&lt;/metadata&gt;
+    	&lt;g id= &quot;layer1 &quot; transform= &quot;translate(10.0625,17.375) &quot;&gt;
+    		&lt;rect id= &quot;rect3759 &quot; height= &quot;22.856 &quot; width= &quot;57.976 &quot; stroke-dasharray= &quot;none &quot; stroke-miterlimit= &quot;4 &quot; y= &quot;11.914 &quot; x= &quot;-8.0673 &quot; stroke-width= &quot;6 &quot; fill= &quot;none &quot;/&gt;
+    		&lt;rect id= &quot;rect3761 &quot; height= &quot;6.0147 &quot; width= &quot;14.802 &quot; stroke-dasharray= &quot;none &quot; stroke-miterlimit= &quot;4 &quot; y= &quot;20.335 &quot; x= &quot;25.855 &quot; stroke-width= &quot;6 &quot; fill= &quot;none &quot;/&gt;
+    	&lt;/g&gt;
+    &lt;/svg&gt;
+
+This is an example of a bad SVG because it's top level `&lt;g&gt;` tag has a translation on it indicating that it's upper-left corner is not at (0,0). This is the type of SVG that Inkscape will generate by default.
+
+##Notes for Contributors
+###Repo Structure
+
+This repository may look complicated at first glance, but don't worry, it is much simpler than it may appear! All code for the *FlowViz* library is under the `lib/` directory. This library uses node.js syntax (i.e. require keyword) in order to ensure that the code doesn't all end up in a single file. The FlowViz.js file is the primary source file for the library. This file is responsible for requiring all of the other modules and hooking them together. All of the real functionality of the library is broken out into modules in the `lib/modules/` directory. The `app/` directory is a demo app which can be used for testing the *FlowViz* library. Finally, upon building, a `dist/` directory is created with the  browserified and minified code. This includes two main files: `common.min.js` containing minified and concatanated  copies of jQuery and Bootstrap, and `flowviz.min.js` containing the actual *FlowViz* library.
+
+###Installing Dependencies
+
+You must have Node.JS installed to build and run this project. Run `npm install` to install all of the build  dependencies for this project. If you are missing any global dependencies you will receive a message explaining how to install them when you run `gulp`.
+
+###Build the *FlowViz* Library
+
+Run `gulp` to build the *FlowViz* library. The built library will be output in the `dist/scripts/` folder. Note that  the `dist/lib/` directory contains common includes which *FlowViz* depends on. Therefore, don't forget to also grab the `dist/lib/common.min.js` file in addition to the `dist/scripts/flowviz.min.js` file when you go to use *FlowViz* in a webapp.
+
+###Running the demo application for developing *FlowViz*
+
+Running the command `gulp serve` will build the *FlowViz* library, save the built library to the `dist/scripts/`  directory, copy `app/index.html` to the `dist/` directory, and run a web server serving the file `dist/index.html`.  After running `gulp serve` any changes to module files or files in the `app/` directory will cause a rebuild and  will reload the app in the browser.</code></pre>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <p>Documentation generated with<a href="https://github.com/FGRibreau/doxx">Doxx</a>created by<a href="https://twitter.com/FGRibreau" data-show-count="false" class="twitter-follow-button">Francois-Guillaume Ribreau</a></p>
+        <p>Doxx is sponsored by<a href="http://bringr.net/?btt" title="Outil d'analyse des réseaux sociaux" class="bringr">Bringr</a>and<a href="https://redsmin.com/?btt" title="Full Redis GUI" class="redsmin">Redsmin</a></p>
+        <p>Theme borrowed from Twitter Bootstrap</p>
+      </div>
+    </footer>
+    <script src="http://platform.twitter.com/widgets.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <script src="http://leaverou.github.com/prefixfree/prefixfree.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-transition.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-dropdown.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-collapse.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-affix.js"></script>
+    <script>
+      /**
+       * Prism: Lightweight, robust, elegant syntax highlighting
+       * MIT license http://www.opensource.org/licenses/mit-license.php/
+       * @author Lea Verou http://lea.verou.me
+       */(function(){var e=/\blang(?:uage)?-(?!\*)(\w+)\b/i,t=self.Prism={util:{type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},clone:function(e){var n=t.util.type(e);switch(n){case"Object":var r={};for(var i in e)e.hasOwnProperty(i)&&(r[i]=t.util.clone(e[i]));return r;case"Array":return e.slice()}return e}},languages:{extend:function(e,n){var r=t.util.clone(t.languages[e]);for(var i in n)r[i]=n[i];return r},insertBefore:function(e,n,r,i){i=i||t.languages;var s=i[e],o={};for(var u in s)if(s.hasOwnProperty(u)){if(u==n)for(var a in r)r.hasOwnProperty(a)&&(o[a]=r[a]);o[u]=s[u]}return i[e]=o},DFS:function(e,n){for(var r in e){n.call(e,r,e[r]);t.util.type(e)==="Object"&&t.languages.DFS(e[r],n)}}},highlightAll:function(e,n){var r=document.querySelectorAll('code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code');for(var i=0,s;s=r[i++];)t.highlightElement(s,e===!0,n)},highlightElement:function(r,i,s){var o,u,a=r;while(a&&!e.test(a.className))a=a.parentNode;if(a){o=(a.className.match(e)||[,""])[1];u=t.languages[o]}if(!u)return;r.className=r.className.replace(e,"").replace(/\s+/g," ")+" language-"+o;a=r.parentNode;/pre/i.test(a.nodeName)&&(a.className=a.className.replace(e,"").replace(/\s+/g," ")+" language-"+o);var f=r.textContent;if(!f)return;f=f.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\u00a0/g," ");var l={element:r,language:o,grammar:u,code:f};t.hooks.run("before-highlight",l);if(i&&self.Worker){var c=new Worker(t.filename);c.onmessage=function(e){l.highlightedCode=n.stringify(JSON.parse(e.data));l.element.innerHTML=l.highlightedCode;s&&s.call(l.element);t.hooks.run("after-highlight",l)};c.postMessage(JSON.stringify({language:l.language,code:l.code}))}else{l.highlightedCode=t.highlight(l.code,l.grammar);l.element.innerHTML=l.highlightedCode;s&&s.call(r);t.hooks.run("after-highlight",l)}},highlight:function(e,r){return n.stringify(t.tokenize(e,r))},tokenize:function(e,n){var r=t.Token,i=[e],s=n.rest;if(s){for(var o in s)n[o]=s[o];delete n.rest}e:for(var o in n){if(!n.hasOwnProperty(o)||!n[o])continue;var u=n[o],a=u.inside,f=!!u.lookbehind||0;u=u.pattern||u;for(var l=0;l<i.length;l++){var c=i[l];if(i.length>e.length)break e;if(c instanceof r)continue;u.lastIndex=0;var h=u.exec(c);if(h){f&&(f=h[1].length);var p=h.index-1+f,h=h[0].slice(f),d=h.length,v=p+d,m=c.slice(0,p+1),g=c.slice(v+1),y=[l,1];m&&y.push(m);var b=new r(o,a?t.tokenize(h,a):h);y.push(b);g&&y.push(g);Array.prototype.splice.apply(i,y)}}}return i},hooks:{all:{},add:function(e,n){var r=t.hooks.all;r[e]=r[e]||[];r[e].push(n)},run:function(e,n){var r=t.hooks.all[e];if(!r||!r.length)return;for(var i=0,s;s=r[i++];)s(n)}}},n=t.Token=function(e,t){this.type=e;this.content=t};n.stringify=function(e){if(typeof e=="string")return e;if(Object.prototype.toString.call(e)=="[object Array]"){for(var r=0;r<e.length;r++)e[r]=n.stringify(e[r]);return e.join("")}var i={type:e.type,content:n.stringify(e.content),tag:"span",classes:["token",e.type],attributes:{}};i.type=="comment"&&(i.attributes.spellcheck="true");t.hooks.run("wrap",i);var s="";for(var o in i.attributes)s+=o+'="'+(i.attributes[o]||"")+'"';return"<"+i.tag+' class="'+i.classes.join(" ")+'" '+s+">"+i.content+"</"+i.tag+">"};if(!self.document){self.addEventListener("message",function(e){var n=JSON.parse(e.data),r=n.language,i=n.code;self.postMessage(JSON.stringify(t.tokenize(i,t.languages[r])));self.close()},!1);return}var r=document.getElementsByTagName("script");r=r[r.length-1];if(r){t.filename=r.src;document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",t.highlightAll)}})();;
+      Prism.languages.markup={comment:/&lt;!--[\w\W]*?--(&gt;|&gt;)/g,prolog:/&lt;\?.+?\?&gt;/,doctype:/&lt;!DOCTYPE.+?&gt;/,cdata:/&lt;!\[CDATA\[[\w\W]+?]]&gt;/i,tag:{pattern:/&lt;\/?[\w:-]+\s*(?:\s+[\w:-]+(?:=(?:("|')(\\?[\w\W])*?\1|\w+))?\s*)*\/?&gt;/gi,inside:{tag:{pattern:/^&lt;\/?[\w:-]+/i,inside:{punctuation:/^&lt;\/?/,namespace:/^[\w-]+?:/}},"attr-value":{pattern:/=(?:('|")[\w\W]*?(\1)|[^\s>]+)/gi,inside:{punctuation:/=|&gt;|"/g}},punctuation:/\/?&gt;/g,"attr-name":{pattern:/[\w:-]+/g,inside:{namespace:/^[\w-]+?:/}}}},entity:/&amp;#?[\da-z]{1,8};/gi};Prism.hooks.add("wrap",function(e){e.type==="entity"&&(e.attributes.title=e.content.replace(/&amp;/,"&"))});;
+      Prism.languages.css={comment:/\/\*[\w\W]*?\*\//g,atrule:/@[\w-]+?(\s+[^;{]+)?(?=\s*{|\s*;)/gi,url:/url\((["']?).*?\1\)/gi,selector:/[^\{\}\s][^\{\}]*(?=\s*\{)/g,property:/(\b|\B)[a-z-]+(?=\s*:)/ig,string:/("|')(\\?.)*?\1/g,important:/\B!important\b/gi,ignore:/&(lt|gt|amp);/gi,punctuation:/[\{\};:]/g};Prism.languages.markup&&Prism.languages.insertBefore("markup","tag",{style:{pattern:/(&lt;|<)style[\w\W]*?(>|&gt;)[\w\W]*?(&lt;|<)\/style(>|&gt;)/ig,inside:{tag:{pattern:/(&lt;|<)style[\w\W]*?(>|&gt;)|(&lt;|<)\/style(>|&gt;)/ig,inside:Prism.languages.markup.tag.inside},rest:Prism.languages.css}}});;
+      Prism.languages.clike={comment:{pattern:/(^|[^\\])(\/\*[\w\W]*?\*\/|\/\/.*?(\r?\n|$))/g,lookbehind:!0},string:/("|')(\\?.)*?\1/g,keyword:/\b(if|else|while|do|for|return|in|instanceof|function|new|try|catch|finally|null|break|continue)\b/g,"boolean":/\b(true|false)\b/g,number:/\b-?(0x)?\d*\.?[\da-f]+\b/g,operator:/[-+]{1,2}|!|=?&lt;|=?&gt;|={1,2}|(&amp;){1,2}|\|?\||\?|\*|\//g,ignore:/&(lt|gt|amp);/gi,punctuation:/[{}[\];(),.:]/g};;
+      Prism.languages.javascript=Prism.languages.extend("clike",{keyword:/\b(var|let|if|else|while|do|for|return|in|instanceof|function|new|with|typeof|try|catch|finally|null|break|continue)\b/g,number:/\b(-?(0x)?\d*\.?[\da-f]+|NaN|-?Infinity)\b/g});Prism.languages.insertBefore("javascript","keyword",{regex:{pattern:/(^|[^/])\/(?!\/)(\[.+?]|\\.|[^/\r\n])+\/[gim]{0,3}(?=\s*($|[\r\n,.;})]))/g,lookbehind:!0}});Prism.languages.markup&&Prism.languages.insertBefore("markup","tag",{script:{pattern:/(&lt;|<)script[\w\W]*?(>|&gt;)[\w\W]*?(&lt;|<)\/script(>|&gt;)/ig,inside:{tag:{pattern:/(&lt;|<)script[\w\W]*?(>|&gt;)|(&lt;|<)\/script(>|&gt;)/ig,inside:Prism.languages.markup.tag.inside},rest:Prism.languages.javascript}}});;
+      
+    </script>
+    <!-- App js-->
+    <script>
+      $(function(){
+        var $window = $(window);
+        $('.scrollspy .nav').affix({
+          offset: {
+            top: function () { return $window.width() <= 980 ? 480 : 400 }
+          , bottom: 50
+          }
+        });
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width" charset="utf-8">
+    <title>FlowViz</title>
+    <link rel="stylesheet" href="http://getbootstrap.com/2.3.2/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="http://getbootstrap.com/2.3.2/assets/css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="http://getbootstrap.com/2.3.2/assets/css/docs.css">
+    <style>
+      body > .navbar .brand {
+        float:left;
+        text-shadow: rgba(255, 255, 255, 0.0980392) 0px 1px 0px, rgba(255, 255, 255, 0.4) 0px 0px 30px;
+        color: white;
+        margin-left:0px;
+        font-weight:normal;
+      }
+      
+      .bs-docs-sidenav.affix {
+        box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.5);
+        z-index: 10;
+      }
+      
+      .bs-docs-sidenav i{
+        width: 8px;
+        height: 8px;
+        padding: 0px;
+        margin: 0px;
+        display: inline-block;
+        margin-right:0.5em;
+      }
+      
+      .bs-docs-sidenav > li > a {
+          word-wrap: break-word;
+      }
+      
+      .bs-docs-sidenav > li:first-child > a {
+        border-top-right-radius: 6px;
+        border-top-left-radius: 6px;
+      }
+      
+      code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px white;font-family:Consolas,Monaco,'Andale Mono',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*="language-"]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*="language-"],pre[class*="language-"]{background:#f5f2f0}:not(pre)>code[class*="language-"]{padding:.1em;border-radius:.3em}.token.comment,.token.prolog,.token.doctype,.token.cdata{color:slategray}.token.punctuation{color:#999}.namespace{opacity:.7}.token.property,.token.tag,.token.boolean,.token.number{color:#905}.token.selector,.token.attr-name,.token.string{color:#690}.token.operator,.token.entity,.token.url,.language-css .token.string,.style .token.string{color:#a67f59;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.regex,.token.important{color:#e90}.token.important{font-weight:bold}.token.entity{cursor:help}
+      div.description {margin: 14px 0; padding-top: 14px; border-bottom:1px solid #eee; }
+      .tags {}
+      .ctx-type {
+        display:inline-block;
+        margin-right:0.5em;
+        //- float:right; margin-top:8px
+      }
+      
+      footer iframe{vertical-align:middle;}
+      
+    </style>
+  </head>
+  <body data-spy="scroll" data-target=".scrollspy">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container"><a class="brand">Doxx</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav pull-right sponsored"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header id="overview" class="jumbotron subhead">
+      <div class="container">
+        <h1>FlowViz</h1>
+        <p class="lead"></p>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+        <div class="span3 bs-docs-sidebar">
+          <ul class="nav nav-list bs-docs-sidenav affix-top">
+            <li><a href="/fp-fiannaca-sonyaa/docs/index.html">Main</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\FlowViz.js.html">FlowViz.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\modules\ConfigParser.js.html">modules\ConfigParser.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\modules\ConstraintChecker.js.html">modules\ConstraintChecker.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\modules\Controls.js.html">modules\Controls.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\modules\DataEditor.js.html">modules\DataEditor.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\modules\FlowEdge.js.html">modules\FlowEdge.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\modules\FlowNode.js.html">modules\FlowNode.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\modules\FlowViz.App.js.html">modules\FlowViz.App.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\modules\GraphManager.js.html">modules\GraphManager.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\modules\Interactions.js.html">modules\Interactions.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\modules\Layout.js.html">modules\Layout.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\modules\Legend.js.html">modules\Legend.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\modules\NodeSelection.js.html">modules\NodeSelection.js</a></li>
+            <li class="active"><a href="/fp-fiannaca-sonyaa/docs\lib\modules\NodeType.js.html">modules\NodeType.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\modules\Notify.js.html">modules\Notify.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\modules\Renderer.js.html">modules\Renderer.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\lib\tests\example.js.html">tests\example.js</a></li>
+            <li><a href="/fp-fiannaca-sonyaa/docs\README.md.html">README.md</a></li>
+          </ul>
+          <div class="scrollspy">
+            <ul class="nav nav-list bs-docs-sidenav affix-top">
+              <li><a href="#GetDummy"><i class="alert alert-info"></i><span>GetDummy</span></a>
+              </li>
+              <li><a href="#NodeType"><i class="alert alert-info"></i><span>NodeType</span></a>
+              </li>
+              <li><a href="#SetWidth"><i class="alert alert-info"></i><span>SetWidth</span></a>
+              </li>
+              <li><a href="#SetHeight"><i class="alert alert-info"></i><span>SetHeight</span></a>
+              </li>
+              <li><a href="#SetScale"><i class="alert alert-info"></i><span>SetScale</span></a>
+              </li>
+              <li><a href="#SetProperties"><i class="alert alert-info"></i><span>SetProperties</span></a>
+              </li>
+              <li><a href="#SetConstraints"><i class="alert alert-info"></i><span>SetConstraints</span></a>
+              </li>
+              <li><a href="#SetParent"><i class="alert alert-info"></i><span>SetParent</span></a>
+              </li>
+              <li><a href="#SetChildren"><i class="alert alert-info"></i><span>SetChildren</span></a>
+              </li>
+              <li><a href="#HasParent"><i class="alert alert-info"></i><span>HasParent</span></a>
+              </li>
+              <li><a href="#GetParent"><i class="alert alert-info"></i><span>GetParent</span></a>
+              </li>
+              <li><a href="#HasChildren"><i class="alert alert-info"></i><span>HasChildren</span></a>
+              </li>
+              <li><a href="#GetChildren"><i class="alert alert-info"></i><span>GetChildren</span></a>
+              </li>
+              <li><a href="#GetDataObject"><i class="alert alert-info"></i><span>GetDataObject</span></a>
+              </li>
+              <li><a href="#GetConstraintObject"><i class="alert alert-info"></i><span>GetConstraintObject</span></a>
+              </li>
+              <li><a href="#GetFragment"><i class="alert alert-info"></i><span>GetFragment</span></a>
+              </li>
+              <li><a href="#getRawSvg"><i class="alert alert-info"></i><span>getRawSvg</span></a>
+              </li>
+              <li><a href="#getSvg"><i class="alert alert-info"></i><span>getSvg</span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="span9">
+          <section id="GetDummy">
+            <h1>GetDummy</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>module.exports.GetDummy()</span>
+            </p>
+          </section>
+          <div class="description"><p>Gets an invisible dummy node</p> </div>
+          <pre><code class="language-javascript">module.exports.GetDummy = function() {
+    var dummy = new NodeType(module.exports.DUMMY, &quot;Dummy Node&quot;, &quot;This is an invisible dummy node&quot;, null);
+
+    dummy.hasOffsetEdge = false;
+    dummy.hasPaddedEdge = false;
+
+    dummy.padding = 0;
+    dummy.width = 0;
+    dummy.height = 0;
+    dummy.scale = 1.0;
+
+    return dummy;
+};</code></pre>
+          <section id="NodeType">
+            <h1>NodeType</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">function</div><span>NodeType()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>type</td>
+                <td>String</td>
+                <td>The name of this type (e.g. 'IfElseBranch')</td>
+              </tr>
+              <tr>
+                <td>name</td>
+                <td>String</td>
+                <td>The display friendly name of this type (e.g. 'If ... Else ...')</td>
+              </tr>
+              <tr>
+                <td>desc</td>
+                <td>String</td>
+                <td>This is a brief description of what this nodes of this type are for</td>
+              </tr>
+              <tr>
+                <td>svg</td>
+                <td>Fragment</td>
+                <td>This is a document fragment of svg which is the visual representation of nodes of this type </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>This class is responsible for managing the type information for possible nodes in the graph.</p><p>TODO: Add the means for tracking/accessing parent and children types</p> </div>
+          <pre><code class="language-javascript">function NodeType(type, name, desc, svg) {
+    this.id = &quot;type-&quot; + id_count;
+    id_count += 1;
+
+    this.type = type;
+    this.name = name;
+    this.desc = desc;
+
+    this.hasOffsetEdge = false;
+    this.hasPaddedEdge = false;
+
+    // Default display parameters
+    this.padding = 0;
+    this.width = 0;
+    this.height = 0;
+    this.scale = 1.0;
+
+    // Default type hierarchy relationships
+    this.Parent = null;
+    this.Children = null;
+    this.DataProperties = null;
+    this.Connections = null;
+    this.Constraints = null;
+
+    if(_.includes(svg, &quot;&lt;svg&quot;) || _.includes(svg, &quot;&lt;xml&quot;)) {
+        this._svg  = svg;
+        this._file = null;
+    } else {
+        this._svg = null;
+        this._file = svg;
+    }
+}
+
+NodeType.prototype.getJSON = function() {
+    return {
+        &quot;id&quot;: this.id,
+        &quot;type&quot;: this.type
+    };
+};
+
+NodeType.prototype.GetEdgeOffset = function(connType) {
+    if(this.hasOffsetEdge) {
+        if(connType !== undefined &amp;&amp; this.Connections !== null) {
+            if(this.Connections.hasOwnProperty(connType)) {
+                return {
+                    x: this.Connections[connType].x * this.scale,
+                    y: this.Connections[connType].y * this.scale
+                }
+            }
+        }
+
+        return {
+            x: this.scale * this.width / 2,
+            y: this.scale * this.height / 2
+        }
+    }
+
+    return {
+        x: 0,
+        y: 0
+    };
+};
+
+NodeType.prototype.GetEdgePadding = function(connType) {
+    if(this.hasPaddedEdge) {
+        return this.padding;
+    }
+
+    return 0;
+};</code></pre>
+          <section id="SetWidth">
+            <h1>SetWidth</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>NodeType.prototype.SetWidth()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>width</td>
+                <td>number</td>
+                <td>The width in pixels</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Sets the width in pixels of this type of node</p> </div>
+          <pre><code class="language-javascript">NodeType.prototype.SetWidth = function(width) {
+    this.width = width;
+};</code></pre>
+          <section id="SetHeight">
+            <h1>SetHeight</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>NodeType.prototype.SetHeight()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>height</td>
+                <td>number</td>
+                <td>The height in pixels</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Sets the height in pixels of this type of node</p> </div>
+          <pre><code class="language-javascript">NodeType.prototype.SetHeight = function(height) {
+    this.height = height;
+};</code></pre>
+          <section id="SetScale">
+            <h1>SetScale</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>NodeType.prototype.SetScale()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>scale</td>
+                <td>number</td>
+                <td>A percentage between 0.0 and 1.0</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Sets the percentage (0.0 to 1.0) by which the view for this node type should be scaled when added to the interface</p> </div>
+          <pre><code class="language-javascript">NodeType.prototype.SetScale = function(scale) {
+    if(scale &gt; 1.0 || scale &lt; 0.0) scale = 1.0;
+
+    this.scale = scale;
+};</code></pre>
+          <section id="SetProperties">
+            <h1>SetProperties</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>NodeType.prototype.SetProperties()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>json</td>
+                <td>number</td>
+                <td>JSON object describing the data properties for this type of node.</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Sets the data properties object for this type of node. This is derived from the config object.</p> </div>
+          <pre><code class="language-javascript">NodeType.prototype.SetProperties = function(json) {
+    this.DataProperties = json;
+};
+
+NodeType.prototype.SetPadding = function(padding) {
+    if(padding &gt; 0) {
+        this.hasPaddedEdge = true;
+        this.padding = padding;
+    } else {
+        this.hasPaddedEdge = false;
+        this.padding = 0;
+    }
+};
+
+NodeType.prototype.SetConnections = function(connections) {
+    if(connections !== null) {
+        this.hasOffsetEdge = true;
+
+        if(connections === &quot;default&quot;) {
+            this.Connections = null;
+        } else {
+            this.Connections = connections;
+        }
+    } else {
+        this.hasOffsetEdge = false;
+        this.Connections = null;
+    }
+};</code></pre>
+          <section id="SetConstraints">
+            <h1>SetConstraints</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>NodeType.prototype.SetConstraints()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>json</td>
+                <td>number</td>
+                <td>JSON object describing the constraints for this type of node.</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Sets the node constraints object for this type of node. This is derived from the config object.</p> </div>
+          <pre><code class="language-javascript">NodeType.prototype.SetConstraints = function(json) {
+    this.Constraints = json;
+};</code></pre>
+          <section id="SetParent">
+            <h1>SetParent</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>NodeType.prototype.SetParent()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>parent</td>
+                <td>number</td>
+                <td>A reference to the parent NodeType object</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Sets the parent node type for this type of node. This is derived from the type hierarchy in the config object.</p> </div>
+          <pre><code class="language-javascript">NodeType.prototype.SetParent = function(parent) {
+    this.Parent = parent;
+};</code></pre>
+          <section id="SetChildren">
+            <h1>SetChildren</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>NodeType.prototype.SetChildren()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>children</td>
+                <td>number</td>
+                <td>An array with references to the children NodeType objects</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Sets the children node types of this type of node. This is derived from the type hierarchy in the config object.</p> </div>
+          <pre><code class="language-javascript">NodeType.prototype.SetChildren = function(children) {
+    this.Children = children;
+};</code></pre>
+          <section id="HasParent">
+            <h1>HasParent</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>NodeType.prototype.HasParent()</span> -><span>boolean</span>
+            </p>
+          </section>
+          <div class="description"><p>Indicates if this type has a parent NodeType</p> </div>
+          <pre><code class="language-javascript">NodeType.prototype.HasParent = function() {
+    return (this.Parent !== null);
+};</code></pre>
+          <section id="GetParent">
+            <h1>GetParent</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>NodeType.prototype.GetParent()</span> -><span>NodeType</span>
+            </p>
+          </section>
+          <div class="description"><p>If this NodeType has a parent NodeType, this wil return the parent.</p> </div>
+          <pre><code class="language-javascript">NodeType.prototype.GetParent = function() {
+    return this.Parent;
+};</code></pre>
+          <section id="HasChildren">
+            <h1>HasChildren</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>NodeType.prototype.HasChildren()</span> -><span>boolean</span>
+            </p>
+          </section>
+          <div class="description"><p>Indicates if this type has any children NodeTypes</p> </div>
+          <pre><code class="language-javascript">NodeType.prototype.HasChildren = function() {
+    return (this.Children !== null);
+};</code></pre>
+          <section id="GetChildren">
+            <h1>GetChildren</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>NodeType.prototype.GetChildren()</span> -><span>object</span>
+            </p>
+          </section>
+          <div class="description"><p>If this NodeType has child NodeTypes, this wil return the children.</p> </div>
+          <pre><code class="language-javascript">NodeType.prototype.GetChildren = function() {
+    return this.Children;
+};</code></pre>
+          <section id="GetDataObject">
+            <h1>GetDataObject</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>NodeType.prototype.GetDataObject()</span> -><span>object</span>
+            </p>
+          </section>
+          <div class="description"><p>Gets a clone of the DataProperties object which can be populated with data by the FlowNode object</p> </div>
+          <pre><code class="language-javascript">NodeType.prototype.GetDataObject = function() {
+    var obj = $.extend(true, {}, this.DataProperties, null);
+
+    return obj;
+};</code></pre>
+          <section id="GetConstraintObject">
+            <h1>GetConstraintObject</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>NodeType.prototype.GetConstraintObject()</span> -><span>object</span>
+            </p>
+          </section>
+          <div class="description"><p>Gets a clone of the Constraints object which can be used by the FlowNode object</p> </div>
+          <pre><code class="language-javascript">NodeType.prototype.GetConstraintObject = function() {
+    return $.extend(true, {}, this.Constraints, null);
+};</code></pre>
+          <section id="GetFragment">
+            <h1>GetFragment</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">function</div><span>GetFragment()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>view</td>
+                <td>String</td>
+                <td>The view property from the config json file. Either contains a path to an svg file, or inline svg code.</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Gets an svg document fragment from the view string.</p> </div>
+          <pre><code class="language-javascript">function GetFragment(view) {
+    var frag = Snap.parse(view);
+
+    var g = frag.select('g');
+    g.attr('class', 'node-svg');
+
+    return g;
+}</code></pre>
+          <section id="getRawSvg">
+            <h1>getRawSvg</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>NodeType.prototype.getRawSvg()</span> -><span>Fragment</span>
+            </p>
+          </section>
+          <div class="description"><p>This function returns the entirety of the SVG document provided in the config JSON file</p> </div>
+          <pre><code class="language-javascript">NodeType.prototype.getRawSvg = function() {
+    return Snap.parse(this._svg);
+};</code></pre>
+          <section id="getSvg">
+            <h1>getSvg</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>NodeType.prototype.getSvg()</span> -><span>Fragment</span>
+            </p>
+          </section>
+          <div class="description"><p>Returns a group containing the svg for the a node of this type.</p> </div>
+          <pre><code class="language-javascript">NodeType.prototype.getSvg = function() {
+    return GetFragment(this._svg);
+};</code></pre>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <p>Documentation generated with<a href="https://github.com/FGRibreau/doxx">Doxx</a>created by<a href="https://twitter.com/FGRibreau" data-show-count="false" class="twitter-follow-button">Francois-Guillaume Ribreau</a></p>
+        <p>Doxx is sponsored by<a href="http://bringr.net/?btt" title="Outil d'analyse des réseaux sociaux" class="bringr">Bringr</a>and<a href="https://redsmin.com/?btt" title="Full Redis GUI" class="redsmin">Redsmin</a></p>
+        <p>Theme borrowed from Twitter Bootstrap</p>
+      </div>
+    </footer>
+    <script src="http://platform.twitter.com/widgets.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <script src="http://leaverou.github.com/prefixfree/prefixfree.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-transition.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-dropdown.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-collapse.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-affix.js"></script>
+    <script>
+      /**
+       * Prism: Lightweight, robust, elegant syntax highlighting
+       * MIT license http://www.opensource.org/licenses/mit-license.php/
+       * @author Lea Verou http://lea.verou.me
+       */(function(){var e=/\blang(?:uage)?-(?!\*)(\w+)\b/i,t=self.Prism={util:{type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},clone:function(e){var n=t.util.type(e);switch(n){case"Object":var r={};for(var i in e)e.hasOwnProperty(i)&&(r[i]=t.util.clone(e[i]));return r;case"Array":return e.slice()}return e}},languages:{extend:function(e,n){var r=t.util.clone(t.languages[e]);for(var i in n)r[i]=n[i];return r},insertBefore:function(e,n,r,i){i=i||t.languages;var s=i[e],o={};for(var u in s)if(s.hasOwnProperty(u)){if(u==n)for(var a in r)r.hasOwnProperty(a)&&(o[a]=r[a]);o[u]=s[u]}return i[e]=o},DFS:function(e,n){for(var r in e){n.call(e,r,e[r]);t.util.type(e)==="Object"&&t.languages.DFS(e[r],n)}}},highlightAll:function(e,n){var r=document.querySelectorAll('code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code');for(var i=0,s;s=r[i++];)t.highlightElement(s,e===!0,n)},highlightElement:function(r,i,s){var o,u,a=r;while(a&&!e.test(a.className))a=a.parentNode;if(a){o=(a.className.match(e)||[,""])[1];u=t.languages[o]}if(!u)return;r.className=r.className.replace(e,"").replace(/\s+/g," ")+" language-"+o;a=r.parentNode;/pre/i.test(a.nodeName)&&(a.className=a.className.replace(e,"").replace(/\s+/g," ")+" language-"+o);var f=r.textContent;if(!f)return;f=f.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\u00a0/g," ");var l={element:r,language:o,grammar:u,code:f};t.hooks.run("before-highlight",l);if(i&&self.Worker){var c=new Worker(t.filename);c.onmessage=function(e){l.highlightedCode=n.stringify(JSON.parse(e.data));l.element.innerHTML=l.highlightedCode;s&&s.call(l.element);t.hooks.run("after-highlight",l)};c.postMessage(JSON.stringify({language:l.language,code:l.code}))}else{l.highlightedCode=t.highlight(l.code,l.grammar);l.element.innerHTML=l.highlightedCode;s&&s.call(r);t.hooks.run("after-highlight",l)}},highlight:function(e,r){return n.stringify(t.tokenize(e,r))},tokenize:function(e,n){var r=t.Token,i=[e],s=n.rest;if(s){for(var o in s)n[o]=s[o];delete n.rest}e:for(var o in n){if(!n.hasOwnProperty(o)||!n[o])continue;var u=n[o],a=u.inside,f=!!u.lookbehind||0;u=u.pattern||u;for(var l=0;l<i.length;l++){var c=i[l];if(i.length>e.length)break e;if(c instanceof r)continue;u.lastIndex=0;var h=u.exec(c);if(h){f&&(f=h[1].length);var p=h.index-1+f,h=h[0].slice(f),d=h.length,v=p+d,m=c.slice(0,p+1),g=c.slice(v+1),y=[l,1];m&&y.push(m);var b=new r(o,a?t.tokenize(h,a):h);y.push(b);g&&y.push(g);Array.prototype.splice.apply(i,y)}}}return i},hooks:{all:{},add:function(e,n){var r=t.hooks.all;r[e]=r[e]||[];r[e].push(n)},run:function(e,n){var r=t.hooks.all[e];if(!r||!r.length)return;for(var i=0,s;s=r[i++];)s(n)}}},n=t.Token=function(e,t){this.type=e;this.content=t};n.stringify=function(e){if(typeof e=="string")return e;if(Object.prototype.toString.call(e)=="[object Array]"){for(var r=0;r<e.length;r++)e[r]=n.stringify(e[r]);return e.join("")}var i={type:e.type,content:n.stringify(e.content),tag:"span",classes:["token",e.type],attributes:{}};i.type=="comment"&&(i.attributes.spellcheck="true");t.hooks.run("wrap",i);var s="";for(var o in i.attributes)s+=o+'="'+(i.attributes[o]||"")+'"';return"<"+i.tag+' class="'+i.classes.join(" ")+'" '+s+">"+i.content+"</"+i.tag+">"};if(!self.document){self.addEventListener("message",function(e){var n=JSON.parse(e.data),r=n.language,i=n.code;self.postMessage(JSON.stringify(t.tokenize(i,t.languages[r])));self.close()},!1);return}var r=document.getElementsByTagName("script");r=r[r.length-1];if(r){t.filename=r.src;document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",t.highlightAll)}})();;
+      Prism.languages.markup={comment:/&lt;!--[\w\W]*?--(&gt;|&gt;)/g,prolog:/&lt;\?.+?\?&gt;/,doctype:/&lt;!DOCTYPE.+?&gt;/,cdata:/&lt;!\[CDATA\[[\w\W]+?]]&gt;/i,tag:{pattern:/&lt;\/?[\w:-]+\s*(?:\s+[\w:-]+(?:=(?:("|')(\\?[\w\W])*?\1|\w+))?\s*)*\/?&gt;/gi,inside:{tag:{pattern:/^&lt;\/?[\w:-]+/i,inside:{punctuation:/^&lt;\/?/,namespace:/^[\w-]+?:/}},"attr-value":{pattern:/=(?:('|")[\w\W]*?(\1)|[^\s>]+)/gi,inside:{punctuation:/=|&gt;|"/g}},punctuation:/\/?&gt;/g,"attr-name":{pattern:/[\w:-]+/g,inside:{namespace:/^[\w-]+?:/}}}},entity:/&amp;#?[\da-z]{1,8};/gi};Prism.hooks.add("wrap",function(e){e.type==="entity"&&(e.attributes.title=e.content.replace(/&amp;/,"&"))});;
+      Prism.languages.css={comment:/\/\*[\w\W]*?\*\//g,atrule:/@[\w-]+?(\s+[^;{]+)?(?=\s*{|\s*;)/gi,url:/url\((["']?).*?\1\)/gi,selector:/[^\{\}\s][^\{\}]*(?=\s*\{)/g,property:/(\b|\B)[a-z-]+(?=\s*:)/ig,string:/("|')(\\?.)*?\1/g,important:/\B!important\b/gi,ignore:/&(lt|gt|amp);/gi,punctuation:/[\{\};:]/g};Prism.languages.markup&&Prism.languages.insertBefore("markup","tag",{style:{pattern:/(&lt;|<)style[\w\W]*?(>|&gt;)[\w\W]*?(&lt;|<)\/style(>|&gt;)/ig,inside:{tag:{pattern:/(&lt;|<)style[\w\W]*?(>|&gt;)|(&lt;|<)\/style(>|&gt;)/ig,inside:Prism.languages.markup.tag.inside},rest:Prism.languages.css}}});;
+      Prism.languages.clike={comment:{pattern:/(^|[^\\])(\/\*[\w\W]*?\*\/|\/\/.*?(\r?\n|$))/g,lookbehind:!0},string:/("|')(\\?.)*?\1/g,keyword:/\b(if|else|while|do|for|return|in|instanceof|function|new|try|catch|finally|null|break|continue)\b/g,"boolean":/\b(true|false)\b/g,number:/\b-?(0x)?\d*\.?[\da-f]+\b/g,operator:/[-+]{1,2}|!|=?&lt;|=?&gt;|={1,2}|(&amp;){1,2}|\|?\||\?|\*|\//g,ignore:/&(lt|gt|amp);/gi,punctuation:/[{}[\];(),.:]/g};;
+      Prism.languages.javascript=Prism.languages.extend("clike",{keyword:/\b(var|let|if|else|while|do|for|return|in|instanceof|function|new|with|typeof|try|catch|finally|null|break|continue)\b/g,number:/\b(-?(0x)?\d*\.?[\da-f]+|NaN|-?Infinity)\b/g});Prism.languages.insertBefore("javascript","keyword",{regex:{pattern:/(^|[^/])\/(?!\/)(\[.+?]|\\.|[^/\r\n])+\/[gim]{0,3}(?=\s*($|[\r\n,.;})]))/g,lookbehind:!0}});Prism.languages.markup&&Prism.languages.insertBefore("markup","tag",{script:{pattern:/(&lt;|<)script[\w\W]*?(>|&gt;)[\w\W]*?(&lt;|<)\/script(>|&gt;)/ig,inside:{tag:{pattern:/(&lt;|<)script[\w\W]*?(>|&gt;)|(&lt;|<)\/script(>|&gt;)/ig,inside:Prism.languages.markup.tag.inside},rest:Prism.languages.javascript}}});;
+      
+    </script>
+    <!-- App js-->
+    <script>
+      $(function(){
+        var $window = $(window);
+        $('.scrollspy .nav').affix({
+          offset: {
+            top: function () { return $window.width() <= 980 ? 480 : 400 }
+          , bottom: 50
+          }
+        });
+      })
+    </script>
+  </body>
+</html>

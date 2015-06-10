@@ -1,0 +1,218 @@
+{
+  "name": "Roboflow",
+  "display": {
+    "scale": 0.8,
+    "arrowHeight": 15,
+    "arrowWidth": 6,
+    "layout": "vertical"
+  },
+  "types": [{
+    "type": "Start",
+    "desc": "This is the start terminal",
+    "view": "imgs/roboflow/start.svg",
+    "width": 100,
+    "height": 50,
+    "padding": 20,
+    "constraints": {
+      "incoming": {
+        "range": [0,0]
+      },
+      "outgoing": {
+        "range": [1,1],
+        "types": {
+          "Operations.*": [0,1],
+          "Preconditions.*": [0,1]
+        }
+      }
+    }
+  }, {
+  "type": "End",
+  "desc": "This is the class of all end terminals",
+  "width": 100,
+  "height": 50,
+  "padding": 20,
+  "constraints": {
+    "incoming": {
+      "range": [1,99],
+      "types": {
+        "Operations.*": [0,99],
+        "Postconditions.*": [0,99],
+        "Preconditions.*": [0,99]
+      }
+    },
+    "outgoing": {
+      "range": [0,0]
+    }
+  },
+  "subtypes": [{
+    "type": "Success",
+    "view": "imgs/roboflow/success.svg",
+    "desc": "This is a success end-terminal"
+  }, {
+    "type": "Fail",
+    "view": "imgs/roboflow/fail.svg",
+    "desc": "This is a failure end-terminal"
+  }] },
+
+    {
+    "type": "Operations",
+    "desc": "This is the set of all operations",
+    "width": 100,
+    "height": 50,
+    "padding": 20,
+    "constraints": {
+      "incoming": {
+        "range": [1,99],
+        "types": {
+          "Start": [0,1],
+          "Operations.*": [0,99],
+          "Postconditions.*": [0,99],
+          "Preconditions.*": [0,99]
+        }
+      }
+    },
+    "subtypes": [{
+      "type": "Manipulation",
+      "name": "Manipulation",
+      "view": "imgs/roboflow/manipulation.svg",
+      "desc": "This makes the robot move its arms through a sequence of poses",
+      "constraints": {
+        "incoming": {
+          "range": [1,1],
+          "types": {
+            "Preconditions.Reachable": [1,1]
+          }
+        },
+        "outgoing": {
+          "range": [1,1],
+          "types": {
+            "Postconditions.Success": [1,1]
+          }
+        }
+      }
+    },{
+      "type": "Navigation",
+      "name": "Navigation",
+      "view": "imgs/roboflow/navigation.svg",
+      "desc": "This makes the robot navigate somewhere",
+      "constraints": {
+        "outgoing": {
+          "range": [1,1],
+          "types": {
+            "Postconditions.Success": [1,1]
+          }
+        }
+      }
+    },{
+      "type": "Procedure",
+      "name": "Saved Procedure",
+      "view": "imgs/roboflow/saved.svg",
+      "desc": "This is a pre-recorded procedure",
+      "constraints": {
+        "outgoing": {
+          "range": [1,1],
+          "types": {
+            "Postconditions.*": [1,1]
+          }
+        }
+      }
+    },{
+      "type": "Head movement",
+      "name": "Head movement",
+      "view": "imgs/roboflow/head.svg",
+      "desc": "This makes the robot move its head",
+      "constraints": {
+        "outgoing": {
+          "range": [1,1],
+          "types": {
+            "End.*": [0,1],
+            "Preconditions.Objects": [0,1],
+            "Operations.*": [0,1]
+          }
+        }
+      }
+    }]
+  },
+    {
+      "type": "Postconditions",
+      "desc": "This is the set of all post-conditions",
+      "width": 100,
+      "height": 50,
+      "padding": 20,
+      "subtypes": [{
+        "type": "Success",
+        "name": "Success?",
+        "view": "imgs/roboflow/successQ.svg",
+        "desc": "This checks if the operation executed successfully",
+        "constraints": {
+          "incoming": {
+            "range": [1,1],
+            "types": {
+              "Operations.*": [0,1]
+            }
+          },
+          "outgoing": {
+            "range": [2,2],
+            "types": {
+              "End.*": [0,2],
+              "Preconditions.Objects": [0,2],
+              "Operations.*": [0,2]
+            }
+          }
+        }
+      }]
+    },{
+      "type": "Preconditions",
+      "desc": "This is the set of all pre-conditions",
+      "width": 100,
+      "height": 50,
+      "padding": 20,
+      "subtypes": [{
+        "type": "Objects",
+        "name": "Objects?",
+        "view": "imgs/roboflow/objectsQ.svg",
+        "desc": "This checks if the required objects are present",
+        "constraints": {
+          "incoming": {
+            "range": [1,99],
+            "types": {
+              "Start": [0,1],
+              "Postconditions.*": [0,1],
+              "Preconditions.*": [0,1],
+              "Operations.*": [0,1]
+            }
+          },
+          "outgoing": {
+            "range": [2,2],
+            "types": {
+              "End.*": [0,1],
+              "Preconditions.Reachable": [1,1],
+              "Preconditions.Objects": [0,1],
+              "Operations.*": [0,1]
+            }
+          }
+        }
+      },{
+        "type": "Reachable",
+        "name": "Reachable?",
+        "view": "imgs/roboflow/reachableQ.svg",
+        "desc": "This checks if the arm poses are reachable",
+        "constraints": {
+          "incoming": {
+            "range": [1,1],
+            "types": {
+              "Preconditions.Objects": [1,1]
+            }
+          },
+          "outgoing": {
+            "range": [2,2],
+            "types": {
+              "End.*": [0,1],
+              "Preconditions.Objects": [0,1],
+              "Operations.Manipulation": [1,1]
+            }
+          }
+        }
+      }]
+    }]
+}

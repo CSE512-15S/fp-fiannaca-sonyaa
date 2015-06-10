@@ -1,0 +1,143 @@
+.control-btn {
+  width: calc(50% - 10px);
+  margin-bottom: 10px;
+}
+
+.control-btn:nth-of-type(2),
+.control-btn:nth-of-type(4) {
+  margin-right: 20px;
+}
+
+button.control-btn.save-graph {
+  width: 100%;
+}
+.data-editor {
+  display: none;
+  margin-top: 30px;
+}
+
+div.data-editor.node-selected {
+  display: block;
+}
+
+.data-item {
+  margin-bottom: 10px;
+}
+
+.data-item span {
+  display: block;
+  float: left;
+  width: 50%;
+}
+
+.data-item input {
+  display: block;
+  width: 50%;
+}
+
+
+
+
+
+.data-item-error {
+  border: solid red 2px;
+}
+.legend-item {
+  margin-top: 10px;
+  margin-left: 0;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.legend-item svg {
+  width: 60px;
+  height: 60px;
+  float: left;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.legend-item .item-info {
+  float: left;
+  width: calc(100% - 70px);
+}
+
+.legend-item .item-info h4 {
+  margin-top: 0;
+}
+
+#drag-stub {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+#notify-message {
+  opacity: 0;
+  padding: 15px;
+  position: fixed;
+  font-size: 0.9em;
+  z-index: 10000;
+  right: 0px;
+  bottom: 0px;
+  border-top-left-radius: 10px;
+  margin: 0px;
+  color: white;
+  text-align: center;
+  background-color: rgb(27, 32, 50);
+  -webkit-transition: opacity 0.5s ease-in;
+  -moz-transition: opacity 0.5s ease-in;
+  -ms-transition: opacity 0.5s ease-in;
+  -o-transition: opacity 0.5s ease-in;
+  transition: opacity 0.5s ease-in;
+  border: solid #12cc1a 3px;
+}
+
+#notify-message.load {
+  opacity: 1;
+}
+
+#notify-message.notify-hide {
+  display: none;
+}
+
+#notify-message.warn {
+  border: solid #E6E600 3px;
+}
+
+#notify-message.error {
+  border: solid #FF4D4D 3px;
+}
+.flow-node {
+  cursor: move;
+}
+
+.flow-edge path {
+  stroke: #000000;
+  stroke-width: 3;
+  stroke-linecap: round;
+  fill: none;
+}
+
+.flow-edge path.flow-edge-region {
+  opacity: 0;
+  stroke-width: 25;
+  stroke-linecap: initial;
+  fill: none;
+  cursor: pointer;
+}
+
+.flow-edge-tip {
+  fill: none;
+}
+
+.flow-edge-tip-dot {
+  fill: #000000;
+}
+
+.node-background * {
+  fill: #FFFFFF !important;
+  stroke: #FFFFFF !important;
+  opacity: 1.0 !important;
+}
