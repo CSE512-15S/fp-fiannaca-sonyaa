@@ -2,7 +2,7 @@
 
 Sonya Alexandrova (sonyaa@cs.uw.edu) and Alex Fiannaca (fiannaca@cs.uw.edu)
 
-**Project Website:** [GitHub Pages Site](http://cse512-15s.github.io/fp-fiannaca-sonyaa/)
+**Project Website:** [GitHub Pages Site (Contains Library Documentation)](http://cse512-15s.github.io/fp-fiannaca-sonyaa/)
 
 ![summary image](https://github.com/CSE512-15S/fp-fiannaca-sonyaa/raw/master/assets/summary.png)
 
@@ -46,42 +46,51 @@ Include *FlowViz* and the common includes into your html file like this:
     <head lang="en">
         <meta charset="UTF-8">
         <title>FlowViz Demo App</title>
-             <link rel="stylesheet" href="./styles/bootstrap.min.css">
+        
+        <link rel="stylesheet" href="./styles/bootstrap.min.css">
         <link rel="stylesheet" href="./styles/FlowViz.css">
-             <script src="./lib/common.min.js"></script>
-             <link href='http://fonts.googleapis.com/css?family=Roboto:500,700,300italic,400' rel='stylesheet' type='text/css'>
-             <style>
+        
+        <script src="./lib/common.min.js"></script>
+        
+        <link href='http://fonts.googleapis.com/css?family=Roboto:500,700,300italic,400' rel='stylesheet' type='text/css'>
+        
+        <style>
             html, body, .container-full {
                 font-family: 'Roboto', sans-serif;
             }
-                 .container-full {
+            
+            .container-full {
                 display: flex;
                 flex-direction: row;
                 min-height: 100vh;
             }
-                 #LeftSidebar {
+            
+            #LeftSidebar {
                 flex: 3;
                 background-color: #F1F1F1;
                 padding: 10px;
             }
-                 #LeftSidebar h1 {
+            
+            #LeftSidebar h1 {
                 margin-top: 10px;
                 margin-bottom: 20px;
             }
-                 #InteractiveViz {
+            
+            #InteractiveViz {
                 flex: 9;
                 padding: 0;
             }
         </style>
     </head>
     <body>
-             <div class="container-full">
+         <div class="container-full">
             <div id="LeftSidebar"></div>
             <svg id="InteractiveViz"></svg>
-        </div>
-             <script src="./scripts/FlowViz.min.js"></script>
-        <script src="./scripts/app.js"></script>
-         </body>
+         </div>
+         
+         <script src="./scripts/FlowViz.min.js"></script>
+         <script src="./scripts/app.js"></script>
+    </body>
     </html>
 
 Note that by including *FlowViz* at the end of the body, you speed up the initial rendering time of your application.
@@ -91,18 +100,18 @@ In order to create your VPL, you need to provide *FlowViz* with a configuration 
 Finally, you need to create an instance of the `FlowViz.App` type. Create `app.js`, which should simply call the `FlowViz.App()` constructor and implement any callbacks which you want to listen for:
 
     var App = new FlowViz.App('config.json', 'svg#InteractiveViz', {
-             Events: {
+        Events: {
             "flowviz-ready": function() {
                 // Use FlowViz add-ons...
                 this.Controls.Create('div#LeftSidebar');
                 this.Legend.Create('div#LeftSidebar');
                 this.DataEditor.Create('div#LeftSidebar');
             },
-                 "node-added": function() {
+            "node-added": function() {
                 this.ShowMessage("Node added!");
             }
         }
-         });
+    });
 
 By default, FlowViz does not create a legend, controls, or a data-editor. You can create these either by implementing  your own versions by making calls to the ConfigParser, GraphManager, etc., or you can use the default add-on implementations included with FlowViz by calling factory methods like `this.Legend.Create('[legend-selector]');` in the `flowviz-ready` callback.
 
@@ -114,17 +123,15 @@ This is a complete description of all of the possible properties which can be se
 
 **name**: (*required*) {string} The name of your VPL app.
 
-**display.messages**:
+**display.messages**: {"default"|"none"} Indicates if the default notification system should be used to display messages to the end user.
 
-**display.draggable**:
+**display.scale**: {number} A value between 0.0 and 1.0 that represents a scaling factor that should be applied to all tokens.
 
-**display.scale**:
+**display.arrowHeight**: {number} The pixel height of the arrow tip on edges.
 
-**display.arrowHeight**:
+**display.arrowWidth**: {number} The pixel width of the arrow tip on edges.
 
-**display.arrowHeight**:
-
-**display.layout**: {"vertical"|"horizontal"}
+**display.layout**: {"vertical"|"horizontal"} The direction in which the auto-layout should layout nodes.
 
 **interactions**: This should be an object where each key is a FlowViz interaction (currently: "Node", "Drag", "EdgeRegion", "NewEdge", "CreateEdge") and the values of each should be an array of objects of this form:
 
@@ -170,11 +177,11 @@ An example *interactions* section could look like this:
  
 **types[** *i* **].constraints**: Constraints are the way that you specify which types of nodes are allowed to be  connected to each other. This is a powerful feature that in essence dictates the syntax of your VPL. The *"incoming"*  property refers to all incoming edges, and likewise for the *"outgoing"* property.
 
-**types[** *i* **].constraints[** *"incoming"* **|** *"outgoing"* **].range**:
+**types[** *i* **].constraints[** *"incoming"* **|** *"outgoing"* **].range**: {array} The min and max number of incoming or outgoing edges allowed to nodes of this type.
 
-**types[** *i* **].constraints[** *"incoming"* **|** *"outgoing"* **].types**:
+**types[** *i* **].constraints[** *"incoming"* **|** *"outgoing"* **].types**: {array} List of allowable incoming and outgoing edge types.
 
-**types[** *i* **].subtypes**:
+**types[** *i* **].subtypes**: {array} A list of more type objects.
 
 ###Guidelines for Authoring FlowViz-Compliant SVG Images
 
