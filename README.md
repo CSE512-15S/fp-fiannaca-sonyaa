@@ -37,7 +37,7 @@ This is a link to the current production build. This zip folder contains the fol
 * flowviz.css
 * bootstrap.min.css
 
-###Using *FlowViz* in an VPL App
+###Using *FlowViz* in a VPL App
 
 Include *FlowViz* and the common includes into your html file like this:
 
