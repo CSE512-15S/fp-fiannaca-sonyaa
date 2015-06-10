@@ -149,7 +149,7 @@ An example *interactions* section could look like this:
       }]
     }
 
-**edgeData**:
+**edgeData**: This object contains a list of data items that should be attached to all edges of this type.
 
 **types**: This is the most critical section of the configuration file. This section allows you to create a type  hierarchy. *types* is a list of objects containing the following properties:
 
